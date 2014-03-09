@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>ps5</Name>
+    <ProjectGuid>{b663623c-4dab-43de-bbb5-d5df64125d7d}</ProjectGuid>
+    <RootNamespace>ps4</RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <IISProjectUrl>http://localhost:34649/</IISProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Archive\ModifyUser.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\authentication.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ModifyUser.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Hidden\databasePW.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="index.php" />
+    <Compile Include="ps5.phpproj.user" />
+    <Compile Include="View\Admin.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\AdminEditUsers.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\badRole.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="vwd.webinfo" />
+    <Compile Include="web.config" />
+    <Compile Include=".svn\entries" />
+    <Compile Include=".svn\format" />
+    <Compile Include=".svn\wc.db" />
+    <Compile Include=".svn\pristine\0e\0eab841c827fb0cdf32a4fc7ca3c3421f521598c.svn-base" />
+    <Compile Include=".svn\pristine\11\11abb29c0e94fe69ca68b8970b22e17999e3cfec.svn-base" />
+    <Compile Include=".svn\pristine\12\1201a0ccac92d7535d14de247f11d0941fe52b62.svn-base" />
+    <Compile Include=".svn\pristine\13\13da79a558fb877884079fdfee19816dd419b55f.svn-base" />
+    <Compile Include=".svn\pristine\18\18e19dac7a31441509f5e2f7e3a8517933cbdf5d.svn-base" />
+    <Compile Include=".svn\pristine\1b\1b6671046852cf4ed20b252233dc61a962c31211.svn-base" />
+    <Compile Include=".svn\pristine\21\21d1e1c3b007fb928dbd4332f93c331ca342990c.svn-base" />
+    <Compile Include=".svn\pristine\22\22897a05ded5717b34446a41244d44386c5b498a.svn-base" />
+    <Compile Include=".svn\pristine\28\28646d458ff7efb6799bec9286bffee9b8c55086.svn-base" />
+    <Compile Include=".svn\pristine\2f\2f5192274c3368b4fb24d13afa84fdbf30452559.svn-base" />
+    <Compile Include=".svn\pristine\31\3101fb702fbd344a44ae44a8ff0b2267c0059891.svn-base" />
+    <Compile Include=".svn\pristine\35\35f99a4fc057eeda270100c573af9e9e6df2a5dc.svn-base" />
+    <Compile Include=".svn\pristine\36\3641b61adf12182e4e74e1299c71eee0a547f61a.svn-base" />
+    <Compile Include=".svn\pristine\40\407983ae405722e85092608c1b89e69008a98af9.svn-base" />
+    <Compile Include=".svn\pristine\47\47d64d464d688270474a9fdd738704437efeec48.svn-base" />
+    <Compile Include=".svn\pristine\5f\5f8909486b0405036bd25273334e3ea7462b4dd8.svn-base" />
+    <Compile Include=".svn\pristine\5f\5fe12b389eee379aabde51388c2518e7f8d41764.svn-base" />
+    <Compile Include=".svn\pristine\7c\7ce858e885fdc2e9660868dd5d3379979f6029e1.svn-base" />
+    <Compile Include=".svn\pristine\84\84d9e14c0520586820e672d0069c96e107347c32.svn-base" />
+    <Compile Include=".svn\pristine\89\8977eb33736772fa0103129e29849d9b347a7b64.svn-base" />
+    <Compile Include=".svn\pristine\b4\b41fa1c1a77543c9a74be6500699b538213b00fc.svn-base" />
+    <Compile Include=".svn\pristine\c0\c033a655a4f289755e74c9bae251ed74c3b48d5b.svn-base" />
+    <Compile Include=".svn\pristine\c2\c2abf76a1baf04b2bd896c43e338702e0e203e8c.svn-base" />
+    <Compile Include=".svn\pristine\d0\d08977e584e93063ab7932c1c49b37d9b7e81a85.svn-base" />
+    <Compile Include=".svn\pristine\d9\d9912a9fbcacf0538e6affd26d003cde2ae4c62f.svn-base" />
+    <Compile Include=".svn\pristine\dd\dd4dae15a989c41835a17daeb6386b0fd9520176.svn-base" />
+    <Compile Include=".svn\pristine\e7\e7aecc15fc4f2e6d525da60d17f6ff86c5f0c10b.svn-base" />
+    <Compile Include=".svn\pristine\fb\fb67f84ab54f45288a0222e643480f522ba1d46f.svn-base" />
+    <Compile Include=".svn\tmp\svn-19DDC934" />
+    <Compile Include="Archive\AddressEdit_with multi address function.php" />
+    <Compile Include="Helper\address.js" />
+    <Compile Include="Helper\address_helper.php" />
+    <Compile Include="Helper\buttonHelp.js" />
+    <Compile Include="Helper\html_Helper.php" />
+    <Compile Include="Helper\Server.php" />
+    <Compile Include="Objects\Address.php" />
+    <Compile Include="Objects\History.php" />
+    <Compile Include="Objects\Job.php" />
+    <Compile Include="Objects\Phone.php" />
+    <Compile Include="Objects\Position.php" />
+    <Compile Include="Objects\Resume.php" />
+    <Compile Include="Objects\User.php" />
+    <Compile Include="View\AddressEdit.php" />
+    <Compile Include="View\help.html" />
+    <Compile Include="View\JobEdit.php" />
+    <Compile Include="View\NewUser.php" />
+    <Compile Include="View\PhoneEdit.php" />
+    <Compile Include="View\ResumeArchive.php" />
+    <Compile Include="View\ResumeEdit.php" />
+    <Compile Include="View\resumeMain.css" />
+    <Compile Include="View\ResumeView.php" />
+    <Compile Include="View\styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archive" />
+    <Folder Include="Helper" />
+    <Folder Include="images" />
+    <Folder Include="Hidden" />
+    <Folder Include="Objects" />
+    <Folder Include="View" />
+    <Folder Include=".svn" />
+    <Folder Include=".svn\pristine" />
+    <Folder Include=".svn\tmp" />
+    <Folder Include=".svn\pristine\00" />
+    <Folder Include=".svn\pristine\04" />
+    <Folder Include=".svn\pristine\0a" />
+    <Folder Include=".svn\pristine\0c" />
+    <Folder Include=".svn\pristine\0e" />
+    <Folder Include=".svn\pristine\10" />
+    <Folder Include=".svn\pristine\11" />
+    <Folder Include=".svn\pristine\12" />
+    <Folder Include=".svn\pristine\13" />
+    <Folder Include=".svn\pristine\18" />
+    <Folder Include=".svn\pristine\1a" />
+    <Folder Include=".svn\pristine\1b" />
+    <Folder Include=".svn\pristine\1f" />
+    <Folder Include=".svn\pristine\20" />
+    <Folder Include=".svn\pristine\21" />
+    <Folder Include=".svn\pristine\22" />
+    <Folder Include=".svn\pristine\26" />
+    <Folder Include=".svn\pristine\28" />
+    <Folder Include=".svn\pristine\29" />
+    <Folder Include=".svn\pristine\2a" />
+    <Folder Include=".svn\pristine\2f" />
+    <Folder Include=".svn\pristine\31" />
+    <Folder Include=".svn\pristine\32" />
+    <Folder Include=".svn\pristine\35" />
+    <Folder Include=".svn\pristine\36" />
+    <Folder Include=".svn\pristine\37" />
+    <Folder Include=".svn\pristine\40" />
+    <Folder Include=".svn\pristine\47" />
+    <Folder Include=".svn\pristine\4a" />
+    <Folder Include=".svn\pristine\4b" />
+    <Folder Include=".svn\pristine\5a" />
+    <Folder Include=".svn\pristine\5b" />
+    <Folder Include=".svn\pristine\5d" />
+    <Folder Include=".svn\pristine\5f" />
+    <Folder Include=".svn\pristine\60" />
+    <Folder Include=".svn\pristine\62" />
+    <Folder Include=".svn\pristine\68" />
+    <Folder Include=".svn\pristine\6a" />
+    <Folder Include=".svn\pristine\6e" />
+    <Folder Include=".svn\pristine\7c" />
+    <Folder Include=".svn\pristine\7d" />
+    <Folder Include=".svn\pristine\7f" />
+    <Folder Include=".svn\pristine\80" />
+    <Folder Include=".svn\pristine\84" />
+    <Folder Include=".svn\pristine\89" />
+    <Folder Include=".svn\pristine\90" />
+    <Folder Include=".svn\pristine\9f" />
+    <Folder Include=".svn\pristine\a1" />
+    <Folder Include=".svn\pristine\ad" />
+    <Folder Include=".svn\pristine\b1" />
+    <Folder Include=".svn\pristine\b4" />
+    <Folder Include=".svn\pristine\bb" />
+    <Folder Include=".svn\pristine\bc" />
+    <Folder Include=".svn\pristine\bd" />
+    <Folder Include=".svn\pristine\be" />
+    <Folder Include=".svn\pristine\c0" />
+    <Folder Include=".svn\pristine\c2" />
+    <Folder Include=".svn\pristine\c6" />
+    <Folder Include=".svn\pristine\c7" />
+    <Folder Include=".svn\pristine\d0" />
+    <Folder Include=".svn\pristine\d2" />
+    <Folder Include=".svn\pristine\d3" />
+    <Folder Include=".svn\pristine\d7" />
+    <Folder Include=".svn\pristine\d9" />
+    <Folder Include=".svn\pristine\dd" />
+    <Folder Include=".svn\pristine\de" />
+    <Folder Include=".svn\pristine\df" />
+    <Folder Include=".svn\pristine\e2" />
+    <Folder Include=".svn\pristine\e5" />
+    <Folder Include=".svn\pristine\e7" />
+    <Folder Include=".svn\pristine\e8" />
+    <Folder Include=".svn\pristine\eb" />
+    <Folder Include=".svn\pristine\ec" />
+    <Folder Include=".svn\pristine\ed" />
+    <Folder Include=".svn\pristine\ee" />
+    <Folder Include=".svn\pristine\ef" />
+    <Folder Include=".svn\pristine\f6" />
+    <Folder Include=".svn\pristine\f8" />
+    <Folder Include=".svn\pristine\fb" />
+    <Folder Include=".svn\pristine\fd" />
+    <Folder Include=".svn\pristine\ff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archive\adminProcess.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Helper\adminProcess.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Hidden\.htaccess">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\bottom-bg.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\color.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\nav-bg.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="images\Thumbs.db">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

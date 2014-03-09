@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><spreadsheet version="PS6"><cell><name>D13</name><contents>25</contents></cell><cell><name>E16</name><contents>=D13*5</contents></cell></spreadsheet>

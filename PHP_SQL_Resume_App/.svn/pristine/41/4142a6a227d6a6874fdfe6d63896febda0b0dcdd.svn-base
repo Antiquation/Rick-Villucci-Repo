@@ -1,0 +1,590 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This page is where the user will go to add multiple Jobs they can use on the resume
+ * ***THIS PAGE DETECTS IF NEW USER AND WILL CHANGE TO DIRECT THEM THROUGH INITIAL SETUP OF THEIR ACCOUNT
+ * 
+ */
+require_once("../Objects/User.php");//user class for storing the user data
+require("../Helper/address_helper.php");//contains all the states
+require("../Objects/Job.php");//allows access to internal Job object creation
+require ("../Hidden/databasePW.php");
+require("../Helper/Server.php");//server info
+require_once("../Helper/html_Helper.php");//for building the various HTML
+
+
+//SessionHandler
+$userObj = $_SESSION['User_Obj'];
+
+//This changes the boxes color upon error
+//and is also used to stop logic if error exists
+$errClass = "";
+
+$JobArray =& $userObj->jobArray;//loads the sessions Jobs for display / edit
+$ID =  $userObj->getID();
+//server for communicating with the DB
+
+$status = false;//this sets the entire system up for editing
+$hiding = true;//controls form view
+
+//this is the object which will be used for the duration of Job edit / addition within this page
+$TempJob = new Job();
+
+    
+//***DISPLAY PREVIOUS Job LOGIC***
+//________________________________________________________________________________
+if (isset ( $_REQUEST ['View_Edit'] )) 
+{
+    $temp = $_REQUEST ['Select_Job'];//gets the number of the item to be edited
+    
+    $TempJob =  $JobArray[$temp];//loads that item into the temp Job
+ $status = true;
+ $hiding = false;//controls form view
+   
+}
+
+
+
+//if the cancel editing button is pressed - resets everything
+if (isset ( $_REQUEST ['Cancel_Edit'] ))
+{
+    unset($TempJob);
+    $TempJob = new Job();
+    //sets edit status to false
+ $status = false;
+
+   
+}//end cancel edit logic
+
+    $Name =& $TempJob->Name;
+    $selectedJob = $Name;
+    $StartMonth =&  $TempJob->StartMonth;
+    $EndMonth =&  $TempJob->EndMonth;
+    $StartYear =& $TempJob->StartYear;
+    $EndYear =& $TempJob->EndYear;
+    $JobDescription =& $TempJob->JobDescription;
+    $JobNumber =& $TempJob->JobNumber;
+/**
+ * TODO Load Job objects into a table with buttons for edit / delete---------------------------------------------------
+ * 1.when load check if the form is blank and warn that data will be lost
+ * 2.load local variables with session 
+ * 3.If deleting warn the data will be lost
+ * 4.upon delete remove from session and DB
+ * 5.upon edit update session and database
+**/
+
+//________________________________________________________________________________
+//***END DISPLAY PREVIOUS Job LOGIC***
+
+
+//***SAVE FORM LOGIC***
+//________________________________________________________________________________
+
+   
+    
+	//Validate Logic
+            //if submitting for Job Save or overwrite
+    if (isset ( $_REQUEST ['Submit_Job'] ) || isset ( $_REQUEST ['Over_Write'] ))
+    {   
+        //Removes any DB error logic
+        $logErr = "";
+        
+         //validates the name field
+        checkValue($Name,$nameErr,$errClass,$_REQUEST ['JobName'] );
+
+        //validate the StartMonth field
+        checkOptionValue($StartMonth,$smErr,$_REQUEST ['StartMonth'] );
+        
+         //validate the End Month field
+        checkOptionValue($EndMonth,$emErr,$_REQUEST ['EndMonth'] );
+        
+         //validates the Start Year field
+        checkYearValue($StartYear,$syErr,$errClass,$_REQUEST ['StartYear'] );
+
+        //validates the End Year field
+        checkYearValue($EndYear,$eyErr,$errClass,$_REQUEST ['EndYear'] );
+        
+        //validates the JobDescription field
+        checkValue($JobDescription,$jobDErr,$errClass,$_REQUEST ['JobDescription'] );
+        
+
+       
+    
+        $JobNumber = $_REQUEST ['Select_Job'];//sets the Job number from the submit
+    //****DATABASE COMMUNICATION AND VALIDATION
+    try
+    {
+        //if there is an error reload without query DB
+        if($errClass =="")
+        {
+            if (isset ( $_REQUEST ['Submit_Job'] ))
+            { 
+                $db = connectDB();//creates DB Connection
+                    
+                
+                    
+                    //create database entry & get Job Number from detail
+                    //Update Job in database with Job number and user ID 
+                    //and update session
+                $create = "INSERT INTO `Job_Description` (`Name`, `StartMonth`, `StartYear`, `EndMonth`, `EndYear`, `JobDescription`) VALUES (?, ?, ?, ?, ?, ?)";
+                    
+                    $stmt = $db->prepare ( $create);//prepare the query
+                    
+                    $stmt->bindValue(1,$Name);
+                    $stmt->bindValue(2,$StartMonth);
+                    $stmt->bindValue(3,$StartYear);
+                    $stmt->bindValue(4,$EndMonth);
+                    $stmt->bindValue(5,$EndYear);
+                    $stmt->bindValue(6,$JobDescription);
+                    $stmt->execute();
+                    
+                    unset($stmt); 
+                    
+                     $Num;//the new number for the new Job
+                     getJobNumber($Name,$StartMonth,$JobDescription,$db,$Num);
+                        
+                     //insert into Job
+                     $create = "INSERT INTO `Job` (`ID`, `JobNumber`, `Name`) VALUES (?, ?, ?)";
+                    $stmt = $db->prepare ( $create);//prepare the query
+                      //do insert  
+                    $stmt->bindValue(1,$ID);
+                    $stmt->bindValue(2,$Num);
+                    $stmt->bindValue(3,$Name);
+                    $stmt->execute();
+                    unset($stmt); 
+                 
+                    //THEN SAVE to THE SEESSION
+                    $userObj->jobArray[$Num] = $TempJob; //replaces the item at that location in the session with the new item
+                    $message ="New Job: $Name Saved";//message to the user
+               
+            }
+            //This is used to write to the database only when updating or over writing an 
+            //already existing file
+            elseif(isset ( $_REQUEST ['Over_Write'] ))
+            {
+                unset($stmt); //Kill the query and start the injection
+                
+                $db = connectDB();//creates DB Connection
+                //OverWrite Database entry
+                $over = "UPDATE Job_Description SET Name=?, StartMonth=?, StartYear=?, EndMonth=?, EndYear=?, JobDescription=? WHERE JobNumber=?";
+                
+                $stmt = $db->prepare ( $over);//prepare the query
+
+                $stmt->bindValue(1,$Name);
+                $stmt->bindValue(2,$StartMonth);
+                $stmt->bindValue(3,$StartYear);
+                $stmt->bindValue(4,$EndMonth);
+                $stmt->bindValue(5,$EndYear);
+                $stmt->bindValue(5,$JobDescription);
+                $stmt->bindValue(6,$JobNumber);
+                $stmt->execute();
+                unset($stmt); 
+                
+                //THEN SAVE to THE SEESSION
+                $userObj->JobArray[$JobNumber] = $TempJob; //replaces the item at that location in the session with the new item
+                $message ="Job: $Name Updated";//message to the user
+                
+            }
+    
+        }//if no error
+        elseif(isset ( $_REQUEST ['Over_Write']))
+        {
+         $status = true;//keeps the form unhidden
+         $hiding = false;//controls form view
+        }
+        elseif(isset ( $_REQUEST ['Submit_Job'] ))
+        {
+         $hiding = false;//controls form view   
+        }
+    
+    }//end try to save
+
+    //if there is an exception communicating with the DB
+    catch ( PDOException $ex )
+    {
+        //$logErr = "COMMUNICATION ERROR - Try again later :)";
+	    echo "<p>PDO Exception</p>";
+	    echo "$ex";
+    }
+
+
+ }//end if set
+    
+    //if editing a resume
+    if ( isset($_REQUEST ['Delete_Job']))
+    {
+        $TBDeleted = $_REQUEST ['Select_Job'];
+        
+        //****DATABASE COMMUNICATION
+        try
+        {
+            $db = connectDB();//creates DB Connection
+            
+            //deleted the resume from the database
+            $deleteMe = "DELETE FROM Job_Description WHERE JobNumber = ?";
+            
+            $stmt = $db->prepare ( $deleteMe);//prepare the query
+            
+            $stmt->bindValue(1,$TBDeleted);
+            $stmt->execute();
+            
+            unset($stmt); 
+            
+            unset($JobArray[$TBDeleted]);//delete the resume from the session
+           
+            
+        }//end try
+        //if there is an exception communicating with the DB
+        catch ( PDOException $ex )
+        {
+            $logErr = "COMMUNICATION ERROR - Try again later :)";
+            //echo "<p>PDO Exception</p>";
+           // echo "$ex";
+        }
+        
+    }//end isset resume delete
+    
+    
+    
+    //gets the number of the Job
+    function getJobNumber($Name,$StartMonth,$JobDescription,$db,&$Num)
+    {
+        $q = "SELECT JobNumber FROM Job_Description WHERE Name=? and StartMonth=? and JobDescription=?";
+        
+        
+        $stmt = $db->prepare ( $q);//prepare the query
+
+        $stmt->bindValue(1,$Name);
+        $stmt->bindValue(2,$StartMonth);
+        $stmt->bindValue(3,$JobDescription);
+        $stmt->execute();
+        $stmt->setFetchMode( PDO::FETCH_ASSOC);
+        $result =($stmt->fetch());
+        
+        $Num = $result[JobNumber];
+        
+          
+        
+    }
+//________________________________________________________________________________
+//***END SAVE FORM LOGIC***
+
+
+//***MISC FORM LOGIC***
+//________________________________________________________________________________
+
+        //checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$isSubmission tells the function to go ahead and run validation
+//all of these variables are references of the original calling variables so no return is needed
+
+    function checkYearValue(&$shown, &$error,$count,$toBChecked)//clean
+{ 
+      
+       
+           //check if the name contains special characters
+         if (!preg_match('/^\d{4}$/', $toBChecked))
+            {
+               
+                $error = "Year Is Not Valid";
+            }
+            elseif(!strlen($toBChecked) > 0)
+            {
+                $error = "Cannot Be Blank";
+                $errClass ="boxError";  
+            }
+            elseif(strlen($toBChecked) < 4)
+            {
+                $error = "Date Cannot Less than 4 digits";
+                $errClass ="boxError";  
+            }
+            elseif(strlen($toBChecked) > 4)
+            {
+                $error = "Date Cannot Greater than 4 digits";
+                $errClass ="boxError";  
+            }
+            else
+            {   //sanitize and feed back up the pipe to display in the form and save on the server
+                $shown = filter_var(trim($toBChecked), FILTER_SANITIZE_NUMBER_INT);    
+            }
+
+
+}//end check value Function
+
+
+    
+            //GENERIC
+    //checks the values of the submitted objects
+    //$shown is the value entered into the text box
+    //$error is the return error that will be displayed if needed
+    //$ErrorClass if error returns class that turns boxes colors
+    //$toBChecked is the value that is in need of validation
+    //all of these variables are references of the original calling variables so no return is needed
+    function checkValue(&$shown, &$error,&$errClass,$toBChecked)
+    {
+        
+        $shown = '';
+        $error = '';
+
+        //check if the name contains special characters
+        if (preg_match('/[\'^£$%&*()}{@~?><>,|=_+¬-]/',$toBChecked)  && strlen($toBChecked) > 0)
+        {
+            
+            $error = "Cannot Include Special Characters";
+            $errClass ="boxError"; 
+        }
+        elseif(!strlen($toBChecked) > 0)
+        {
+            $error = "Cannot Be Blank";
+            $errClass ="boxError";  
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $shown = filter_var(trim($toBChecked), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+
+        
+        
+        
+    }//end function
+
+        //GENERIC
+//checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$ErrorClass if error returns class that turns boxes colors
+//$toBChecked is the value that is in need of validation
+//all of these variables are references of the original calling variables so no return is needed
+    function checkOptionValue(&$shown,&$error,$toBChecked)
+    {
+
+            
+            if (strlen($toBChecked) > 0 && $toBChecked != "default")
+		    {
+                    //varifies no insertion is being done
+                if (!preg_match('/[a-zA-Z]/i',$toBChecked))
+                    {
+                        //throws error
+                        $error = "Make a Selection";
+                        $errClass ="boxError"; 
+                    }
+                    else
+                    {
+                      //sanitize and store
+                        $shown = filter_var(trim($toBChecked), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+                       
+                    }
+            }
+            else
+            {
+                //throws error if default or blank entry detected
+                
+                $error = "Make a Selection";
+                $errClass ="boxError";
+            }
+        
+       
+        
+    }//end function set state
+   
+//________________________________________________________________________________
+//***MISC FORM LOGIC END***
+
+
+
+//**STATE DROPDOWN SELECTOR LOGIC**
+//________________________________________________________________________________
+//set the local state variable to a reference of the session variable
+
+//$selectedState =& $_SESSION['state'];
+
+
+
+    //creates the options for the dropdown menu and then sets it equal to the values selected
+    $startMonthOptions = createMonthOptions( $months, $StartMonth);
+    $endMonthOptions = createMonthOptions( $months, $EndMonth);
+    $jobOptions = createJobOptions($JobArray,$selectedJob);
+
+
+
+// Returns a sequence of OPTION tags that are used to display
+// the state choices in a pulldown menu. $states is an array
+// of key/value pairs; $selected is the key of the state that should
+// be the selected option.
+function createStateOptions ($states, $selected) {
+	$result = '';
+	foreach ($states as $key => $name) {
+		$selection = ($selected == $key) ? "selected='selected'" : "";
+		$result = $result . "<option value='$key' $selection>$name</option>\n";
+	}
+	return $result;
+}//end of createStateOptions
+
+
+// Returns a sequence of OPTION tags that are used to display
+// the state choices in a pulldown menu. $states is an array
+// of key/value pairs; $selected is the key of the state that should
+// be the selected option.
+function createMonthOptions ($months, $selected)
+{
+    
+	$result = '';
+	foreach ($months as $key => $name) 
+    {
+		$selection = ($selected == $key) ? "selected='selected'" : "";
+		$result = $result . "<option value='$key' $selection>$name</option>\n";
+	}
+    
+	return $result;
+}//end of createStateOptions
+
+
+
+//returns all the Jobs in drop down format
+function createJobOptions ($array, $selected) 
+{
+    $result = '';
+    
+    //puts the default value in the drop down
+    $name = "Select and Edit";
+    $result = $result . "<option value='default' $selection>$name:</option>\n";
+    
+    //iterates through the array and adds additional items
+    foreach ($array as $key => $value) 
+    {      
+        $name = $value->Name;
+        $selection = ($selected == $name) ? "selected='selected'" : "";
+        $result = $result . "<option value='$key' $selection>$name</option>\n";
+    }
+    return $result;
+}//end of createJobOptions
+
+
+//***BUILD THE HTML******************
+//________________________________________________________
+
+//changes the value of the new button if in editing
+if($status)
+{
+    //sets the value of the new/cancel button
+    $newCancelValue = "Cancel Edit";
+    $newCancelID = "cancelBtn";
+    
+    
+    $disableTF = ""; //disables delete button 
+}
+else{
+    
+    //sets the value of the new/cancel button
+    $newCancelValue = "New Job";
+    $newCancelID = "newBtn";
+    
+    
+    $disableTF = "disabled='true'"; //disables delete button 
+}
+
+//for adding the style sheets - this can change based on the path
+$style = "
+        <link rel='stylesheet' type='text/css' href='resumeMain.css' />
+        <link rel='stylesheet' type='text/css' href='styles.css' />";
+
+//This is the main content for this page which will be added to the resused helper code
+$additional ="
+    
+<div id='editing' style='display: none;' value='$status'></div>
+<div id='hiding' style='display: none;' value='$hiding'></div>
+      <form method='post' id='edit'>
+      <h2 id='confirmed'>$message $logErr</h2>
+      </br>
+<table class='Resumes'>
+ <tr>
+    <td> Select an Job to edit: </td>
+    <td><select id='addressChooser' name='Select_Job' > $jobOptions </select>$addErr</td>
+    <td><input type='submit' id ='editBtn' disabled  name='View_Edit' value='View/Edit'/></td>
+    <td><input type='button' id='$newCancelID'  name='New_Cancel' value='$newCancelValue'/></td>
+  </tr>
+   <tr></tr>
+  <tr></tr>
+<tr>
+    <td class ='hide'> Job Name </td>
+    <td><input type='text' class ='hide'  id='JobName' name='JobName'  value='$Name'/>$nameErr</td>
+  </tr>
+ <tr>
+    <td class ='hide'> Select Start Month </td>
+    <td><select id='StartMonth' class ='hide' name='StartMonth' > $startMonthOptions </select>$smErr</td>
+  </tr>
+  <tr>
+    <td class ='hide'> Start Year </td>
+    <td><input type='text' class ='hide'  id='StartYear' name='StartYear'  value='$StartYear'/>$syErr</td>
+  </tr>
+   <tr>
+    <td class ='hide'>  Select End Month </td>
+    <td><select id='EndMonth' class ='hide' name='EndMonth' > $endMonthOptions </select>$emErr</td>
+  </tr>
+  <tr>
+    <td class ='hide'> End Year </td>
+    <td><input type='text' class ='hide'  id='EndYear' name='EndYear' value='$EndYear'/>$eyErr</td>
+  </tr>
+   </tr>
+  <tr>
+  <td class ='hide'> Job Description </td>
+  <td><textarea spellcheck='true' class ='hide' class='$errClass' id='JobDescription' maxlength='700' name='JobDescription' 
+        placeholder='ENTER POSITION DESCRIPTION' rows='4' cols='50' >$JobDescription</textarea>$jobDErr</td>
+  </tr>
+  <tr>
+    <td>
+    <p>
+    <input type='button' class ='hide' id='addressSubmit' value='Submit Job'/>
+    </p>
+</td>
+    <td><p>
+    <input type='button' class ='hide' $disableTF id='delete' value='Delete Job'/>
+    </p></td>
+  </tr>
+</table>
+
+
+    <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='editButton' hidden  name='Over_Write' value='Over_Write'/>
+     
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='submitButton' hidden  name='Submit_Job' value='Submit_Job'/>
+     
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='deleteButton' hidden name='Delete_Job' value='Delete_Job'/>
+     
+      <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='cancelButton' hidden  name='Cancel_Edit' value='Cancel_Edit'/>
+    
+     
+    
+</form>
+  ";
+
+$menu="
+      <!--Menu-->
+            <div id='cssmenu'>
+            <ul>
+               <li ><a href='ResumeChoose.php'><span>Resumes</span></a></li>
+               <li  ><a href='AddressEdit.php'><span>Address</span></a></li>
+               <li><a href='PhoneEdit.php'><span>Phone</span></a></li>
+               <li class='active'><a href='JobEdit.php'><span>Job</span></a></li>
+               <li ><a href='help.html'><span>Help/Info</span></a></li>
+            </ul>
+            </div>
+";
+
+//builds the page content
+$content =  build_html_page_header($additional,$style,"","","",$menu);
+
+//Dispays all html content
+echo
+"
+ $content
+ ";
+
+?>

@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FormulaEvaluator
+{
+    public class Class1
+    {
+        
+        public delegate int Lookup(String v);
+
+        public static int Evaluate(String exp, Lookup variableEvaluator)
+        {
+
+        }
+    }
+}

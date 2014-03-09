@@ -1,0 +1,200 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This page will be accesses by new users who would like to sign-up to create 
+ * resumes on the site. The page first checks that the user name entered does not exist
+ * and then if they are unique their cridentials are scrubbed verified and loaded 
+ * into the database where they are given a blank session they can use to create new resumes
+ * 
+ */
+
+require_once("../Objects/User.php");//user class for storing the user data
+require_once("../Helper/html_Helper.php");//for building the various HTML
+require ("../Hidden/databasePW.php");
+require_once("../Helper/Server.php");//server info
+
+//Variables used to Create login
+$realName = "";
+$userName = "";
+$password = "";
+$errClass = "";//this turns the boxes red if they are incorrect
+
+
+
+
+// ***Check that Login doesn't exist***----------------------------------------------------------------------------    
+      
+try
+{
+    
+    //creates a new server
+    $db = connectDB();//connects to the server
+
+    
+            //if submitting for login
+    if (isset ( $_REQUEST ['Login'] ))
+    {
+      //***VALIDATION---------------------------------------------------------------------
+        
+    //CHECK THE NAME
+        //check if the name contains special characters
+        if (!preg_match('/[a-zA-Z]/i', $_REQUEST ['Real']) && $_REQUEST ['Real'] != "")
+        {
+            
+            $rError = "Name Cannot Include Special Characters or Numbers";
+            $errClass ="boxError"; 
+        }
+        elseif($_REQUEST ['Real'] == "")
+        {
+            $rError = "Name Cannot Be Blank";
+            $errClass ="boxError"; 
+            
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $realName = filter_var(trim($_REQUEST ['Real']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+        
+    //CHECK THE USERNAME
+        //check if the USERname contains special characters
+        if (!preg_match('/[a-zA-Z0-9]/i', $_REQUEST ['name']) && $_REQUEST ['name'] != "")
+        {
+            
+            $uError = " User Name Cannot Include Special Characters";
+            $errClass ="boxError"; 
+        }
+        elseif($_REQUEST ['name'] == "")
+        {
+            $uError = "Name Cannot Be Blank";
+            $errClass ="boxError"; 
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $userName = filter_var(trim($_REQUEST ['name']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+        
+        
+    //password can be anything but blank
+        if($_REQUEST ['password'] == "")
+        {
+            $pError = "Password Cannot Be Blank";
+            $errClass ="boxError"; 
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $password = filter_var(trim($_REQUEST ['password']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+        
+        //if there is an error reload without query DB
+        //if there is a user - skip logging cridentials
+        if($errClass =="")
+        {
+            
+            $q = "SELECT UserName FROM User WHERE UserName=?" ;
+            
+            
+            $stmt = $db->prepare ( $q);//prepare the query
+
+            $stmt->bindValue(1,$userName);
+            $stmt->execute();
+            $result =($stmt->fetch());
+               
+            //Check that the user name and PW does not already exist
+            //if not continue - else skip
+            if(!$result)
+            {
+                unset($stmt); //Kill the query and start the injection
+                
+                //upon verification that does not exist submit for new user
+                $stmt = $db->prepare("INSERT INTO `User` (`UserName`, `Password`, `RealName`) 
+                VALUES (?, ?, ?)");
+                
+                
+                //Bind Values for sanitization
+                $stmt->bindValue(1,$userName);
+                $stmt->bindValue(2,sha1($password));
+                $stmt->bindValue(3,$realName);
+                
+                //if successfull
+                if($stmt ->execute())
+                {
+                    //set as new user and redirect
+                    $_SESSION['New_User'] = true;
+                    $_SESSION['User_Obj']->RealName = $realName;
+                    header("Location: ../index.php");
+                    exit;
+                }
+            }//end user not duplicate
+            else
+            {
+                $logErr = "User Name Already Exists - Try Again";   
+                $errClass ="boxError";   
+            }
+        }//no error running user
+        
+        
+    }//id is login creation attempt
+} //end try
+
+//if there is an exception communicating with the DB
+catch ( PDOException $ex )
+{
+    $logErr = "COMMUNICATION ERROR - Try again later :)";
+	//echo "<p>PDO Exception</p>";
+	//echo "$ex";
+}
+
+
+
+//***BUILD THE HTML******************
+//________________________________________________________
+
+//for adding the style sheets - this can change based on the path
+$style = "
+        <link rel='stylesheet' type='text/css' href='resumeMain.css' />
+        <link rel='stylesheet' type='text/css' href='styles.css' />";
+
+//This is the main content for this page which will be added to the resused helper code
+$additional ="
+  
+      <form method='post'>
+      <div class=error >$logErr</div>
+      </br>
+<table class='Log'>
+ <tr>
+    <td> Your Full Name </td>
+    <td><input class='$errClass' type='text' name='Real' required value='$realName'>$rError</td>
+  </tr>
+  <tr>
+    <td> User Name </td>
+    <td><input class='$errClass' type='text' name='name' required value='$userName'>$uError</td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input class='$errClass' type='password' required name='password'/>$pError</td>
+  </tr>
+</table>
+
+<p>
+<input type='submit' name='Login' value='Create User'/>
+ <input type='button' id='newUser' value='Back to Login Screen' onclick=location.href='../index.php'; />
+</p>
+
+    
+</form>
+
+  ";
+//builds the page content
+$content =  build_html_page_header($additional,$style,"","","","",true);
+
+//Dispays all html content
+echo
+"
+ $content
+ $isSubmission
+ ";
+
+?>

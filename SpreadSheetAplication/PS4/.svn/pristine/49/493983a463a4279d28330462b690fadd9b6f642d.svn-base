@@ -1,0 +1,185 @@
+﻿using SS;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
+namespace SpreadSheetTest
+{
+    
+    
+    /// <summary>
+    ///This is a test class for CellTest and is intended
+    ///to contain all CellTest Unit Tests
+    ///</summary>
+    [TestClass()]
+    public class CellTest
+    {
+
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        // 
+        //You can use the following additional attributes as you write your tests:
+        //
+        //Use ClassInitialize to run code before running the first test in the class
+        //[ClassInitialize()]
+        //public static void MyClassInitialize(TestContext testContext)
+        //{
+        //}
+        //
+        //Use ClassCleanup to run code after all tests in a class have run
+        //[ClassCleanup()]
+        //public static void MyClassCleanup()
+        //{
+        //}
+        //
+        //Use TestInitialize to run code before running each test
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{
+        //}
+        //
+        //Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //}
+        //
+        #endregion
+
+
+        /// <summary>
+        ///A test for Cell Constructor
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void CellConstructorTest()
+        {
+            string n = string.Empty; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(n);
+            Assert.Inconclusive("TODO: Implement code to verify target");
+        }
+
+        /// <summary>
+        ///A test for Cell Constructor
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void CellConstructorTest1()
+        {
+            object c = null; // TODO: Initialize to an appropriate value
+            string n = string.Empty; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(c, n);
+            Assert.Inconclusive("TODO: Implement code to verify target");
+        }
+
+        /// <summary>
+        ///A test for getContent
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void getContentTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            object expected = null; // TODO: Initialize to an appropriate value
+            object actual;
+            actual = target.getContent();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for getName
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void getNameTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            string expected = string.Empty; // TODO: Initialize to an appropriate value
+            string actual;
+            actual = target.getName();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for getValue
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void getValueTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            object expected = null; // TODO: Initialize to an appropriate value
+            object actual;
+            actual = target.getValue();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for parseMe
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void parseMeTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            string s = string.Empty; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.parseMe(s);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for setCont
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void setContTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            object c = null; // TODO: Initialize to an appropriate value
+            target.setCont(c);
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+
+        /// <summary>
+        ///A test for setValue
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void setValueTest()
+        {
+            PrivateObject param0 = null; // TODO: Initialize to an appropriate value
+            Cell_Accessor target = new Cell_Accessor(param0); // TODO: Initialize to an appropriate value
+            string v = string.Empty; // TODO: Initialize to an appropriate value
+            target.setValue(v);
+            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+        }
+    }
+}

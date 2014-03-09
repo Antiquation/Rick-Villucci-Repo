@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a373110b-423f-4957-b891-d91b7f72ae8f" name="Nephi@NEPHI-MAC 2012-10-18 21:31:01" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9d939d0e-582a-4bf7-8497-1b23f07d4666">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Nephi_NEPHI-MAC 2012-10-18 21_31_01">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadsheetUtilities.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Formula.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-18T21:31:01.3225787-06:00" queuing="2012-10-18T21:31:01.6385968-06:00" start="2012-10-18T21:31:01.6815992-06:00" finish="2012-10-18T21:32:03.6961462-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="25" executed="25" passed="23" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:31:01.5695928-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' directly or indirectly referenced by C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\bin\Release\SpreadSheetTest.dll cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:31:01.5715929-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' directly or indirectly referenced by the test container 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll' cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:31:01.6375967-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'SpreadSheet.dll' specified by the test 'SpreadSheetTest.SpreadsheetTest.GetNamesOfAllNonemptyCellsTest' cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+    </RunInfos>
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="InvalidNameExceptionConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="79bf55db-d796-15dd-896e-105c2ea66978">
+      <Execution id="9626bc5f-f759-4c4a-b263-7e454a9cf8fd" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.InvalidNameExceptionTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InvalidNameExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetNamesOfAllNonemptyCellsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="a500a9eb-975d-d9a8-2a22-a35481b4efc8">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="c0d1d2dc-14e4-464a-ae76-c971624d36c0" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetNamesOfAllNonemptyCellsTest" />
+    </UnitTest>
+    <UnitTest name="setValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="867e7474-6e2b-5942-58f7-5a25725b7570">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="f4b2acb1-b563-4e0c-86ca-fab25cdf93b9" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setValueTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="e8fc7f63-159c-1ee7-11f8-f057d65c0467">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="d9f838e4-e237-43cb-855d-063ffa021a49" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest" />
+    </UnitTest>
+    <UnitTest name="readFileTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="33ff0e71-de4a-396f-cb7b-946799f655b6">
+      <Execution id="82c03648-8816-41a3-9b4a-7a791c117a78" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="readFileTest" />
+    </UnitTest>
+    <UnitTest name="getContentTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="d203a43c-209c-000e-2feb-4acbd99bbf45">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="1e0ff243-7272-406e-aba5-1031ddf383ba" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getContentTest" />
+    </UnitTest>
+    <UnitTest name="addDepTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="f8722107-964b-1c46-139c-39de3602c77d">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="ad10aed3-0082-4b28-8b72-bfde6d05f55e" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="addDepTest" />
+    </UnitTest>
+    <UnitTest name="CellConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="63cad989-9579-8474-3774-12bb0e425608">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="8477e01c-e1f0-4ebb-96b9-6461fbc51568" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CellConstructorTest" />
+    </UnitTest>
+    <UnitTest name="circularTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="6f5ab261-6300-9ab8-535e-3406655bc9bd">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="ea8f29ed-bd61-4833-9ad8-cbfbfa7e1e99" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="circularTest" />
+    </UnitTest>
+    <UnitTest name="SaveTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="feea2572-422c-4dc6-3dea-cb99c6cd99ec">
+      <Execution id="0f3a9783-69c3-45e0-9d0f-11eb2caa8f94" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SaveTest" />
+    </UnitTest>
+    <UnitTest name="CellConstructorTest1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="4a4a4b65-dd50-0e9c-6375-61f36a07efb1">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="eda84014-e90c-4a3d-9772-be967bc6677e" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CellConstructorTest1" />
+    </UnitTest>
+    <UnitTest name="GetCellContentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="070e5c9e-83ba-8487-680d-9432112bf73a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="1a1ceb3e-26c2-4e03-86de-3fa3b56b9010" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCellContentsTest" />
+    </UnitTest>
+    <UnitTest name="CircularExceptionConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="6a05434d-6707-84ca-ced5-050e7c87f45a">
+      <Execution id="601a69e3-3bec-44e6-851a-890799447525" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CircularExceptionTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CircularExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="SpreadsheetConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="ced375f7-fc6c-09e5-568f-451d5a013b82">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="15a251e3-7141-476e-a1ff-50fdb648af4a" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SpreadsheetConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetCellValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="2de13980-0389-f33a-a841-065b81e195a0">
+      <Execution id="2c20fdff-18ce-4468-927d-f9bf15d59df2" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCellValueTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest2" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="66acbbf0-b8fd-905a-c268-c3cff79c0b61">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="93c5857e-9f43-4a34-9a7a-81891d1a25b8" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest2" />
+    </UnitTest>
+    <UnitTest name="getCellTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="5a5f44c1-96a9-4562-9336-7c9c7f6dfea3" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getCellTest" />
+    </UnitTest>
+    <UnitTest name="GetDirectDependentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="4f979ee2-5aa2-56ab-1333-41246e08886a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="0260a744-31ff-4867-9911-599f96cc2dbc" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDirectDependentsTest" />
+    </UnitTest>
+    <UnitTest name="getNameTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="f3af96d5-57d1-57f3-1502-692f4999c0f3">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="3ae182cd-9554-478a-a0ee-7a6ef6908f10" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getNameTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="63b3665f-89f2-9fa7-0633-d315f1ccee1e">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="08a18e01-32c4-433f-988e-77b3e275e868" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest1" />
+    </UnitTest>
+    <UnitTest name="parseMeTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="277d5efa-0d7a-f9e4-b234-083a322cbf58">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="f7e23b78-0850-4925-864b-48b339c41cb7" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="parseMeTest" />
+    </UnitTest>
+    <UnitTest name="isValidTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="f657aba3-0970-6a5d-dc4d-554c0b1416ea">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="55096be9-86a3-454a-874d-dcb84cff46d1" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="isValidTest" />
+    </UnitTest>
+    <UnitTest name="setContTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="de65e508-5201-4559-b471-b9558f818045" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setContTest" />
+    </UnitTest>
+    <UnitTest name="CodedUITestMethod1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01">
+      <Execution id="884ae310-8feb-49f0-9d86-df63f3ec698a" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CodedUITest1, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CodedUITestMethod1" />
+      <Extension>Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute, Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Extension>
+    </UnitTest>
+    <UnitTest name="getValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="65c1bca8-1bf7-1bd5-9113-ab42edf8134a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="29fee2ca-d58e-4d92-a4da-7b3eed77c4f8" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getValueTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="070e5c9e-83ba-8487-680d-9432112bf73a" executionId="1a1ceb3e-26c2-4e03-86de-3fa3b56b9010" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e" executionId="5a5f44c1-96a9-4562-9336-7c9c7f6dfea3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="277d5efa-0d7a-f9e4-b234-083a322cbf58" executionId="f7e23b78-0850-4925-864b-48b339c41cb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2de13980-0389-f33a-a841-065b81e195a0" executionId="2c20fdff-18ce-4468-927d-f9bf15d59df2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632" executionId="de65e508-5201-4559-b471-b9558f818045" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="33ff0e71-de4a-396f-cb7b-946799f655b6" executionId="82c03648-8816-41a3-9b4a-7a791c117a78" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a4a4b65-dd50-0e9c-6375-61f36a07efb1" executionId="eda84014-e90c-4a3d-9772-be967bc6677e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4f979ee2-5aa2-56ab-1333-41246e08886a" executionId="0260a744-31ff-4867-9911-599f96cc2dbc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63b3665f-89f2-9fa7-0633-d315f1ccee1e" executionId="08a18e01-32c4-433f-988e-77b3e275e868" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63cad989-9579-8474-3774-12bb0e425608" executionId="8477e01c-e1f0-4ebb-96b9-6461fbc51568" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65c1bca8-1bf7-1bd5-9113-ab42edf8134a" executionId="29fee2ca-d58e-4d92-a4da-7b3eed77c4f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66acbbf0-b8fd-905a-c268-c3cff79c0b61" executionId="93c5857e-9f43-4a34-9a7a-81891d1a25b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a05434d-6707-84ca-ced5-050e7c87f45a" executionId="601a69e3-3bec-44e6-851a-890799447525" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f5ab261-6300-9ab8-535e-3406655bc9bd" executionId="ea8f29ed-bd61-4833-9ad8-cbfbfa7e1e99" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79bf55db-d796-15dd-896e-105c2ea66978" executionId="9626bc5f-f759-4c4a-b263-7e454a9cf8fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="867e7474-6e2b-5942-58f7-5a25725b7570" executionId="f4b2acb1-b563-4e0c-86ca-fab25cdf93b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" executionId="884ae310-8feb-49f0-9d86-df63f3ec698a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a500a9eb-975d-d9a8-2a22-a35481b4efc8" executionId="c0d1d2dc-14e4-464a-ae76-c971624d36c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ced375f7-fc6c-09e5-568f-451d5a013b82" executionId="15a251e3-7141-476e-a1ff-50fdb648af4a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d203a43c-209c-000e-2feb-4acbd99bbf45" executionId="1e0ff243-7272-406e-aba5-1031ddf383ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8fc7f63-159c-1ee7-11f8-f057d65c0467" executionId="d9f838e4-e237-43cb-855d-063ffa021a49" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3af96d5-57d1-57f3-1502-692f4999c0f3" executionId="3ae182cd-9554-478a-a0ee-7a6ef6908f10" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f657aba3-0970-6a5d-dc4d-554c0b1416ea" executionId="55096be9-86a3-454a-874d-dcb84cff46d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8722107-964b-1c46-139c-39de3602c77d" executionId="ad10aed3-0082-4b28-8b72-bfde6d05f55e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="feea2572-422c-4dc6-3dea-cb99c6cd99ec" executionId="0f3a9783-69c3-45e0-9d0f-11eb2caa8f94" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="1a1ceb3e-26c2-4e03-86de-3fa3b56b9010" testId="070e5c9e-83ba-8487-680d-9432112bf73a" testName="GetCellContentsTest" computerName="NEPHI-MAC" duration="00:00:00.0331602" startTime="2012-10-18T21:31:02.2266304-06:00" endTime="2012-10-18T21:31:02.4246417-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1a1ceb3e-26c2-4e03-86de-3fa3b56b9010">
+    </UnitTestResult>
+    <UnitTestResult executionId="5a5f44c1-96a9-4562-9336-7c9c7f6dfea3" testId="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e" testName="getCellTest" computerName="NEPHI-MAC" duration="00:00:00.0001140" startTime="2012-10-18T21:31:02.4256418-06:00" endTime="2012-10-18T21:31:02.4306421-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a5f44c1-96a9-4562-9336-7c9c7f6dfea3">
+    </UnitTestResult>
+    <UnitTestResult executionId="f7e23b78-0850-4925-864b-48b339c41cb7" testId="277d5efa-0d7a-f9e4-b234-083a322cbf58" testName="parseMeTest" computerName="NEPHI-MAC" duration="00:00:00.0047339" startTime="2012-10-18T21:31:02.4326422-06:00" endTime="2012-10-18T21:31:02.4406426-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7e23b78-0850-4925-864b-48b339c41cb7">
+    </UnitTestResult>
+    <UnitTestResult executionId="2c20fdff-18ce-4468-927d-f9bf15d59df2" testId="2de13980-0389-f33a-a841-065b81e195a0" testName="GetCellValueTest" computerName="NEPHI-MAC" duration="00:00:00.0128233" startTime="2012-10-18T21:31:02.4416427-06:00" endTime="2012-10-18T21:31:02.4576436-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c20fdff-18ce-4468-927d-f9bf15d59df2">
+    </UnitTestResult>
+    <UnitTestResult executionId="de65e508-5201-4559-b471-b9558f818045" testId="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632" testName="setContTest" computerName="NEPHI-MAC" duration="00:00:00.0008401" startTime="2012-10-18T21:31:02.4586437-06:00" endTime="2012-10-18T21:31:02.4626439-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de65e508-5201-4559-b471-b9558f818045">
+    </UnitTestResult>
+    <UnitTestResult executionId="82c03648-8816-41a3-9b4a-7a791c117a78" testId="33ff0e71-de4a-396f-cb7b-946799f655b6" testName="readFileTest" computerName="NEPHI-MAC" duration="00:00:00.0205980" startTime="2012-10-18T21:31:02.4636439-06:00" endTime="2012-10-18T21:31:02.4876453-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82c03648-8816-41a3-9b4a-7a791c117a78">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. </Message>
+          <StackTrace>   at SpreadSheetTest.SpreadsheetTest.readFileTest() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\SpreadsheetTest.cs:line 340
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eda84014-e90c-4a3d-9772-be967bc6677e" testId="4a4a4b65-dd50-0e9c-6375-61f36a07efb1" testName="CellConstructorTest1" computerName="NEPHI-MAC" duration="00:00:00.0004775" startTime="2012-10-18T21:31:02.4876453-06:00" endTime="2012-10-18T21:31:02.4916455-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eda84014-e90c-4a3d-9772-be967bc6677e">
+    </UnitTestResult>
+    <UnitTestResult executionId="0260a744-31ff-4867-9911-599f96cc2dbc" testId="4f979ee2-5aa2-56ab-1333-41246e08886a" testName="GetDirectDependentsTest" computerName="NEPHI-MAC" duration="00:00:00.0015382" startTime="2012-10-18T21:31:02.4926456-06:00" endTime="2012-10-18T21:31:02.4976459-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0260a744-31ff-4867-9911-599f96cc2dbc">
+    </UnitTestResult>
+    <UnitTestResult executionId="08a18e01-32c4-433f-988e-77b3e275e868" testId="63b3665f-89f2-9fa7-0633-d315f1ccee1e" testName="SetCellContentsTest1" computerName="NEPHI-MAC" duration="00:00:00.0020991" startTime="2012-10-18T21:31:02.4986459-06:00" endTime="2012-10-18T21:31:02.5036462-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="08a18e01-32c4-433f-988e-77b3e275e868">
+    </UnitTestResult>
+    <UnitTestResult executionId="8477e01c-e1f0-4ebb-96b9-6461fbc51568" testId="63cad989-9579-8474-3774-12bb0e425608" testName="CellConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0006055" startTime="2012-10-18T21:31:02.5046463-06:00" endTime="2012-10-18T21:31:02.5086465-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8477e01c-e1f0-4ebb-96b9-6461fbc51568">
+    </UnitTestResult>
+    <UnitTestResult executionId="29fee2ca-d58e-4d92-a4da-7b3eed77c4f8" testId="65c1bca8-1bf7-1bd5-9113-ab42edf8134a" testName="getValueTest" computerName="NEPHI-MAC" duration="00:00:00.0009099" startTime="2012-10-18T21:31:02.5096466-06:00" endTime="2012-10-18T21:31:02.5146469-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29fee2ca-d58e-4d92-a4da-7b3eed77c4f8">
+    </UnitTestResult>
+    <UnitTestResult executionId="93c5857e-9f43-4a34-9a7a-81891d1a25b8" testId="66acbbf0-b8fd-905a-c268-c3cff79c0b61" testName="SetCellContentsTest2" computerName="NEPHI-MAC" duration="00:00:00.0019017" startTime="2012-10-18T21:31:02.5146469-06:00" endTime="2012-10-18T21:31:02.5196471-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93c5857e-9f43-4a34-9a7a-81891d1a25b8">
+    </UnitTestResult>
+    <UnitTestResult executionId="601a69e3-3bec-44e6-851a-890799447525" testId="6a05434d-6707-84ca-ced5-050e7c87f45a" testName="CircularExceptionConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0002262" startTime="2012-10-18T21:31:02.5206472-06:00" endTime="2012-10-18T21:31:02.5246474-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="601a69e3-3bec-44e6-851a-890799447525">
+    </UnitTestResult>
+    <UnitTestResult executionId="ea8f29ed-bd61-4833-9ad8-cbfbfa7e1e99" testId="6f5ab261-6300-9ab8-535e-3406655bc9bd" testName="circularTest" computerName="NEPHI-MAC" duration="00:00:00.0001084" startTime="2012-10-18T21:31:02.5256475-06:00" endTime="2012-10-18T21:31:02.5286477-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea8f29ed-bd61-4833-9ad8-cbfbfa7e1e99">
+    </UnitTestResult>
+    <UnitTestResult executionId="9626bc5f-f759-4c4a-b263-7e454a9cf8fd" testId="79bf55db-d796-15dd-896e-105c2ea66978" testName="InvalidNameExceptionConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0003313" startTime="2012-10-18T21:31:02.5296477-06:00" endTime="2012-10-18T21:31:02.5336479-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9626bc5f-f759-4c4a-b263-7e454a9cf8fd">
+    </UnitTestResult>
+    <UnitTestResult executionId="f4b2acb1-b563-4e0c-86ca-fab25cdf93b9" testId="867e7474-6e2b-5942-58f7-5a25725b7570" testName="setValueTest" computerName="NEPHI-MAC" duration="00:00:00.0001014" startTime="2012-10-18T21:31:02.5336479-06:00" endTime="2012-10-18T21:31:02.5376482-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4b2acb1-b563-4e0c-86ca-fab25cdf93b9">
+    </UnitTestResult>
+    <UnitTestResult executionId="884ae310-8feb-49f0-9d86-df63f3ec698a" testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" testName="CodedUITestMethod1" computerName="NEPHI-MAC" duration="00:00:59.6869413" startTime="2012-10-18T21:31:02.5376482-06:00" endTime="2012-10-18T21:32:02.2680646-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="884ae310-8feb-49f0-9d86-df63f3ec698a">
+      <Output>
+        <DebugTrace>W, 6928, 51, 2012/10/18, 21:31:03.832, 610789168080, QTAgent32.exe, &lt;a class=success&gt;Playback - {1} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:04.293, 610790159286, QTAgent32.exe, &lt;a class=success&gt;Playback - {2} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:04.442, 610790478731, QTAgent32.exe, LoadLibrary() : Unable to find the resource 37382 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 6928, 51, 2012/10/18, 21:31:04.442, 610790480121, QTAgent32.exe, LoadLibrary() : Unable to find the resource 41728 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 6928, 51, 2012/10/18, 21:31:04.443, 610790480704, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 6928, 51, 2012/10/18, 21:31:04.443, 610790481124, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 6928, 51, 2012/10/18, 21:31:04.443, 610790481771, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 6928, 51, 2012/10/18, 21:31:04.443, 610790482464, QTAgent32.exe, LoadLibrary() : Unable to find the resource 803 from assembly C:\Windows\system32\en-US\user32.dll.mui: Error1814
+W, 6928, 51, 2012/10/18, 21:31:04.792, 610791232448, QTAgent32.exe, &lt;a class=success&gt;Playback - {3} [SUCCESS] SetValueAsEditBox "F1" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:05.091, 610791874405, QTAgent32.exe, &lt;a class=success&gt;Playback - {4} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:05.395, 610792526744, QTAgent32.exe, &lt;a class=success&gt;Playback - {5} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:05.899, 610793609752, QTAgent32.exe, &lt;a class=success&gt;Playback - {6} [SUCCESS] SetValueAsEditBox "=D4" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:06.182, 610794217810, QTAgent32.exe, &lt;a class=success&gt;Playback - {7} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:06.732, 610795400104, QTAgent32.exe, &lt;a class=success&gt;Playback - {8} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:07.035, 610796051325, QTAgent32.exe, &lt;a class=success&gt;Playback - {9} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:07.367, 610796764569, QTAgent32.exe, &lt;a class=success&gt;Playback - {10} [SUCCESS] SendKeys "^{HOME}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:07.372, 610796775008, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 6928, 51, 2012/10/18, 21:31:07.504, 610797059307, QTAgent32.exe, &lt;a class=success&gt;Playback - {11} [SUCCESS] SendKeys "^+{END}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:07.505, 610797060443, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 6928, 51, 2012/10/18, 21:31:07.596, 610797256823, QTAgent32.exe, &lt;a class=success&gt;Playback - {12} [SUCCESS] SendKeys "{DELETE}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:07.794, 610797680573, QTAgent32.exe, &lt;a class=success&gt;Playback - {13} [SUCCESS] SetValueAsEditBox "25" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:08.081, 610798298830, QTAgent32.exe, &lt;a class=success&gt;Playback - {14} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:08.390, 610798962798, QTAgent32.exe, &lt;a class=success&gt;Playback - {15} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:08.693, 610799610223, QTAgent32.exe, &lt;a class=success&gt;Playback - {16} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:08.809, 610799860160, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:08.997, 610800263380, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:08.997, 610800264710, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:08.997, 610800264873, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:08.998, 610800265585, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:09.093, 610800469559, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:09.295, 610800905045, QTAgent32.exe, &lt;a class=success&gt;Playback - {17} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (35, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:09.474, 610801289456, QTAgent32.exe, &lt;a class=success&gt;Playback - {18} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (102, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:09.800, 610801989130, QTAgent32.exe, &lt;a class=success&gt;Playback - {19} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='How to use this program'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:10.211, 610802871503, QTAgent32.exe, &lt;a class=success&gt;Playback - {20} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:10.576, 610803657780, QTAgent32.exe, &lt;a class=success&gt;Playback - {21} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:10.858, 610804263566, QTAgent32.exe, &lt;a class=success&gt;Playback - {22} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:10.960, 610804481148, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:11.281, 610805170925, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:11.282, 610805173042, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:11.282, 610805173298, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:11.282, 610805173895, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:11.393, 610805412061, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:11.590, 610805835803, QTAgent32.exe, &lt;a class=success&gt;Playback - {23} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (35, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:11.725, 610806125831, QTAgent32.exe, &lt;a class=success&gt;Playback - {24} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (102, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:12.125, 610806984665, QTAgent32.exe, &lt;a class=success&gt;Playback - {25} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='About'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:12.576, 610807953078, QTAgent32.exe, &lt;a class=success&gt;Playback - {26} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:12.903, 610808656617, QTAgent32.exe, &lt;a class=success&gt;Playback - {27} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:13.200, 610809295416, QTAgent32.exe, &lt;a class=success&gt;Playback - {28} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:13.302, 610809512996, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:13.564, 610810076058, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:13.564, 610810077387, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:13.564, 610810077540, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:13.565, 610810077932, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:13.672, 610810309517, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:13.875, 610810745156, QTAgent32.exe, &lt;a class=success&gt;Playback - {29} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (35, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:14.025, 610811067471, QTAgent32.exe, &lt;a class=success&gt;Playback - {30} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (61, 85) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:14.366, 610811800599, QTAgent32.exe, &lt;a class=success&gt;Playback - {31} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='New'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:14.654, 610812418785, QTAgent32.exe, &lt;a class=success&gt;Playback - {32} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:14.938, 610813029623, QTAgent32.exe, &lt;a class=success&gt;Playback - {33} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:15.434, 610814094944, QTAgent32.exe, &lt;a class=success&gt;Playback - {34} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Close'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:15.810, 610814903444, QTAgent32.exe, &lt;a class=success&gt;Playback - {35} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:15.911, 610815119139, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:16.018, 610815348584, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:16.018, 610815349796, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:16.018, 610815349920, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:16.018, 610815350281, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:16.118, 610815563278, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:16.323, 610816005378, QTAgent32.exe, &lt;a class=success&gt;Playback - {36} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:16.498, 610816380774, QTAgent32.exe, &lt;a class=success&gt;Playback - {37} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:16.804, 610817037241, QTAgent32.exe, &lt;a class=success&gt;Playback - {38} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:17.408, 610818336493, QTAgent32.exe, &lt;a class=success&gt;Playback - {39} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Image'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:17.661, 610818880029, QTAgent32.exe, &lt;a class=success&gt;Playback - {40} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Cancel'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:17.762, 610819096111, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:17.864, 610819314900, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:17.864, 610819316109, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:17.864, 610819316265, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:17.865, 610819316661, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:17.947, 610819494107, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:18.139, 610819907098, QTAgent32.exe, &lt;a class=success&gt;Playback - {41} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:18.335, 610820328393, QTAgent32.exe, &lt;a class=success&gt;Playback - {42} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:18.655, 610821014291, QTAgent32.exe, &lt;a class=success&gt;Playback - {43} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:18.980, 610821714015, QTAgent32.exe, &lt;a class=success&gt;Playback - {44} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Name'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:20.105, 610824129842, QTAgent32.exe, Playback - [WARNING] Internal warning: Incorrect flag set for InvokeProgrammaticAction\0
+W, 6928, 51, 2012/10/18, 21:31:20.226, 610824389688, QTAgent32.exe, &lt;a class=success&gt;Playback - {45} [SUCCESS] SetValueAsComboBox "Spreadsheet Files (.ss)" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='Files of type:'"  &lt; SetValueAsComboBox, set by clicking on the item in the list box &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:20.487, 610824951984, QTAgent32.exe, &lt;a class=success&gt;Playback - {46} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='SplitButton' &amp;&amp; Name='Open'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:20.807, 610825638742, QTAgent32.exe, &lt;a class=success&gt;Playback - {47} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:21.185, 610826450977, QTAgent32.exe, &lt;a class=success&gt;Playback - {48} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:21.526, 610827184560, QTAgent32.exe, &lt;a class=success&gt;Playback - {49} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:21.818, 610827811888, QTAgent32.exe, &lt;a class=success&gt;Playback - {50} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:22.258, 610828757162, QTAgent32.exe, &lt;a class=success&gt;Playback - {51} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Close'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:22.679, 610829661410, QTAgent32.exe, &lt;a class=success&gt;Playback - {52} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:22.781, 610829879881, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 6928, 51, 2012/10/18, 21:31:22.781, 610829880571, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+E, 6928, 51, 2012/10/18, 21:31:22.800, 610829921834, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:22.861, 610830051458, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:22.862, 610830053593, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:22.862, 610830054106, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:22.865, 610830059768, QTAgent32.exe, Window 4263576 not responding. Last Win32 error 1400
+E, 6928, 51, 2012/10/18, 21:31:22.865, 610830060657, QTAgent32.exe, GetClassName for handle 4263576 failed
+W, 6928, 51, 2012/10/18, 21:31:23.945, 610832380025, QTAgent32.exe, &lt;a class=success&gt;Playback - {53} [SUCCESS] SetValueAsEditBox "=F100" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:24.477, 610833524490, QTAgent32.exe, &lt;a class=success&gt;Playback - {54} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:24.578, 610833742177, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 6928, 51, 2012/10/18, 21:31:24.579, 610833742851, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+E, 6928, 51, 2012/10/18, 21:31:24.579, 610833744196, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:24.580, 610833745168, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:24.580, 610833745699, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:24.581, 610833747579, QTAgent32.exe, Window 4132158 not responding. Last Win32 error 0
+E, 6928, 51, 2012/10/18, 21:31:24.582, 610833749154, QTAgent32.exe, GetClassName for handle 4132158 failed
+W, 6928, 51, 2012/10/18, 21:31:24.948, 610834536249, QTAgent32.exe, &lt;a class=success&gt;Playback - {55} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:25.207, 610835093403, QTAgent32.exe, &lt;a class=success&gt;Playback - {56} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:26.221, 610837268142, QTAgent32.exe, &lt;a class=success&gt;Playback - {57} [SUCCESS] SetValueAsEditBox "HAPPY" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:26.728, 610838358546, QTAgent32.exe, &lt;a class=success&gt;Playback - {58} [SUCCESS] SendKeys "{Escape}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:26.974, 610838887000, QTAgent32.exe, &lt;a class=success&gt;Playback - {59} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:27.075, 610839103060, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:27.367, 610839731073, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:27.368, 610839732733, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:27.368, 610839732939, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:27.368, 610839733441, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:27.512, 610840042844, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:27.716, 610840481950, QTAgent32.exe, &lt;a class=success&gt;Playback - {60} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:27.894, 610840864149, QTAgent32.exe, &lt;a class=success&gt;Playback - {61} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:28.284, 610841701745, QTAgent32.exe, &lt;a class=success&gt;Playback - {62} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:28.574, 610842324978, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+E, 6928, 51, 2012/10/18, 21:31:28.601, 610842383621, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+W, 6928, 51, 2012/10/18, 21:31:29.282, 610843846639, QTAgent32.exe, &lt;a class=success&gt;Playback - {63} [SUCCESS] LeftButtonClick  &lt; Mouse cursor location (199, 498) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:29.982, 610845349882, QTAgent32.exe, &lt;a class=success&gt;Playback - {64} [SUCCESS] SetValueAsEditBox "testing"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:29.982, 610845350696, QTAgent32.exe, &lt;a class=success&gt;Playback - {65} [SUCCESS] SetValueAsComboBox "testing" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='File name:'"  &lt; Set via SetValueAsEditBox &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:30.258, 610845943431, QTAgent32.exe, &lt;a class=success&gt;Playback - {66} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:30.613, 610846706552, QTAgent32.exe, &lt;a class=success&gt;Playback - {67} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:30.715, 610846924097, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:30.902, 610847327463, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:30.903, 610847328390, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:30.903, 610847328519, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:30.903, 610847328890, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:30.984, 610847503495, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:31.174, 610847911659, QTAgent32.exe, &lt;a class=success&gt;Playback - {68} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:31.371, 610848334486, QTAgent32.exe, &lt;a class=success&gt;Playback - {69} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:31.777, 610849206308, QTAgent32.exe, &lt;a class=success&gt;Playback - {70} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save as'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:31.912, 610849496658, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 6928, 51, 2012/10/18, 21:31:31.912, 610849496892, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+E, 6928, 51, 2012/10/18, 21:31:31.912, 610849497293, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:31.912, 610849497548, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:31.913, 610849497702, QTAgent32.exe, EnsureValid called via EnsureValid call for same element
+E, 6928, 51, 2012/10/18, 21:31:31.936, 610849548088, QTAgent32.exe, Window 2886936 not responding. Last Win32 error 1400
+E, 6928, 51, 2012/10/18, 21:31:31.936, 610849548283, QTAgent32.exe, GetClassName for handle 2886936 failed
+E, 6928, 51, 2012/10/18, 21:31:32.067, 610849828589, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+E, 6928, 51, 2012/10/18, 21:31:32.088, 610849874243, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+W, 6928, 51, 2012/10/18, 21:31:32.736, 610851267211, QTAgent32.exe, &lt;a class=success&gt;Playback - {71} [SUCCESS] LeftButtonClick  &lt; Mouse cursor location (199, 498) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:33.595, 610853111668, QTAgent32.exe, &lt;a class=success&gt;Playback - {72} [SUCCESS] SetValueAsEditBox "testingagain"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:33.595, 610853112488, QTAgent32.exe, &lt;a class=success&gt;Playback - {73} [SUCCESS] SetValueAsComboBox "testingagain" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='File name:'"  &lt; Set via SetValueAsEditBox &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:33.884, 610853733458, QTAgent32.exe, &lt;a class=success&gt;Playback - {74} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:33.984, 610853948289, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:34.113, 610854225403, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:34.114, 610854226734, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:34.114, 610854226890, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:34.114, 610854227279, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:34.216, 610854446815, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:34.423, 610854892444, QTAgent32.exe, &lt;a class=success&gt;Playback - {75} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:34.588, 610855245526, QTAgent32.exe, &lt;a class=success&gt;Playback - {76} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:34.850, 610855809302, QTAgent32.exe, &lt;a class=success&gt;Playback - {77} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:34.951, 610856025361, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:35.173, 610856503938, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:35.174, 610856505246, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:35.174, 610856505400, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:35.174, 610856505792, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:35.278, 610856728527, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:35.481, 610857165697, QTAgent32.exe, &lt;a class=success&gt;Playback - {78} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:35.641, 610857509430, QTAgent32.exe, &lt;a class=success&gt;Playback - {79} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:35.932, 610858133732, QTAgent32.exe, &lt;a class=success&gt;Playback - {80} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save as'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:36.354, 610859040767, QTAgent32.exe, &lt;a class=success&gt;Playback - {81} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Name'"
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:36.454, 610859255704, QTAgent32.exe, GetClassName for handle 2886306 failed
+W, 6928, 51, 2012/10/18, 21:31:36.619, 610859610055, QTAgent32.exe, &lt;a class=success&gt;Playback - {82} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:37.052, 610860539836, QTAgent32.exe, &lt;a class=success&gt;Playback - {83} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:37.483, 610861467066, QTAgent32.exe, &lt;a class=success&gt;Playback - {84} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Yes'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:37.584, 610861683421, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:37.723, 610861982667, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Close" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:37.724, 610861984030, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Close" ," ControlType = "MenuItem"
+\0
+W, 6928, 51, 2012/10/18, 21:31:37.724, 610861984181, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 6928, 51, 2012/10/18, 21:31:37.724, 610861984571, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:37.827, 610862204954, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 6928, 51, 2012/10/18, 21:31:38.035, 610862652389, QTAgent32.exe, &lt;a class=success&gt;Playback - {85} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (60, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:38.170, 610862942460, QTAgent32.exe, &lt;a class=success&gt;Playback - {86} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (86, 110) &gt;
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:38.481, 610863610380, QTAgent32.exe, &lt;a class=success&gt;Playback - {87} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Close'"
+\0&lt;/a&gt;
+W, 6928, 51, 2012/10/18, 21:31:39.798, 610866439259, QTAgent32.exe, Playback - [WARNING] Internal warning: Window Not Found: [VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770'
+\0
+E, 6928, 51, 2012/10/18, 21:31:39.798, 610866439625, QTAgent32.exe, &lt;a class=failure&gt;Playback - {88} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:39.902, 610866664182, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF82DE.png
+\0
+W, 6928, 51, 2012/10/18, 21:31:39.902, 610866664478, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 6928, 51, 2012/10/18, 21:31:39.903, 610866665288, QTAgent32.exe, PERF WARNING: FindTopLevelWindowHelper::FindAllDescendents: took 1321 ms. Expected it to take maximum 500 ms.
+W, 6928, 51, 2012/10/18, 21:31:58.087, 610905733388, QTAgent32.exe, Playback - [WARNING] Internal warning: Window Not Found: [VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770'
+\0
+E, 6928, 51, 2012/10/18, 21:31:58.087, 610905733756, QTAgent32.exe, &lt;a class=failure&gt;Playback - {89} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:31:58.189, 610905953356, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFCA4A.png
+\0
+W, 6928, 51, 2012/10/18, 21:31:58.189, 610905953631, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 6928, 51, 2012/10/18, 21:31:58.190, 610905954008, QTAgent32.exe, PERF WARNING: FindTopLevelWindowHelper::FindAllDescendents: took 18285 ms. Expected it to take maximum 500 ms.
+W, 6928, 51, 2012/10/18, 21:31:58.812, 610907290443, QTAgent32.exe, Playback - [WARNING] Internal warning: Smart Match failed
+\0
+W, 6928, 51, 2012/10/18, 21:32:00.484, 610910882996, QTAgent32.exe, Playback - [WARNING] Internal warning: Smart Match failed
+\0
+W, 6928, 51, 2012/10/18, 21:32:01.945, 610914020961, QTAgent32.exe, Playback - [WARNING] Internal warning: Window Not Found: [VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770'
+\0
+E, 6928, 51, 2012/10/18, 21:32:01.945, 610914021310, QTAgent32.exe, &lt;a class=failure&gt;Playback - {90} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[VisibleOnly]ControlType='Window' &amp;&amp; Name='File Not Saved' &amp;&amp; ClassName='#32770') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 6928, 51, 2012/10/18, 21:32:02.049, 610914244022, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFD968.png
+\0
+W, 6928, 51, 2012/10/18, 21:32:02.049, 610914244315, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 6928, 51, 2012/10/18, 21:32:02.049, 610914244706, QTAgent32.exe, PERF WARNING: FindTopLevelWindowHelper::FindAllDescendents: took 3858 ms. Expected it to take maximum 500 ms.
+E, 6928, 51, 2012/10/18, 21:32:02.049, 610914244932, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IRPFPlayback.FindAllScreenElements(IScreenElement pScreenElementStart, String bstrQueryId, Object&amp; pvarResKeys, Int32 cResKeys, Int32 nMaxDepth, Object[]&amp; foundDescendants)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.FindTopLevelWindowHelper(String queryId)
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+E, 6928, 51, 2012/10/18, 21:32:02.162, 610914487345, QTAgent32.exe, AL: Playback Error: Microsoft.VisualStudio.TestTools.UITest.Extension.UITestControlNotFoundException: The playback failed to find the control with the given search properties. Additional Details: 
+TechnologyName:  'MSAA'
+ControlType:  'Window'
+Name:  'File Not Saved'
+ClassName:  '#32770'
+ ---&gt; System.Runtime.InteropServices.COMException: Error HRESULT E_FAIL has been returned from a call to a COM component.
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IRPFPlayback.FindAllScreenElements(IScreenElement pScreenElementStart, String bstrQueryId, Object&amp; pvarResKeys, Int32 cResKeys, Int32 nMaxDepth, Object[]&amp; foundDescendants)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.FindTopLevelWindowHelper(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.FindFromPartialQueryId(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl..ctor(String queryId)
+   --- End of inner exception stack trace ---
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapControlNotFoundException(COMException ex, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl..ctor(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.SearchTopLevelWindow(ISearchArgument topLevelSearchArg, String topLevelElementQueryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetTitleUpdatedTopLevelWindow(ISearchArgument topLevelSearchArg, String queryId, IList`1 windowTitles)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetTopLevelElement(Boolean useCache, Boolean useCacheOnly, ISearchArgument searchArg, IList`1 windowTitles, Int32&amp; timeLeft)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetElement(Boolean useCache, ISearchArgument searchArg)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.Search(ISearchArgument searchArg)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FindInternal()
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FindControlIfNecessary()
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementation(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementationWrapper(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+W, 6928, 51, 2012/10/18, 21:32:02.264, 610914706390, QTAgent32.exe, IEDOM : StopSession of the plugin called before StartSession
+W, 6928, 51, 2012/10/18, 21:32:02.264, 610914706572, QTAgent32.exe, UIA : StopSession of the plugin called before StartSession
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Test method SpreadSheetTest.CodedUITest1.CodedUITestMethod1 threw exception: 
+Microsoft.VisualStudio.TestTools.UITest.Extension.UITestControlNotFoundException: The playback failed to find the control with the given search properties. Additional Details: 
+TechnologyName:  'MSAA'
+ControlType:  'Window'
+Name:  'File Not Saved'
+ClassName:  '#32770'
+ ---&gt; System.Runtime.InteropServices.COMException: Error HRESULT E_FAIL has been returned from a call to a COM component.</Message>
+          <StackTrace>    at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IRPFPlayback.FindAllScreenElements(IScreenElement pScreenElementStart, String bstrQueryId, Object&amp; pvarResKeys, Int32 cResKeys, Int32 nMaxDepth, Object[]&amp; foundDescendants)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.FindTopLevelWindowHelper(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.FindFromPartialQueryId(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl..ctor(String queryId)
+ --- End of inner exception stack trace ---
+    at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapControlNotFoundException(COMException ex, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl..ctor(String queryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.SearchTopLevelWindow(ISearchArgument topLevelSearchArg, String topLevelElementQueryId)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetTitleUpdatedTopLevelWindow(ISearchArgument topLevelSearchArg, String queryId, IList`1 windowTitles)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetTopLevelElement(Boolean useCache, Boolean useCacheOnly, ISearchArgument searchArg, IList`1 windowTitles, Int32&amp; timeLeft)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.GetElement(Boolean useCache, ISearchArgument searchArg)
+   at Microsoft.VisualStudio.TestTools.UITesting.SearchHelper.Search(ISearchArgument searchArg)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FindInternal()
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FindControlIfNecessary()
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementation(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementationWrapper(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at SpreadSheetTest.UIMap.close() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\UIMap.Designer.cs:line 559
+   at SpreadSheetTest.CodedUITest1.CodedUITestMethod1() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\CodedUITest1.cs:line 56
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+      <ResultFiles>
+        <ResultFile path="NEPHI-MAC\CodedUITestMethod1.png" />
+      </ResultFiles>
+      <ExtensionResult>Exception has been thrown by the target of an invocation.</ExtensionResult>
+    </UnitTestResult>
+    <UnitTestResult executionId="c0d1d2dc-14e4-464a-ae76-c971624d36c0" testId="a500a9eb-975d-d9a8-2a22-a35481b4efc8" testName="GetNamesOfAllNonemptyCellsTest" computerName="NEPHI-MAC" duration="00:00:00.0028466" startTime="2012-10-18T21:32:02.2690646-06:00" endTime="2012-10-18T21:32:02.2780651-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0d1d2dc-14e4-464a-ae76-c971624d36c0">
+    </UnitTestResult>
+    <UnitTestResult executionId="15a251e3-7141-476e-a1ff-50fdb648af4a" testId="ced375f7-fc6c-09e5-568f-451d5a013b82" testName="SpreadsheetConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0002303" startTime="2012-10-18T21:32:02.2790652-06:00" endTime="2012-10-18T21:32:02.2830654-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15a251e3-7141-476e-a1ff-50fdb648af4a">
+    </UnitTestResult>
+    <UnitTestResult executionId="1e0ff243-7272-406e-aba5-1031ddf383ba" testId="d203a43c-209c-000e-2feb-4acbd99bbf45" testName="getContentTest" computerName="NEPHI-MAC" duration="00:00:00.0004547" startTime="2012-10-18T21:32:02.2840655-06:00" endTime="2012-10-18T21:32:02.2880657-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e0ff243-7272-406e-aba5-1031ddf383ba">
+    </UnitTestResult>
+    <UnitTestResult executionId="d9f838e4-e237-43cb-855d-063ffa021a49" testId="e8fc7f63-159c-1ee7-11f8-f057d65c0467" testName="SetCellContentsTest" computerName="NEPHI-MAC" duration="00:00:00.0013804" startTime="2012-10-18T21:32:02.2880657-06:00" endTime="2012-10-18T21:32:02.2940660-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9f838e4-e237-43cb-855d-063ffa021a49">
+    </UnitTestResult>
+    <UnitTestResult executionId="3ae182cd-9554-478a-a0ee-7a6ef6908f10" testId="f3af96d5-57d1-57f3-1502-692f4999c0f3" testName="getNameTest" computerName="NEPHI-MAC" duration="00:00:00.0003946" startTime="2012-10-18T21:32:02.2950661-06:00" endTime="2012-10-18T21:32:02.2990663-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ae182cd-9554-478a-a0ee-7a6ef6908f10">
+    </UnitTestResult>
+    <UnitTestResult executionId="55096be9-86a3-454a-874d-dcb84cff46d1" testId="f657aba3-0970-6a5d-dc4d-554c0b1416ea" testName="isValidTest" computerName="NEPHI-MAC" duration="00:00:00.0005403" startTime="2012-10-18T21:32:02.3000664-06:00" endTime="2012-10-18T21:32:02.3040666-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55096be9-86a3-454a-874d-dcb84cff46d1">
+    </UnitTestResult>
+    <UnitTestResult executionId="ad10aed3-0082-4b28-8b72-bfde6d05f55e" testId="f8722107-964b-1c46-139c-39de3602c77d" testName="addDepTest" computerName="NEPHI-MAC" duration="00:00:00.0001010" startTime="2012-10-18T21:32:02.3040666-06:00" endTime="2012-10-18T21:32:02.3080668-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad10aed3-0082-4b28-8b72-bfde6d05f55e">
+    </UnitTestResult>
+    <UnitTestResult executionId="0f3a9783-69c3-45e0-9d0f-11eb2caa8f94" testId="feea2572-422c-4dc6-3dea-cb99c6cd99ec" testName="SaveTest" computerName="NEPHI-MAC" duration="00:00:00.0020134" startTime="2012-10-18T21:32:02.3090669-06:00" endTime="2012-10-18T21:32:02.3140672-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f3a9783-69c3-45e0-9d0f-11eb2caa8f94">
+    </UnitTestResult>
+  </Results>
+</TestRun>

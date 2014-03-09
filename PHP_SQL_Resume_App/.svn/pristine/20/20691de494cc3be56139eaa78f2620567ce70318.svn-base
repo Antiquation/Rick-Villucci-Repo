@@ -1,0 +1,228 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This file has all the reuseable HTML and session info for building various pages
+ * 
+ */
+//starts the new session
+session_start();
+
+//session_regenerate_id(true);//changes the session ID of the user for security 
+
+if (! isset($_SESSION['User_Obj']) )
+{
+    $_SESSION['User_Obj'] = new User();
+    
+}
+
+//global variables
+
+//checks if the user is a guest
+$isGuest = $_SESSION['User_Obj'] ->isGuest;
+if($isGuest)
+{
+    
+    $RealName = "Guest User" ;
+    $loginform = "LogMeIn";
+    $buttonID = "logmein";
+}
+else 
+{
+    $RealName = $_SESSION['User_Obj']->getName();
+    $loginform = "Logout";
+    $buttonID = "logout";
+}
+
+$logErr = "";
+$message = "";
+
+
+
+//This changes the boxes color upon error
+//and is also used to stop logic if error exists
+$errClass = "";
+
+
+
+    
+//ifNewUser
+if(isset($_SESSION['New_User']))
+{
+    $type = $_SESSION['New_User'];
+}
+else{
+    $type = false;
+}
+
+/**
+ * This function builds all the basics of the html page that 
+ *are common to all the pages accross the application and allows for 
+ *additional HTML content and javascript links
+ ***---Additional = filler content specific to page
+ ***---Style = is the file style sheet identfiers which can change depending on the local of the displayed page
+ ***---Link = this is any additional javascript type identifiers
+ ***---New = This identifies the user as new and sends additional information
+ **/
+function build_html_page_header($additional,$style,$link,$new,$menu,$log)
+{
+    global $RealName;
+    global $loginform;
+    global $buttonID;
+    
+    $out = "";
+    if($log)
+    {
+        $out = "
+        <form method='post' id='$loginform'>
+      <div id='logout'>
+       <label for='$buttonID'>$RealName</label>
+    <input type='button' id='$buttonID' name='$loginform'  value='$loginform' />
+    </div>
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='LogoutSubmit' hidden  name='$loginform' 'value='$loginform'/>
+    </form>
+    ";
+    }
+       $script = "
+ <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type=
+              'text/javascript'></script>
+               <script src='../Helper/buttonHelp.js' type='text/javascript'></script>
+               <script src='http://jquery.bassistance.de/validate/jquery.validate.js'></script>
+                <script src='http://jquery.bassistance.de/validate/additional-methods.js'></script>";
+        
+  $newUser = "";
+    if(isset($new) && $new == true)
+    {
+        //This displays three boxes up top which show progress
+        $newUser = "
+       
+         <h2 class='Welcome'>Welcome $RealName Thank You For Joining Us...Please Log In</h2>
+        
+     ";
+        
+    }
+ return "
+ 	  <!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8' />
+        <title>Rick Villucci PS5</title>
+            $style
+              $link $script
+    </head>
+    <body>
+
+        <!-- wraps the site so that it scales with the size of the page -->
+  <div id='wrapperIndex'>
+    $out $menu 
+     
+    
+    <div id='header'>
+      <h3>Resume Builder With Data Base PS5</h3>
+      CS4540 - Spring 2014 By: Rick Villucci
+    </div><br />
+   $newUser
+    </br>
+    $additional
+
+        </div><!--End of wrapper-->
+    </body>
+</html>
+ 		";
+}
+
+
+
+
+    //if submitting to log out from the application
+if (isset ( $_REQUEST ['Logout'] ))
+{
+   
+    //kills the session and all variables
+        session_unset();
+        session_destroy(); 
+        header("Location: ../index.php");
+        exit();
+        
+   
+}
+
+//if submitting for login from the logme in button during guest browsing
+if (isset ( $_REQUEST ['LogMeIn'] ))
+{
+    $_SESSION['POO'] = basename($_SERVER['PHP_SELF']);
+    header("Location: ../index.php");
+    exit();
+    
+    
+}
+
+//if trying to view resume
+if (isset ( $_REQUEST ['Resume_View'] ) )
+{
+    //sets the resume number to this variable so it can be pulled by the viewer
+    $_SESSION['View_Resume'] = $_REQUEST ['Resume_Selected'];//sends the resume to be viewed
+   
+}
+
+/**
+ * takes the file name and admin status and returns the nav menu
+*--$active = the file name of the current page
+*--$AdminEdit = Boolean if the page is an admin only page returns admin nav bar
+*--$UserObj = the current session user object
+ **/
+function makeNav($active,$AdminEdit,$userObj)
+{
+    $navArray = array(
+        "Resume Archive" => "ResumeArchive.php",
+        "Address" => "AddressEdit.php",
+        "Phone" => "PhoneEdit.php",
+        "Job" => "JobEdit.php",
+        "Help/Info" => "help.html",
+        "Admin" => "Admin.php"
+        
+        );
+   
+    
+            //if they are not an admin delete the admin link
+        if(!$userObj->isAdmin)
+        {
+            unset( $navArray["Admin"]);
+        }
+        
+        //if they are a guest then remove the multiple resume capability and admin link
+        if($userObj->isGuest)
+        {
+            unset($navArray["Admin"]);
+            unset($navArray["Resume Archive"]);
+            $navArray = array("Create Resume" => "ResumeEdit.php") + $navArray;
+          
+        }
+    
+    //BUILDS THE MENU
+  //sets the begining of the menu
+        $result = "
+         <!--Menu-->
+            <div id='cssmenu'>
+            <ul>";
+        
+        
+        //iterates through the array and adds additional items
+        foreach ($navArray as $key => $value) 
+        {      
+           
+            $selection = ($active == $value) ? " class='active'" : "";
+            $result = $result . "<li $selection><a href='$value'><span>$key</span></a></li>";
+        }
+        //add closing brace
+        $result = $result . " 
+         </ul>
+            </div>";
+        
+        return $result;//return the nave menu
+}
+
+?>

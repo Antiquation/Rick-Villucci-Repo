@@ -1,0 +1,299 @@
+﻿using SS;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using SpreadsheetUtilities;
+using System.Collections;
+
+namespace SpreadSheetTest
+{
+    
+    
+    /// <summary>
+    ///This is a test class for SpreadsheetTest and is intended
+    ///to contain all SpreadsheetTest Unit Tests
+    ///</summary>
+    [TestClass()]
+    public class SpreadsheetTest
+    {
+
+        Spreadsheet_Accessor target;
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        // 
+        //You can use the following additional attributes as you write your tests:
+        //
+        //Use ClassInitialize to run code before running the first test in the class
+        //[ClassInitialize()]
+        //public static void MyClassInitialize(TestContext testContext)
+        //{
+        //}
+        //
+        //Use ClassCleanup to run code after all tests in a class have run
+        //[ClassCleanup()]
+        //public static void MyClassCleanup()
+        //{
+        //}
+        //
+        //Use TestInitialize to run code before running each test
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{
+        //}
+        //
+        //Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //}
+        //
+        #endregion
+
+
+        /// <summary>
+        ///A test for Spreadsheet Constructor
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void SpreadsheetConstructorTest()
+        {
+            target = new Spreadsheet_Accessor();
+
+            if (target != null)
+                Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        ///A test for GetCellContents
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void GetCellContentsTest()
+        {
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+            
+            string name = "A1"; // TODO: Initialize to an appropriate value
+
+            target.SetCellContents(name, "TESTESTEST");
+            object expected = "TESTESTEST"; // TODO: Initialize to an appropriate value
+            object actual;
+            actual = target.GetCellContents(name);
+            Assert.AreEqual(expected, actual);
+            
+        }
+
+        /// <summary>
+        ///A test for GetDirectDependents
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void GetDirectDependentsTest()
+        {
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+
+
+            target.SetCellContents("A1", 1);
+            target.SetCellContents("B1", new Formula("A1+C1"));
+            target.SetCellContents("C1", new Formula("A1+C1"));
+
+           ArrayList expected = new ArrayList { "B1", "C1" };
+
+            IEnumerable<string> actual;
+            actual = target.GetDirectDependents("A1");
+            int i = 0;
+            foreach (string s in actual)
+            {
+                
+                if (s != expected[i])
+                    Assert.Fail();
+                i++;
+            }
+            
+        //    Assert.AreEqual(expected, actual);
+            
+        }
+
+        /// <summary>
+        ///A test for GetNamesOfAllNonemptyCells
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void GetNamesOfAllNonemptyCellsTest()
+        {
+
+
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+
+
+            target.SetCellContents("A1", 1);
+            target.SetCellContents("B1", new Formula("A1+C1"));
+            target.SetCellContents("C1", new Formula("A1+B1"));
+
+            ArrayList expected = new ArrayList { "A1", "B1", "C1" };
+
+            IEnumerable<string> actual;
+            actual = target.GetNamesOfAllNonemptyCells();
+            int i = 0;
+            foreach (string s in actual)
+            {
+
+                if (s != expected[i])
+                    Assert.Fail();
+                i++;
+            }
+        }
+
+        /// <summary>
+        ///A test for SetCellContents
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void SetCellContentsTest()
+        {
+
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+
+
+
+            target.SetCellContents("A1", new Formula("T1+C1+B1"));
+
+            ArrayList expected = new ArrayList { "A1" };
+
+            IEnumerable<string> actual;
+            actual = target.SetCellContents("A1", new Formula("B1+C1+T1"));
+            int i = 0;
+            foreach (string s in actual)
+            {
+
+                if (s != expected[i])
+                    Assert.Fail();
+                i++;
+            }
+
+           
+        }
+
+        /// <summary>
+        ///A test for SetCellContents
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void SetCellContentsTest1()
+        {
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+
+
+
+            target.SetCellContents("A1", new Formula("T1+C1+B1"));
+            target.SetCellContents("B1", new Formula("A1+C1+B1"));
+
+            ArrayList expected = new ArrayList { "B1", "A1" };
+
+            IEnumerable<string> actual = target.GetNamesOfAllNonemptyCells();
+            actual = target.SetCellContents("A1", 4);
+            int i = 0;
+            foreach (string s in actual)
+            {
+
+                if (s != expected[i])
+                    Assert.Fail();
+                i++;
+            }
+        }
+
+        /// <summary>
+        ///A test for SetCellContents
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void SetCellContentsTest2()
+        {
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+
+
+
+            target.SetCellContents("A1", new Formula("T1+C1+B1"));
+            target.SetCellContents("B1", new Formula("A1+C1+B1"));
+
+            ArrayList expected = new ArrayList { "B1", "A1" };
+
+            IEnumerable<string> actual = target.GetNamesOfAllNonemptyCells();
+            actual = target.SetCellContents("A1", "HAPPY");
+            int i = 0;
+            foreach (string s in actual)
+            {
+
+                if (s != expected[i])
+                    Assert.Fail();
+                i++;
+            }
+        }
+
+        /// <summary>
+        ///A test for addDep
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void addDepTest()
+        {
+                //tested in other methods
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        ///A test for circular
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void circularTest()
+        {
+            //tested in other methods
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        ///A test for getCell
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void getCellTest()
+        {
+            //tested in other methods
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        ///A test for isValid
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("SpreadSheet.dll")]
+        public void isValidTest()
+        {
+            target = new Spreadsheet_Accessor(); // TODO: Initialize to an appropriate value
+            string s = "AGHHJJHHJA6456"; // TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.isValid(s);
+            Assert.AreEqual(expected, actual);
+           
+        }
+    }
+}

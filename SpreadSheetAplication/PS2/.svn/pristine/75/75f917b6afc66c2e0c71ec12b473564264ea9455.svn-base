@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace console_test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SpreadsheetUtilities.DependencyGraph test = new SpreadsheetUtilities.DependencyGraph();
+            test.AddDependency("happy", "Emotion");
+            test.AddDependency("sad", "Emotion");
+            Console.WriteLine(test.Size);
+            Console.WriteLine();
+            IEnumerable<string> h = test.GetDependees("Emotion");
+            Console.WriteLine(h);
+            Console.WriteLine(test.GetDependees("Emotion"));
+            Console.Read();
+            
+        }
+
+    }
+}

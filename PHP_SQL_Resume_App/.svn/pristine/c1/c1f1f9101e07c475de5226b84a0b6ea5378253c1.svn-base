@@ -1,0 +1,112 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This file has all the reuseable HTML and session info for building various pages
+ * 
+ */
+//starts the new session
+session_start();
+
+if (! isset($_SESSION['User_Obj']) )
+{
+    $_SESSION['User_Obj'] = new User();
+    
+}
+    
+//ifNewUser
+if(isset($_SESSION['New_User']))
+{
+    $type = $_SESSION['New_User'];
+    $RealName = $_SESSION['User_Obj']->getName();
+}
+else{
+    $type = false;
+}
+
+/**
+ * This function builds all the basics of the html page that 
+ *are common to all the pages accross the application and allows for 
+ *additional HTML content and javascript links
+ ***---Additional = filler content specific to page
+ ***---Style = is the file style sheet identfiers which can change depending on the local of the displayed page
+ ***---Link = this is any additional javascript type identifiers
+ ***---New = This identifies the user as new and sends additional information
+ **/
+function build_html_page_header($additional,$style,$link,$new,$RealName,$menu,$log)
+{
+    
+    if(!isset($log))
+    {
+        $out = "
+        <form method='post' id='logoutForm'>
+      <div id='logout'>
+    <input type='button' id='logout' name='LogOut'  value='Log Out'; />
+    </div>
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='LogOut' hidden  name='LogOut' 'value='LogOut'/>
+    </form>
+    ";
+    }
+       $script = "
+ <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type=
+              'text/javascript'></script>
+               <script src='../Helper/buttonHelp.js' type='text/javascript'></script>";
+        
+  
+    if($new)
+    {
+        //This displays three boxes up top which show progress
+        $newUser = "
+       
+         <h2 class='Welcome'>Welcome $RealName Thank You For Joining Us...Please Log In</h2>
+        
+     ";
+        
+    }
+ return "
+ 	  <!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8' />
+        <title>Rick Villucci PS4</title>
+            $style
+              $link $script
+    </head>
+    <body>
+
+        <!-- wraps the site so that it scales with the size of the page -->
+  <div id='wrapperIndex'>
+    $menu $out
+     
+    
+    <div id='header'>
+      <h3>Resume Builder With Data Base PS4</h3>
+      CS4540 - Spring 2014 By: Rick Villucci
+    </div><br /><br />
+    
+    </br>
+    $newUser
+    $additional
+
+        </div><!--End of wrapper-->
+    </body>
+</html>
+ 		";
+}
+
+
+
+
+    //if submitting for login
+if (isset ( $_REQUEST ['LogOut'] ))
+{
+   
+       
+        header("Location: ../index.php");
+        
+   
+}
+?>

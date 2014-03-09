@@ -1,0 +1,7 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\bin\Debug\Unit_Test.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\bin\Debug\Unit_Test.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\bin\Debug\SpreadsheetUtilities.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\obj\Debug\Unit_Test.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\Unit_Test\obj\Debug\Unit_Test.pdb

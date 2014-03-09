@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+
+namespace FormulaEvaluator
+{
+    /// <summary>
+    /// Contains an evaluate method which takes an expression and a delegate for loocking up 
+    /// variables and returns the value of the expression
+    /// </summary>
+    public static class Evaluator
+    {
+
+        public delegate int Lookup(String v);
+        
+
+
+        /// <summary>
+        /// Takes the expression and evaluates using Infix Expression
+        /// </summary>
+        /// <param name="exp">The mathmatic expression</param>
+        /// <param name="variableEvaluator">The Delegate method used to evaluate a variable</param>
+        /// <returns>Returns the result of the given expression</returns>
+        public static int Evaluate(String exp, Lookup variableEvaluator)
+        {
+                //the final value to be returned to the user
+            int result = 0;
+                //a local count value of the while statement for getting the array position
+            int count = 0;
+                //a local temp value for temparary calculations
+            int temp = 0;
+            
+   
+                //load the expression into the array for iteration
+            string[] substrings = Regex.Split(exp, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+
+                // 2 local generic stacks of size "substring length" which hold the values and/or the operators for evaluating the given expression
+            Stack<Int32> Value = new Stack<Int32>(substrings.Length);
+            Stack Operator = new Stack(substrings.Length);
+
+             
+
+                    //The algortithm used to evaluate the tokens in the array
+                while(count != substrings.Length)
+                {
+                       //if the value of the substring at position "count" is empty - "blank" iterate to next position
+                       //in the array and continue
+                    if(substrings[count] == null)
+                           count++;
+                            
+                        
+
+                    //****may have to use a convert here and save it into "temp" if the following sees the integer as a string
+
+     //*************if the position contains an INT type
+                        if(substrings[count] is int)
+                        {   
+                                //if the operator stack is empty and the value of the top of Operator is not "*","/" push the value
+                            if(Operator.Count == 0 || Operator.Peek() != "*" || Operator.Peek() != "/")
+                            {
+                                Value.Push(Convert.ToInt32(substrings[count]));
+                            }
+                                //if the top of Operator is * or /
+                            else 
+                            {
+                                    //if the Value stack at this point in empty then there is a problem with the expression - Throw exception
+                                if(Value.Count == 0)
+                                    throw new ArithmeticException();
+
+                                //******Temperary local variables for the purpose of evaluating the immediate expression
+                                     
+                                    //first local Variable
+                                    int first = Value.Pop();
+                                       
+                                    //second local variable
+                                    int second = Convert.ToInt32(substrings[count]);
+
+                                //***************************************************
+                             
+                                    // if the operator is multiply
+                                if(Operator.Peek() == "*")
+                                {
+                                        //evaluate and push result
+                                    Value.Push(first * second);
+
+                                }//end if multiply
+
+                                        //The operator must be Divide
+                                    else
+                                    {
+                                            //division by zero exception
+                                        if(second == 0)
+                                            throw new ArithmeticException();
+                                        else
+                                             //evaluate and push result
+                                            Value.Push(first / second);
+
+                                    }//end else statement
+
+                            }//end else statement
+
+                        }//end if the position contains an int
+                        
+                        
+
+
+            return result;
+
+        }//end Evaluate
+
+    }//end Class1
+
+}//end namespace

@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e93f819f-6960-4ab3-adac-e492674542dc" name="Nephi@NEPHI-MAC 2012-10-18 21:21:30" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9d939d0e-582a-4bf7-8497-1b23f07d4666">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Nephi_NEPHI-MAC 2012-10-18 21_21_30">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadsheetUtilities.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Formula.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-18T21:21:30.8779511-06:00" queuing="2012-10-18T21:21:31.3299770-06:00" start="2012-10-18T21:21:31.3639789-06:00" finish="2012-10-18T21:22:08.3200927-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:21:31.3269768-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' directly or indirectly referenced by C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\bin\Release\SpreadSheetTest.dll cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:21:31.3289769-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' directly or indirectly referenced by the test container 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll' cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+    </RunInfos>
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="readFileTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="33ff0e71-de4a-396f-cb7b-946799f655b6">
+      <Execution id="4e5e2074-06f7-4220-9e20-0627a858bbb3" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="readFileTest" />
+    </UnitTest>
+    <UnitTest name="CodedUITestMethod1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01">
+      <Execution id="84e4c5a3-f7f3-4877-b3b1-495499300d2d" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CodedUITest1, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CodedUITestMethod1" />
+      <Extension>Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute, Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Extension>
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" executionId="84e4c5a3-f7f3-4877-b3b1-495499300d2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="33ff0e71-de4a-396f-cb7b-946799f655b6" executionId="4e5e2074-06f7-4220-9e20-0627a858bbb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="84e4c5a3-f7f3-4877-b3b1-495499300d2d" testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" testName="CodedUITestMethod1" computerName="NEPHI-MAC" duration="00:00:34.4589898" startTime="2012-10-18T21:21:31.9050099-06:00" endTime="2012-10-18T21:22:06.5749929-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="84e4c5a3-f7f3-4877-b3b1-495499300d2d">
+      <Output>
+        <DebugTrace>W, 7256, 15, 2012/10/18, 21:21:33.346, 609563504413, QTAgent32.exe, &lt;a class=success&gt;Playback - {1} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:33.762, 609564399665, QTAgent32.exe, &lt;a class=success&gt;Playback - {2} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:33.915, 609564728701, QTAgent32.exe, LoadLibrary() : Unable to find the resource 37382 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7256, 15, 2012/10/18, 21:21:33.916, 609564729736, QTAgent32.exe, LoadLibrary() : Unable to find the resource 41728 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7256, 15, 2012/10/18, 21:21:33.916, 609564730140, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7256, 15, 2012/10/18, 21:21:33.916, 609564730523, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7256, 15, 2012/10/18, 21:21:33.917, 609564731278, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7256, 15, 2012/10/18, 21:21:33.917, 609564732082, QTAgent32.exe, LoadLibrary() : Unable to find the resource 803 from assembly C:\Windows\system32\en-US\user32.dll.mui: Error1814
+W, 7256, 15, 2012/10/18, 21:21:34.272, 609565494502, QTAgent32.exe, &lt;a class=success&gt;Playback - {3} [SUCCESS] SetValueAsEditBox "F1" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:34.574, 609566144393, QTAgent32.exe, &lt;a class=success&gt;Playback - {4} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:34.851, 609566739609, QTAgent32.exe, &lt;a class=success&gt;Playback - {5} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:35.357, 609567827108, QTAgent32.exe, &lt;a class=success&gt;Playback - {6} [SUCCESS] SetValueAsEditBox "=D4" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:35.666, 609568489921, QTAgent32.exe, &lt;a class=success&gt;Playback - {7} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:36.178, 609569591169, QTAgent32.exe, &lt;a class=success&gt;Playback - {8} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:36.464, 609570204569, QTAgent32.exe, &lt;a class=success&gt;Playback - {9} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:36.794, 609570913600, QTAgent32.exe, &lt;a class=success&gt;Playback - {10} [SUCCESS] SendKeys "^{HOME}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:36.796, 609570917599, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 7256, 15, 2012/10/18, 21:21:36.886, 609571112144, QTAgent32.exe, &lt;a class=success&gt;Playback - {11} [SUCCESS] SendKeys "^+{END}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:36.887, 609571113307, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 7256, 15, 2012/10/18, 21:21:36.941, 609571229916, QTAgent32.exe, &lt;a class=success&gt;Playback - {12} [SUCCESS] SendKeys "{DELETE}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:37.144, 609571666660, QTAgent32.exe, &lt;a class=success&gt;Playback - {13} [SUCCESS] SetValueAsEditBox "25" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:37.433, 609572287251, QTAgent32.exe, &lt;a class=success&gt;Playback - {14} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:37.730, 609572925703, QTAgent32.exe, &lt;a class=success&gt;Playback - {15} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:38.037, 609573585351, QTAgent32.exe, &lt;a class=success&gt;Playback - {16} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:38.154, 609573835341, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:38.335, 609574224043, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:38.335, 609574225383, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:38.335, 609574225544, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:38.336, 609574226237, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:38.438, 609574446335, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:38.651, 609574903692, QTAgent32.exe, &lt;a class=success&gt;Playback - {17} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (185, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:38.814, 609575254568, QTAgent32.exe, &lt;a class=success&gt;Playback - {18} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (252, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:39.109, 609575887346, QTAgent32.exe, &lt;a class=success&gt;Playback - {19} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='How to use this program'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:39.494, 609576715319, QTAgent32.exe, &lt;a class=success&gt;Playback - {20} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:39.852, 609577484171, QTAgent32.exe, &lt;a class=success&gt;Playback - {21} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:40.117, 609578054294, QTAgent32.exe, &lt;a class=success&gt;Playback - {22} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:40.219, 609578271698, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:40.528, 609578936660, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:40.529, 609578938948, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:40.529, 609578939150, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:40.530, 609578939681, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:40.686, 609579274994, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:40.915, 609579768795, QTAgent32.exe, &lt;a class=success&gt;Playback - {23} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (185, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:41.112, 609580190989, QTAgent32.exe, &lt;a class=success&gt;Playback - {24} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (252, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:41.444, 609580904412, QTAgent32.exe, &lt;a class=success&gt;Playback - {25} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='About'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:41.844, 609581763135, QTAgent32.exe, &lt;a class=success&gt;Playback - {26} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:42.209, 609582548095, QTAgent32.exe, &lt;a class=success&gt;Playback - {27} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:42.474, 609583118370, QTAgent32.exe, &lt;a class=success&gt;Playback - {28} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:42.576, 609583336112, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:42.851, 609583926890, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:42.851, 609583928010, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:42.851, 609583928135, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:42.851, 609583928520, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:42.952, 609584143954, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:43.157, 609584585816, QTAgent32.exe, &lt;a class=success&gt;Playback - {29} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (185, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:43.323, 609584942636, QTAgent32.exe, &lt;a class=success&gt;Playback - {30} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (211, 235) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:43.639, 609585620307, QTAgent32.exe, &lt;a class=success&gt;Playback - {31} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='New'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:43.890, 609586160919, QTAgent32.exe, &lt;a class=success&gt;Playback - {32} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:44.171, 609586763309, QTAgent32.exe, &lt;a class=success&gt;Playback - {33} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:44.728, 609587960053, QTAgent32.exe, &lt;a class=success&gt;Playback - {34} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Close'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:45.011, 609588568131, QTAgent32.exe, &lt;a class=success&gt;Playback - {35} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:45.112, 609588784793, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:45.336, 609589266710, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:45.337, 609589268355, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:45.337, 609589268587, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:45.337, 609589269112, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:45.481, 609589577599, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:45.685, 609590016594, QTAgent32.exe, &lt;a class=success&gt;Playback - {36} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (160, 273) &gt;
+\0&lt;/a&gt;
+W, 7256, 15, 2012/10/18, 21:21:45.847, 609590364716, QTAgent32.exe, &lt;a class=success&gt;Playback - {37} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (187, 235) &gt;
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:45.946, 609590577390, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:45.947, 609590580268, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+W, 7256, 15, 2012/10/18, 21:21:46.642, 609592073012, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:46.722, 609592245626, QTAgent32.exe, Playback - [WARNING] Internal warning: Horizontal programmatic scroll failed\0
+W, 7256, 15, 2012/10/18, 21:21:47.140, 609593143375, QTAgent32.exe, Playback - [WARNING] Internal warning: Vertical programmatic scroll failed\0
+W, 7256, 15, 2012/10/18, 21:21:47.383, 609593665016, QTAgent32.exe, Playback - [WARNING] Internal warning: Vertical programmatic scroll failed\0
+W, 7256, 15, 2012/10/18, 21:21:49.764, 609598778014, QTAgent32.exe, Playback - [WARNING] Internal warning: Vertical programmatic scroll failed\0
+W, 7256, 15, 2012/10/18, 21:21:50.023, 609599335788, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.023, 609599336036, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599336662, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599336773, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599337153, QTAgent32.exe, Playback - [WARNING] Internal warning: Vertical programmatic scroll failed\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599337569, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599337672, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599338066, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.024, 609599338168, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.029, 609599347816, QTAgent32.exe, Playback - [WARNING] Internal failure: get_accParent returned NULL pointer to IDispatch although HRESULT was S_OK.  Consider this as an accessibility bug in the target application
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.029, 609599347963, QTAgent32.exe, Playback - [WARNING] Internal failure: GetParent failed while walking up the tree. Cannot get a valid window handle
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.030, 609599349410, QTAgent32.exe, Playback - [WARNING] Internal warning: MakeVisibleByScrolling - Can't get children with the requested control type
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.030, 609599349543, QTAgent32.exe, Playback - [WARNING] Internal warning: MakeVisibleByScrolling - Can't find anchor child after two scrolls
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.030, 609599349641, QTAgent32.exe, Playback - [WARNING] Internal warning: Scrolling failed using all requested scrolling flags, so MakeVisible is called with EVF_BY_SETTING_FOCUS. If this closes the container call EnsureVisible explicitly with flags other than default or write a customized scroller.
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.030, 609599350181, QTAgent32.exe, Playback - [WARNING] Internal failure: get_accParent returned NULL pointer to IDispatch although HRESULT was S_OK.  Consider this as an accessibility bug in the target application
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599357673, QTAgent32.exe, Playback - [WARNING] Internal failure: get_accParent returned NULL pointer to IDispatch although HRESULT was S_OK.  Consider this as an accessibility bug in the target application
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599357804, QTAgent32.exe, Playback - [WARNING] Internal failure: GetParent failed while walking up the tree. Cannot get a valid window handle
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599357906, QTAgent32.exe, Playback - [WARNING] Internal failure: ScreenUIElement::EnsureValidHwnd failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599358000, QTAgent32.exe, Playback - [WARNING] Internal warning: RPF could not verify if the target element is off screen or not because window handle is invalid
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599358349, QTAgent32.exe, Playback - [WARNING] Internal failure: get_accParent returned NULL pointer to IDispatch although HRESULT was S_OK.  Consider this as an accessibility bug in the target application
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599358816, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599358924, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.034, 609599359550, QTAgent32.exe, Playback - [WARNING] Internal failure: EnsureVisible via Scrolling failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.035, 609599360750, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.035, 609599361573, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.035, 609599361684, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.035, 609599361774, QTAgent32.exe, Playback - [WARNING] Internal warning : The specified control is not visible. 
+\0
+E, 7256, 15, 2012/10/18, 21:21:50.036, 609599361918, QTAgent32.exe, &lt;a class=failure&gt;Playback - {38} [FAILED] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open'"\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:50.146, 609599599720, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF831C.png
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.152, 609599612744, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:50.153, 609599614061, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:50.154, 609599617485, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:50.155, 609599617692, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:50.156, 609599619837, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:50.156, 609599619946, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:50.160, 609599628561, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:50.161, 609599631846, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:50.161, 609599631992, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:50.162, 609599634318, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:50.162, 609599634424, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:50.164, 609599638099, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:50.164, 609599638246, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:51.223, 609601912618, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: [MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1' | Performed (2) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:21:51.223, 609601913866, QTAgent32.exe, &lt;a class=failure&gt;Playback - {39} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1';[MSAA]ControlType='MenuItem' &amp;&amp; Name='File';[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:51.403, 609602300481, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF87BF.png
+\0
+W, 7256, 15, 2012/10/18, 21:21:51.403, 609602300738, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:21:51.404, 609602301791, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 1240 ms. Expected it to take maximum 500 ms.
+W, 7256, 15, 2012/10/18, 21:21:51.404, 609602302059, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:51.404, 609602303072, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:51.406, 609602306338, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:51.406, 609602306479, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:51.407, 609602308452, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:51.407, 609602308550, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:51.408, 609602311807, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:51.410, 609602314429, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:51.410, 609602314544, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:51.411, 609602316645, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:51.411, 609602316728, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:51.412, 609602319645, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:51.412, 609602319764, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:51.975, 609603528142, QTAgent32.exe, Playback - [WARNING] Internal warning: Target element "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'" was not found, so all intermediate elements were ignored. An incorrect element that matches target element Id can be found as the result.  Verify that all intermediate elements in QueryId have valid and unique Ids
+\0
+W, 7256, 15, 2012/10/18, 21:21:52.476, 609604604796, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:52.476, 609604605492, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.565, 609606945464, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.565, 609606946132, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.566, 609606946572, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: [MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1' | Performed (2) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:21:53.566, 609606947228, QTAgent32.exe, &lt;a class=failure&gt;Playback - {40} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:53.718, 609607274036, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF90E4.png
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.718, 609607274296, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.718, 609607274628, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 2306 ms. Expected it to take maximum 500 ms.
+W, 7256, 15, 2012/10/18, 21:21:53.719, 609607275985, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:53.720, 609607279160, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:53.720, 609607279310, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:53.722, 609607281586, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:53.722, 609607281699, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:53.723, 609607285528, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:53.725, 609607288369, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:53.725, 609607288498, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:53.726, 609607290409, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:53.726, 609607290627, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:53.727, 609607293840, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:53.727, 609607293960, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:55.331, 609610739864, QTAgent32.exe, Playback - [WARNING] Internal warning: Element "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'" was not found, so all intermediate elements were ignored. To improve performance replace this element Id with another Id or exclude it from QueryId. If this element is the target element, replace or remove intermediate elements
+\0
+W, 7256, 15, 2012/10/18, 21:21:55.832, 609611815493, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:55.832, 609611816185, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:55.883, 609611925388, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:55.883, 609611925910, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.030, 609616538023, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.030, 609616538699, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.030, 609616539129, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: &lt;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'&gt; | Performed (4) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:21:58.031, 609616539826, QTAgent32.exe, &lt;a class=failure&gt;Playback - {41} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1';[MSAA]ControlType='MenuItem' &amp;&amp; Name='File') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:58.147, 609616789177, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFA252.png
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.147, 609616789448, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.147, 609616789784, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 4420 ms. Expected it to take maximum 500 ms.
+W, 7256, 15, 2012/10/18, 21:21:58.147, 609616790959, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:58.148, 609616792101, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:58.150, 609616795445, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:58.150, 609616795599, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:58.151, 609616798001, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:58.151, 609616798113, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:58.153, 609616801860, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:58.154, 609616804738, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:58.154, 609616804872, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:58.155, 609616806961, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:58.155, 609616807064, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:58.157, 609616810749, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:58.157, 609616810884, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:59.222, 609619099126, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: [MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1' | Performed (2) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:21:59.222, 609619100265, QTAgent32.exe, &lt;a class=failure&gt;Playback - {42} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1';[MSAA]ControlType='MenuItem' &amp;&amp; Name='File';[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:21:59.391, 609619461849, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFA704.png
+\0
+W, 7256, 15, 2012/10/18, 21:21:59.391, 609619462110, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:21:59.391, 609619463507, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 1235 ms. Expected it to take maximum 500 ms.
+W, 7256, 15, 2012/10/18, 21:21:59.391, 609619463774, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7256, 15, 2012/10/18, 21:21:59.392, 609619464859, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:59.394, 609619468443, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:59.394, 609619468598, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:59.395, 609619470905, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:59.395, 609619471019, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:59.396, 609619474535, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:21:59.398, 609619478894, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:21:59.399, 609619479041, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:21:59.400, 609619481266, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:21:59.400, 609619481376, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:21:59.401, 609619484797, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:59.401, 609619484948, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:21:59.970, 609620706474, QTAgent32.exe, Playback - [WARNING] Internal warning: Target element "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'" was not found, so all intermediate elements were ignored. An incorrect element that matches target element Id can be found as the result.  Verify that all intermediate elements in QueryId have valid and unique Ids
+\0
+W, 7256, 15, 2012/10/18, 21:22:00.471, 609621782667, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:00.471, 609621783346, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.572, 609624148264, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.572, 609624148971, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.572, 609624149412, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: [MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1' | Performed (2) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:22:01.573, 609624150082, QTAgent32.exe, &lt;a class=failure&gt;Playback - {43} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:22:01.730, 609624488388, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFB029.png
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.730, 609624488638, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.730, 609624488976, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 2329 ms. Expected it to take maximum 500 ms.
+W, 7256, 15, 2012/10/18, 21:22:01.731, 609624490218, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:22:01.733, 609624493829, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:22:01.733, 609624493977, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:22:01.734, 609624496209, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:22:01.734, 609624496319, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:22:01.735, 609624499991, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [3542822]
+E, 7256, 15, 2012/10/18, 21:22:01.737, 609624503155, QTAgent32.exe, Msaa.IsElementFromPoint: FastAccessibleObjectFromPoint : Failed
+E, 7256, 15, 2012/10/18, 21:22:01.737, 609624503299, QTAgent32.exe, Msaa.GetAccWrapperFromPoint: Failed: -2147024809
+E, 7256, 15, 2012/10/18, 21:22:01.738, 609624505585, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+W, 7256, 15, 2012/10/18, 21:22:01.738, 609624505690, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7256, 15, 2012/10/18, 21:22:01.740, 609624508983, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:01.740, 609624509134, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:03.401, 609628078869, QTAgent32.exe, Playback - [WARNING] Internal warning: Element "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'" was not found, so all intermediate elements were ignored. To improve performance replace this element Id with another Id or exclude it from QueryId. If this element is the target element, replace or remove intermediate elements
+\0
+W, 7256, 15, 2012/10/18, 21:22:03.902, 609629154470, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:03.902, 609629155177, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:03.957, 609629272569, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:03.957, 609629273143, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:06.155, 609633995155, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:06.155, 609633995833, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7256, 15, 2012/10/18, 21:22:06.155, 609633996245, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: &lt;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'&gt; | Performed (4) search retries, UI element not found
+\0
+E, 7256, 15, 2012/10/18, 21:22:06.155, 609633996934, QTAgent32.exe, &lt;a class=failure&gt;Playback - {44} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1';[MSAA]ControlType='MenuItem' &amp;&amp; Name='File') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7256, 15, 2012/10/18, 21:22:06.288, 609634281368, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPFC215.png
+\0
+W, 7256, 15, 2012/10/18, 21:22:06.288, 609634281627, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find descendants that match QueryId
+\0
+W, 7256, 15, 2012/10/18, 21:22:06.288, 609634281976, QTAgent32.exe, PERF WARNING: FindAllDescendents: took 4549 ms. Expected it to take maximum 500 ms.
+E, 7256, 15, 2012/10/18, 21:22:06.341, 609634395601, QTAgent32.exe, GetClassName for handle 14680918 failed
+E, 7256, 15, 2012/10/18, 21:22:06.456, 609634641947, QTAgent32.exe, AL: Playback Error: Microsoft.VisualStudio.TestTools.UITest.Extension.FailedToPerformActionOnHiddenControlException: Cannot perform 'Click' on the hidden control. Additional Details: 
+TechnologyName:  'MSAA'
+Name:  'Open'
+ControlType:  'MenuItem'
+ ---&gt; System.Runtime.InteropServices.COMException: Exception from HRESULT: 0xF004F002
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IScreenElement.MouseButtonClick(Int32 x, Int32 y, Int32 nButton, Int32 fEnsureVisible, String bstrKeyModifiers)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.MouseButtonClick(Int32 x, Int32 y, MouseButtons button, ModifierKeys modifierKeys, Int32 ensureVisible)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+   --- End of inner exception stack trace ---
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, UITestControl uiControl, Point point)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementation(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementationWrapper(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+W, 7256, 15, 2012/10/18, 21:22:06.559, 609634863766, QTAgent32.exe, IEDOM : StopSession of the plugin called before StartSession
+W, 7256, 15, 2012/10/18, 21:22:06.559, 609634863955, QTAgent32.exe, UIA : StopSession of the plugin called before StartSession
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Test method SpreadSheetTest.CodedUITest1.CodedUITestMethod1 threw exception: 
+Microsoft.VisualStudio.TestTools.UITest.Extension.FailedToPerformActionOnHiddenControlException: Cannot perform 'Click' on the hidden control. Additional Details: 
+TechnologyName:  'MSAA'
+Name:  'Open'
+ControlType:  'MenuItem'
+ ---&gt; System.Runtime.InteropServices.COMException: Exception from HRESULT: 0xF004F002</Message>
+          <StackTrace>    at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IScreenElement.MouseButtonClick(Int32 x, Int32 y, Int32 nButton, Int32 fEnsureVisible, String bstrKeyModifiers)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.MouseButtonClick(Int32 x, Int32 y, MouseButtons button, ModifierKeys modifierKeys, Int32 ensureVisible)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+ --- End of inner exception stack trace ---
+    at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, UITestControl uiControl, Point point)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Click(MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinates)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementation(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at Microsoft.VisualStudio.TestTools.UITesting.Mouse.ClickImplementationWrapper(UITestControl control, MouseButtons button, ModifierKeys modifierKeys, Point relativeCoordinate)
+   at SpreadSheetTest.UIMap.open() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\UIMap.Designer.cs:line 279
+   at SpreadSheetTest.CodedUITest1.CodedUITestMethod1() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\CodedUITest1.cs:line 42
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+      <ResultFiles>
+        <ResultFile path="NEPHI-MAC\CodedUITestMethod1.png" />
+      </ResultFiles>
+      <ExtensionResult>Exception has been thrown by the target of an invocation.</ExtensionResult>
+    </UnitTestResult>
+    <UnitTestResult executionId="4e5e2074-06f7-4220-9e20-0627a858bbb3" testId="33ff0e71-de4a-396f-cb7b-946799f655b6" testName="readFileTest" computerName="NEPHI-MAC" duration="00:00:00.0524453" startTime="2012-10-18T21:22:06.5759929-06:00" endTime="2012-10-18T21:22:06.6319961-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e5e2074-06f7-4220-9e20-0627a858bbb3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. </Message>
+          <StackTrace>   at SpreadSheetTest.SpreadsheetTest.readFileTest() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\SpreadsheetTest.cs:line 340
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

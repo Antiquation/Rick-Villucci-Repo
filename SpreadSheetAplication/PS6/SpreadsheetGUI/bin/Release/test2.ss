@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><spreadsheet version="PS6"><cell><name>C4</name><contents>123</contents></cell><cell><name>C6</name><contents>=C4</contents></cell><cell><name>D6</name><contents>234958723</contents></cell><cell><name>D10</name><contents>25</contents></cell></spreadsheet>

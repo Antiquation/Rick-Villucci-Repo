@@ -1,0 +1,264 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This page will be accesses by new users who would like to sign-up to create 
+ * resumes on the site. The page first checks that the user name entered does not exist
+ * and then if they are unique their cridentials are scrubbed verified and loaded 
+ * into the database where they are given a blank session they can use to create new resumes
+ * 
+ */
+
+require("../Helper/authentication.php");//contains helper methods for security
+require_once("../Objects/User.php");//user class for storing the user data
+require_once("../Helper/html_Helper.php");//for building the various HTML
+require ("../Hidden/databasePW.php");
+require_once("../Helper/Server.php");//server info
+
+//Variables used to Create login
+$realName = "";
+$userName = "";
+$password = "";
+$salt = makeSalt();
+$pooBack = "ResumeArchive.php"; //if there is a point of origin then this will change to that
+$hasPoo = false;
+
+//setting defaulot error variables
+$rError = "";
+$uError = "";
+$pError = "";
+$pConfError = "";
+
+  //was this a previous guest if so get point of origin
+    if(checkPoo() != false)
+    {
+        //get page of origin and reset session
+        $pooBack =checkPoo(); 
+        $hasPoo = true;
+    }
+
+
+
+// ***Check that Login doesn't exist***----------------------------------------------------------------------------    
+      
+try
+{
+    
+    //creates a new server
+    $db = connectDB();//connects to the server
+
+    
+            //if submitting for login
+    if (isset ( $_REQUEST ['Login'] ))
+    {
+      //***VALIDATION---------------------------------------------------------------------
+        
+    //CHECK THE NAME
+        //check if the name contains special characters
+        if (!preg_match('/[a-zA-Z]/i', $_REQUEST ['Real']) && $_REQUEST ['Real'] != "")
+        {
+            
+            $rError = "Name Cannot Include Special Characters or Numbers";
+            $errClass ="boxError"; 
+        }
+        elseif($_REQUEST ['Real'] == "")
+        {
+            $rError = "Name Cannot Be Blank";
+            $errClass ="boxError"; 
+            
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $realName = filter_var(trim($_REQUEST ['Real']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+        
+    //CHECK THE USERNAME
+        //check if the USERname contains special characters
+        if (!preg_match('/[a-zA-Z0-9]/i', $_REQUEST ['name']) && $_REQUEST ['name'] != "")
+        {
+            
+            $uError = " User Name Cannot Include Special Characters";
+            $errClass ="boxError"; 
+        }
+        elseif($_REQUEST ['name'] == "")
+        {
+            $uError = "Name Cannot Be Blank";
+            $errClass ="boxError"; 
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $userName = filter_var(trim($_REQUEST ['name']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+        
+       // ***strcasecmp($username, $db_username)//reference
+    //password can be anything but blank
+
+        if(strlen($_REQUEST ['password']) == 0 )
+        {
+            $pError = "Password Cannot Be Blank";
+            $errClass ="boxError"; 
+        }
+        if(strlen($_REQUEST ['Confpassword']) == 0 )
+        {
+             $pConfError = "Password Cannot Be Blank";
+            $errClass ="boxError"; 
+            
+        }
+        else
+        {   //Check if passwords don't match
+            if(strcasecmp($_REQUEST ['password'],$_REQUEST ['Confpassword']))
+            {
+                
+                 $pConfError = "Passwords don't match";
+                    $errClass ="boxError"; 
+                
+            }
+            else
+            {
+                //sanitize and feed back up the pipe to display in the form and save on the server
+                $password = filter_var(trim($_REQUEST ['password']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+            }
+        }
+        
+        //if there is an error reload without query DB
+        //if there is a user - skip logging cridentials
+        if($errClass =="")
+        {
+            
+            $q = "SELECT UserName FROM ps5_User WHERE UserName=?" ;
+            
+            
+            $stmt = $db->prepare ( $q);//prepare the query
+
+            $stmt->bindValue(1,$userName);
+            $stmt->execute();
+            $result =($stmt->fetch());
+               
+            //Check that the user name and PW does not already exist
+            //if not continue - else skip
+            if(!$result)
+            {
+                unset($stmt); //Kill the query and start the injection
+                
+                //upon verification that does not exist submit for new user
+                $stmt = $db->prepare("INSERT INTO `ps5_User` (`UserName`, `Password`, `RealName`,`Salt`) 
+                VALUES (?, ?, ?, ?)");
+                
+                $compute = computeHash($password, $salt);//adds salt to see if it matches
+                //Bind Values for sanitization
+                $stmt->bindValue(1,$userName);
+                $stmt->bindValue(2,$compute);
+                $stmt->bindValue(3,$realName);
+                $stmt->bindValue(4,$salt);
+                
+                //if successfull
+                if($stmt ->execute())
+                {
+                    //set as new user and redirect
+                    $_SESSION['New_User'] = true;
+                    $_SESSION['User_Obj']->RealName = $realName;
+                    $_SESSION['User_Obj']->isGuest = false;
+                    
+                        //was this a previous guest if so get point of origin
+                    if($hasPoo)
+                    {
+                       //get page of origin and reset session
+                        
+                        header("Location: $pooBack");
+                        session_unset();
+                        session_destroy;
+                        session_regenerate_id(true);
+                        exit();
+                    }
+                    else
+                    {
+                    header("Location: $pooBack");
+                    session_unset();
+                    session_destroy;
+                    session_regenerate_id(true);
+                    exit;
+                    }
+                }
+            }//end user not duplicate
+            else
+            {
+                $logErr = "User Name Already Exists - Try Again";   
+                $errClass ="boxError";   
+            }
+        }//no error running user
+        
+        
+    }//id is login creation attempt
+} //end try
+
+//if there is an exception communicating with the DB
+catch ( PDOException $ex )
+{
+    $logErr = "COMMUNICATION ERROR - Try again later :)";
+	//echo "<p>PDO Exception</p>";
+	//echo "$ex";
+}
+
+
+
+//***BUILD THE HTML******************
+//________________________________________________________
+
+//for adding the style sheets - this can change based on the path
+$style = "
+        <link rel='stylesheet' type='text/css' href='resumeMain.css' />
+        <link rel='stylesheet' type='text/css' href='styles.css' />";
+
+//This is the main content for this page which will be added to the resused helper code
+$additional ="
+  
+      <form id='newUser' method='post'>
+      <div class=error >$logErr</div>
+      </br>
+<table class='Log'>
+ <tr>
+    <td> Your Full Name </td>
+    <td><input class='$errClass' id='newUserName' type='text' name='Real'  value='$realName'>$rError</td>
+    <td><div id='username'></div></td>
+  </tr>
+  <tr>
+    <td> User Name </td>
+    <td><input class='$errClass' id='newUserUserName'type='text' name='name'  value='$userName'>$uError</td>
+    <td><div id='userusername'></div></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input class='$errClass' id='newUserPassword' type='password'  name='password'/>$pError</td>
+    <td><div id='password'></div></td>
+  </tr>
+  <tr>
+    <td>Confirm Password</td>
+    <td><input class='$errClass' id='newUserPassword1' type='password'  name='Confpassword'/>$pConfError</td>
+    <td><div id='password1'></div></td>
+  </tr>
+</table>
+
+<p>
+<input type='button' id='newUserButton' disabled name='Login' value='Create User'/>
+ <input type='button' id='newUser' value='Cancel' onclick=location.href='$pooBack' />
+ 
+</p>
+  <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='newUserSubmit' hidden name='Login' value='Create User'/>
+    
+</form>
+
+  ";
+//builds the page content
+$content =  build_html_page_header($additional,$style,"","","","",true);
+
+//Dispays all html content
+echo
+"
+ $content
+
+ ";
+
+?>

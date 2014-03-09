@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><spreadsheet version="PS6"><cell><name>D8</name><contents>=54*3</contents></cell><cell><name>D10</name><contents /></cell><cell><name>E15</name><contents>=D8/3*4+28+(45*2)</contents></cell></spreadsheet>

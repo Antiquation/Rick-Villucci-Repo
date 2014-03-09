@@ -1,0 +1,179 @@
+﻿/**
+ * Javascript Resume Button Helper
+ * 
+ * Developed by: Rick Villucci
+ * 
+ * University of Utah Assignment
+ * Class:CS4540
+ * Spring 2014
+ * 
+ * Date Developed: Feb 2014
+ * 
+ * 
+ */
+
+
+
+//Start the game using Jquery find function
+$(function() {
+    var resume =  $("#count").attr("value");
+    var editing = $("#editing").attr("value"); 
+    var hide = $("#hiding").attr("value");
+
+    //when pressed adds buttons on resumechooser page
+    $('input[type=radio]').click(function ()
+    {
+        //shows buttons only if there is more than zero resumes
+        $(".toHide").removeAttr("disabled");
+
+    });
+
+    //when pressed adds address fields on addressedit page
+    $('input[id=newBtn]').click(function () {
+        //showsaddress fields only if there is more than zero resumes
+        $(".hide").removeClass("hide");
+
+    });
+    //when a selection from the drop down is selected makes
+    //view edit button active
+    $("#addressChooser").change(function () {
+        $("#editBtn").removeAttr("disabled");
+        $("#delete").removeAttr("disabled");
+       
+
+    });
+        //warning message triggered
+    $('input[id=cancelPhn]').click(function () {
+        warningCancelEdit();//cancels the edit if approved
+
+    });
+
+    //when pressed adds address fields on addressedit page
+    $('input[id=editBtn]').click(function () {
+        //showsaddress fields only if there is more than zero resumes
+        $(".hide").removeClass("hide");
+      //  $(".hide").removeAttr("required");
+        $('#edit #editBtn').click();//submits resume (form name,button submit type)
+        
+    });
+
+    //when pressed adds address fields on addressedit page
+    $('input[id=delete]').click(function () {
+        //send warning of possible deletion of asset
+        warningDeleteAssets();
+
+    });
+
+    //when pressed adds address fields on addressedit page
+    $('input[id=logout]').click(function () {
+        //send warning of possible deletion of asset
+        warningLogOut();
+
+    });
+
+
+    //if not hiding then form is shown
+    if (!hide)
+    {
+        $(".hide").removeClass("hide");
+    }
+
+    //if editing then show message on submit
+    if (editing)
+    {
+       
+        //PRompt for over write
+        $('input[id=addressSubmit]').click(function () {
+            warningOver();//run the message function
+
+        });
+        $('input[id=cancelBtn]').click(function () {
+            warningCancelEdit();//cancels the edit if approved
+
+        });
+    }//end if editing
+    else
+    {
+        //PRompt for over write
+        $('input[id=addressSubmit]').click(function () {
+           
+            $('#edit #submitButton').click();
+
+        });
+    }//end if not editing
+
+
+    
+});
+
+
+//This is a warning message for the delete selection of the resume chooser
+function warningDelete() {
+    var x;
+    var r = confirm("Delete Resume!!?");
+    if (r == true) {
+        $('#ResumeChooser #Delete_Resume').click();//submits resume (form name,button submit type)
+     
+        x = "Resume Deleted";
+    }
+    else
+    {
+        x = "Delete Canceled";
+    }
+    document.getElementById("confirmed").innerHTML = x;
+
+}//Warning end
+
+//This is a warning message for the delete selection of the Address Editor
+function warningDeleteAssets() {
+    var x;
+    var r = confirm("DELETE RESUME ASSET?!!? ***NOTE:...If this asset is being used in a resume you will need to make a new selection");
+    if (r == true) {
+        $('#edit #deleteButton').click();//submits resume (form name,button submit type)
+
+        x = "Deleted";
+    }
+    else {
+        x = "Delete Canceled";
+    }
+    document.getElementById("confirmed").innerHTML = x;
+
+}//Warning end
+
+//if cancel editing send message
+function warningCancelEdit() {
+    var x;
+    var r = confirm("Cancel Editing?!!?");
+    if (r == true) {
+        $('#edit #cancelButton').click();//submits resume (form name,button submit type)
+
+        x = "Edit Canceled";
+    }
+   
+    document.getElementById("confirmed").innerHTML = x;
+
+}//Warning end
+
+
+//This is a warning message for over writeing elements
+function warningOver() {
+
+    var r = confirm('OVER WRITE!!?');
+    if (r == true) {
+        $('#edit #editButton').click();
+
+
+    }
+}//end Warning
+
+//This is a warning message for over writeing elements
+    function warningLogOut() {
+
+        var r = confirm('Log Out!!?... Any Unsaved Information... WILL BE LOST!!');
+        if (r == true) {
+            $('#logoutForm #LogOut').click();
+
+
+        }
+
+}//Warning end

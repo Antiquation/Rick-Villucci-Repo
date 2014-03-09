@@ -1,0 +1,5 @@
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\bin\Debug\Formula.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\bin\Debug\Formula.pdb
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\obj\Debug\ResolveAssemblyReference.cache
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\obj\Debug\Formula.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\obj\Debug\Formula.pdb

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <!-- title of the project -->
+  <title>Resume Builder PS3</title>
+  <!-- css reference -->
+  <link rel="stylesheet" type="text/css" href="resumeMain.css" />
+    <link rel='stylesheet' type='text/css' href='styles.css' />
+</head>
+
+<body>
+  
+  <!-- wraps the site so that it scales with the size of the page -->
+  <div id="wrapperIndex">
+      <!--Menu-->
+
+      <!--Menu-->
+            <div id='cssmenu'>
+            <ul>
+               <li ><a href='ResumeChoose.php'><span>Resumes</span></a></li>
+               <li ><a href='AddressEdit.php'><span>Address</span></a></li>
+               <li><a href='PhoneEdit.php'><span>Phone</span></a></li>
+                <li ><a href='JobEdit.php'><span>Job</span></a></li>
+               <li class='active'><a href='help.html'><span>Help/Info</span></a></li>
+            </ul>
+            </div>
+
+    <div id="header">
+      <h3>Resume Builder PS3</h3><br />
+      CS4540 - Spring 2014 By: Rick Villucci
+    </div><br />
+
+        
+
+	<!--Instructions-->
+    <h1 id="instruct">For this assignment I did a couple of nice things</h1>
+    <div id = "help">
+    <li>Auto Generated Drop Down for State Selection</li>
+     <li>Auto Generated Drop Down for addresses Selection</li>
+     <li>Auto Generated Drop Down for Phone Selection</li>
+    <li>Auto Generated the months for begining and ending dates</li>
+     <li>***Allow for multiple addresses and phone numbers which they can add into the resume</li>   
+    <li>limited the date year to 4 characters</li>
+    <li>Created Menus with Disabled Button Feature</li>
+    <li>***Implimented messaging system for communicating events to the user</li>
+    <li>Added a Dynamic Menu</li>
+    <li>Added cool paper look to the resume page</li>
+    <li>***REFACTORED ENTIRE APPLICATION TO UTILIZE OBJECT ORIENTED APPROACH</li>
+    <li>***Allow the addition of new users to the system</li>
+     <li>***Utilized SH1 password encryption</li>
+    <li>Only allows functions on a selected resume otherwise buttons are greyed out</li>
+    <li>Spell Check for text areas</li>
+        <li>***WARNS USER IF THEY TRY TO LOG OUT </li>
+        <li>***WARNS USER IF there are no phone numbers or addresses on file when they go to make a resume</li>
+
+    
+    </div>
+    <br/>
+     
+
+ 
+  </div>
+        </div>
+</body>
+</html>

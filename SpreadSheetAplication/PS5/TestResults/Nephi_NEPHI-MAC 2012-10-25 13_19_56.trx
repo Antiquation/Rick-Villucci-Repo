@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="aa2ea91d-3f30-4e0e-a969-554fac2e2da3" name="Nephi@NEPHI-MAC 2012-10-25 13:19:56" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9d939d0e-582a-4bf7-8497-1b23f07d4666">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Nephi_NEPHI-MAC 2012-10-25 13_19_56">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Formula.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\SpreadsheetUtilities.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadSheet.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\SpreadSheet\bin\Debug\SpreadSheet.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\SpreadSheet\bin\Debug\SpreadSheet.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-25T13:19:56.2269675-06:00" queuing="2012-10-25T13:19:56.8920056-06:00" start="2012-10-25T13:19:56.9420084-06:00" finish="2012-10-25T13:19:58.8691187-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="24" executed="24" passed="24" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="InvalidNameExceptionConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="79bf55db-d796-15dd-896e-105c2ea66978">
+      <Execution id="0db77889-6dbc-492a-a0e2-2d5a368e77a6" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.InvalidNameExceptionTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InvalidNameExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetNamesOfAllNonemptyCellsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="a500a9eb-975d-d9a8-2a22-a35481b4efc8">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="fe84cc3b-5a5f-4f55-8646-71cd770332a1" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetNamesOfAllNonemptyCellsTest" />
+    </UnitTest>
+    <UnitTest name="setValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="867e7474-6e2b-5942-58f7-5a25725b7570">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="b247bd03-e275-496f-80c3-f32bc1ea9de9" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setValueTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="e8fc7f63-159c-1ee7-11f8-f057d65c0467">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="8f9419e0-eeff-47d4-bead-32328b37bb07" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest" />
+    </UnitTest>
+    <UnitTest name="readFileTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="33ff0e71-de4a-396f-cb7b-946799f655b6">
+      <Execution id="532dd04c-ea94-48f1-9003-af8bad3b60ea" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="readFileTest" />
+    </UnitTest>
+    <UnitTest name="getContentTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="d203a43c-209c-000e-2feb-4acbd99bbf45">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="2a162803-c59a-4542-b4ca-1e1ae9dea47f" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getContentTest" />
+    </UnitTest>
+    <UnitTest name="addDepTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="f8722107-964b-1c46-139c-39de3602c77d">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="a3f180e9-7f93-40b4-b4fb-bb26b1292528" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="addDepTest" />
+    </UnitTest>
+    <UnitTest name="CellConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="63cad989-9579-8474-3774-12bb0e425608">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="35c46b71-db34-47af-8d34-c9b4d10ef633" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CellConstructorTest" />
+    </UnitTest>
+    <UnitTest name="circularTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="6f5ab261-6300-9ab8-535e-3406655bc9bd">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="1866cd99-2a7c-4e4b-8401-dc449c3d1130" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="circularTest" />
+    </UnitTest>
+    <UnitTest name="SaveTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="feea2572-422c-4dc6-3dea-cb99c6cd99ec">
+      <Execution id="5b46dafb-0121-4652-9ddb-d0246c94d431" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SaveTest" />
+    </UnitTest>
+    <UnitTest name="CellConstructorTest1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="4a4a4b65-dd50-0e9c-6375-61f36a07efb1">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="d9af27f0-e4a1-436e-b80b-d44ba0125a34" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CellConstructorTest1" />
+    </UnitTest>
+    <UnitTest name="GetCellContentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="070e5c9e-83ba-8487-680d-9432112bf73a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="735dd999-5baa-4c93-b32f-54bfe2d3ad53" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCellContentsTest" />
+    </UnitTest>
+    <UnitTest name="CircularExceptionConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="6a05434d-6707-84ca-ced5-050e7c87f45a">
+      <Execution id="49c4d7be-d7c2-4987-91a3-e7a7efc78121" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CircularExceptionTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CircularExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="SpreadsheetConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="ced375f7-fc6c-09e5-568f-451d5a013b82">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="ca8dccf2-4dee-416c-8327-cfb593b343c2" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SpreadsheetConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetCellValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="2de13980-0389-f33a-a841-065b81e195a0">
+      <Execution id="5842e689-ad43-4b34-885a-50bc2dced4b0" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCellValueTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest2" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="66acbbf0-b8fd-905a-c268-c3cff79c0b61">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="eb332b0a-85fe-4501-9713-5ca4b10123a4" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest2" />
+    </UnitTest>
+    <UnitTest name="getCellTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="c55a43a1-0040-4d88-95b2-80c7d69a3a48" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getCellTest" />
+    </UnitTest>
+    <UnitTest name="GetDirectDependentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="4f979ee2-5aa2-56ab-1333-41246e08886a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="0314af67-118a-4636-9f0f-e7cd52acd3ae" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDirectDependentsTest" />
+    </UnitTest>
+    <UnitTest name="getNameTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="f3af96d5-57d1-57f3-1502-692f4999c0f3">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="d6fb7c86-8475-4a14-8d07-85ab0fd72342" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getNameTest" />
+    </UnitTest>
+    <UnitTest name="SetCellContentsTest1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="63b3665f-89f2-9fa7-0633-d315f1ccee1e">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="0aaddf8c-d9a4-4437-bb57-9bfcde16b480" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetCellContentsTest1" />
+    </UnitTest>
+    <UnitTest name="parseMeTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="277d5efa-0d7a-f9e4-b234-083a322cbf58">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="313c2de3-3d3e-4224-93ba-13ad3e9992d9" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="parseMeTest" />
+    </UnitTest>
+    <UnitTest name="isValidTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="f657aba3-0970-6a5d-dc4d-554c0b1416ea">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="1768fe4b-1f21-49db-bb61-907e725645f8" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.SpreadsheetTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="isValidTest" />
+    </UnitTest>
+    <UnitTest name="setContTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="330a267b-99cb-4478-a1c9-42959d4a20da" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="setContTest" />
+    </UnitTest>
+    <UnitTest name="getValueTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps5\spreadsheettest\bin\debug\spreadsheettest.dll" id="65c1bca8-1bf7-1bd5-9113-ab42edf8134a">
+      <DeploymentItems>
+        <DeploymentItem filename="SpreadSheet.dll" />
+      </DeploymentItems>
+      <Execution id="7a2f3f21-97b5-46a1-bfb0-d94128c0dc93" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS5/SpreadSheetTest/bin/Debug/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CellTest, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getValueTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="070e5c9e-83ba-8487-680d-9432112bf73a" executionId="735dd999-5baa-4c93-b32f-54bfe2d3ad53" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e" executionId="c55a43a1-0040-4d88-95b2-80c7d69a3a48" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="277d5efa-0d7a-f9e4-b234-083a322cbf58" executionId="313c2de3-3d3e-4224-93ba-13ad3e9992d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2de13980-0389-f33a-a841-065b81e195a0" executionId="5842e689-ad43-4b34-885a-50bc2dced4b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632" executionId="330a267b-99cb-4478-a1c9-42959d4a20da" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="33ff0e71-de4a-396f-cb7b-946799f655b6" executionId="532dd04c-ea94-48f1-9003-af8bad3b60ea" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a4a4b65-dd50-0e9c-6375-61f36a07efb1" executionId="d9af27f0-e4a1-436e-b80b-d44ba0125a34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4f979ee2-5aa2-56ab-1333-41246e08886a" executionId="0314af67-118a-4636-9f0f-e7cd52acd3ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63b3665f-89f2-9fa7-0633-d315f1ccee1e" executionId="0aaddf8c-d9a4-4437-bb57-9bfcde16b480" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63cad989-9579-8474-3774-12bb0e425608" executionId="35c46b71-db34-47af-8d34-c9b4d10ef633" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65c1bca8-1bf7-1bd5-9113-ab42edf8134a" executionId="7a2f3f21-97b5-46a1-bfb0-d94128c0dc93" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66acbbf0-b8fd-905a-c268-c3cff79c0b61" executionId="eb332b0a-85fe-4501-9713-5ca4b10123a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a05434d-6707-84ca-ced5-050e7c87f45a" executionId="49c4d7be-d7c2-4987-91a3-e7a7efc78121" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f5ab261-6300-9ab8-535e-3406655bc9bd" executionId="1866cd99-2a7c-4e4b-8401-dc449c3d1130" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79bf55db-d796-15dd-896e-105c2ea66978" executionId="0db77889-6dbc-492a-a0e2-2d5a368e77a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="867e7474-6e2b-5942-58f7-5a25725b7570" executionId="b247bd03-e275-496f-80c3-f32bc1ea9de9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a500a9eb-975d-d9a8-2a22-a35481b4efc8" executionId="fe84cc3b-5a5f-4f55-8646-71cd770332a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ced375f7-fc6c-09e5-568f-451d5a013b82" executionId="ca8dccf2-4dee-416c-8327-cfb593b343c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d203a43c-209c-000e-2feb-4acbd99bbf45" executionId="2a162803-c59a-4542-b4ca-1e1ae9dea47f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8fc7f63-159c-1ee7-11f8-f057d65c0467" executionId="8f9419e0-eeff-47d4-bead-32328b37bb07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3af96d5-57d1-57f3-1502-692f4999c0f3" executionId="d6fb7c86-8475-4a14-8d07-85ab0fd72342" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f657aba3-0970-6a5d-dc4d-554c0b1416ea" executionId="1768fe4b-1f21-49db-bb61-907e725645f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8722107-964b-1c46-139c-39de3602c77d" executionId="a3f180e9-7f93-40b4-b4fb-bb26b1292528" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="feea2572-422c-4dc6-3dea-cb99c6cd99ec" executionId="5b46dafb-0121-4652-9ddb-d0246c94d431" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="735dd999-5baa-4c93-b32f-54bfe2d3ad53" testId="070e5c9e-83ba-8487-680d-9432112bf73a" testName="GetCellContentsTest" computerName="NEPHI-MAC" duration="00:00:00.0330328" startTime="2012-10-25T13:19:57.4710387-06:00" endTime="2012-10-25T13:19:57.6700501-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="735dd999-5baa-4c93-b32f-54bfe2d3ad53">
+    </UnitTestResult>
+    <UnitTestResult executionId="c55a43a1-0040-4d88-95b2-80c7d69a3a48" testId="1f2ad33e-3ee7-7a55-8a5b-844a035eb68e" testName="getCellTest" computerName="NEPHI-MAC" duration="00:00:00.0001186" startTime="2012-10-25T13:19:57.6710501-06:00" endTime="2012-10-25T13:19:57.6740503-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c55a43a1-0040-4d88-95b2-80c7d69a3a48">
+    </UnitTestResult>
+    <UnitTestResult executionId="313c2de3-3d3e-4224-93ba-13ad3e9992d9" testId="277d5efa-0d7a-f9e4-b234-083a322cbf58" testName="parseMeTest" computerName="NEPHI-MAC" duration="00:00:00.0048215" startTime="2012-10-25T13:19:57.6750504-06:00" endTime="2012-10-25T13:19:57.6830508-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="313c2de3-3d3e-4224-93ba-13ad3e9992d9">
+    </UnitTestResult>
+    <UnitTestResult executionId="5842e689-ad43-4b34-885a-50bc2dced4b0" testId="2de13980-0389-f33a-a841-065b81e195a0" testName="GetCellValueTest" computerName="NEPHI-MAC" duration="00:00:00.0132534" startTime="2012-10-25T13:19:57.6840509-06:00" endTime="2012-10-25T13:19:57.7000518-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5842e689-ad43-4b34-885a-50bc2dced4b0">
+    </UnitTestResult>
+    <UnitTestResult executionId="330a267b-99cb-4478-a1c9-42959d4a20da" testId="2f1fb58e-f0b1-5aa3-2c7e-f52c8959a632" testName="setContTest" computerName="NEPHI-MAC" duration="00:00:00.0008014" startTime="2012-10-25T13:19:57.7010519-06:00" endTime="2012-10-25T13:19:57.7050521-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="330a267b-99cb-4478-a1c9-42959d4a20da">
+    </UnitTestResult>
+    <UnitTestResult executionId="532dd04c-ea94-48f1-9003-af8bad3b60ea" testId="33ff0e71-de4a-396f-cb7b-946799f655b6" testName="readFileTest" computerName="NEPHI-MAC" duration="00:00:00.0092278" startTime="2012-10-25T13:19:57.7060521-06:00" endTime="2012-10-25T13:19:57.7180528-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="532dd04c-ea94-48f1-9003-af8bad3b60ea">
+    </UnitTestResult>
+    <UnitTestResult executionId="d9af27f0-e4a1-436e-b80b-d44ba0125a34" testId="4a4a4b65-dd50-0e9c-6375-61f36a07efb1" testName="CellConstructorTest1" computerName="NEPHI-MAC" duration="00:00:00.0003779" startTime="2012-10-25T13:19:57.7190529-06:00" endTime="2012-10-25T13:19:57.7220531-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9af27f0-e4a1-436e-b80b-d44ba0125a34">
+    </UnitTestResult>
+    <UnitTestResult executionId="0314af67-118a-4636-9f0f-e7cd52acd3ae" testId="4f979ee2-5aa2-56ab-1333-41246e08886a" testName="GetDirectDependentsTest" computerName="NEPHI-MAC" duration="00:00:00.0014298" startTime="2012-10-25T13:19:57.7230531-06:00" endTime="2012-10-25T13:19:57.7270533-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0314af67-118a-4636-9f0f-e7cd52acd3ae">
+    </UnitTestResult>
+    <UnitTestResult executionId="0aaddf8c-d9a4-4437-bb57-9bfcde16b480" testId="63b3665f-89f2-9fa7-0633-d315f1ccee1e" testName="SetCellContentsTest1" computerName="NEPHI-MAC" duration="00:00:00.0020195" startTime="2012-10-25T13:19:57.7270533-06:00" endTime="2012-10-25T13:19:57.7330537-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0aaddf8c-d9a4-4437-bb57-9bfcde16b480">
+    </UnitTestResult>
+    <UnitTestResult executionId="35c46b71-db34-47af-8d34-c9b4d10ef633" testId="63cad989-9579-8474-3774-12bb0e425608" testName="CellConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0005357" startTime="2012-10-25T13:19:57.7330537-06:00" endTime="2012-10-25T13:19:57.7370539-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35c46b71-db34-47af-8d34-c9b4d10ef633">
+    </UnitTestResult>
+    <UnitTestResult executionId="7a2f3f21-97b5-46a1-bfb0-d94128c0dc93" testId="65c1bca8-1bf7-1bd5-9113-ab42edf8134a" testName="getValueTest" computerName="NEPHI-MAC" duration="00:00:00.0008717" startTime="2012-10-25T13:19:57.7370539-06:00" endTime="2012-10-25T13:19:57.7420542-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a2f3f21-97b5-46a1-bfb0-d94128c0dc93">
+    </UnitTestResult>
+    <UnitTestResult executionId="eb332b0a-85fe-4501-9713-5ca4b10123a4" testId="66acbbf0-b8fd-905a-c268-c3cff79c0b61" testName="SetCellContentsTest2" computerName="NEPHI-MAC" duration="00:00:00.0014833" startTime="2012-10-25T13:19:57.7430543-06:00" endTime="2012-10-25T13:19:57.7470545-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb332b0a-85fe-4501-9713-5ca4b10123a4">
+    </UnitTestResult>
+    <UnitTestResult executionId="49c4d7be-d7c2-4987-91a3-e7a7efc78121" testId="6a05434d-6707-84ca-ced5-050e7c87f45a" testName="CircularExceptionConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0002615" startTime="2012-10-25T13:19:57.7480545-06:00" endTime="2012-10-25T13:19:57.7520548-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49c4d7be-d7c2-4987-91a3-e7a7efc78121">
+    </UnitTestResult>
+    <UnitTestResult executionId="1866cd99-2a7c-4e4b-8401-dc449c3d1130" testId="6f5ab261-6300-9ab8-535e-3406655bc9bd" testName="circularTest" computerName="NEPHI-MAC" duration="00:00:00.0001191" startTime="2012-10-25T13:19:57.7520548-06:00" endTime="2012-10-25T13:19:57.7560550-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1866cd99-2a7c-4e4b-8401-dc449c3d1130">
+    </UnitTestResult>
+    <UnitTestResult executionId="0db77889-6dbc-492a-a0e2-2d5a368e77a6" testId="79bf55db-d796-15dd-896e-105c2ea66978" testName="InvalidNameExceptionConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0003709" startTime="2012-10-25T13:19:57.7570551-06:00" endTime="2012-10-25T13:19:57.7610553-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0db77889-6dbc-492a-a0e2-2d5a368e77a6">
+    </UnitTestResult>
+    <UnitTestResult executionId="b247bd03-e275-496f-80c3-f32bc1ea9de9" testId="867e7474-6e2b-5942-58f7-5a25725b7570" testName="setValueTest" computerName="NEPHI-MAC" duration="00:00:00.0001140" startTime="2012-10-25T13:19:57.7610553-06:00" endTime="2012-10-25T13:19:57.7650555-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b247bd03-e275-496f-80c3-f32bc1ea9de9">
+    </UnitTestResult>
+    <UnitTestResult executionId="fe84cc3b-5a5f-4f55-8646-71cd770332a1" testId="a500a9eb-975d-d9a8-2a22-a35481b4efc8" testName="GetNamesOfAllNonemptyCellsTest" computerName="NEPHI-MAC" duration="00:00:00.0024389" startTime="2012-10-25T13:19:57.7650555-06:00" endTime="2012-10-25T13:19:57.7710559-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fe84cc3b-5a5f-4f55-8646-71cd770332a1">
+    </UnitTestResult>
+    <UnitTestResult executionId="ca8dccf2-4dee-416c-8327-cfb593b343c2" testId="ced375f7-fc6c-09e5-568f-451d5a013b82" testName="SpreadsheetConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0002178" startTime="2012-10-25T13:19:57.7720559-06:00" endTime="2012-10-25T13:19:57.7750561-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca8dccf2-4dee-416c-8327-cfb593b343c2">
+    </UnitTestResult>
+    <UnitTestResult executionId="2a162803-c59a-4542-b4ca-1e1ae9dea47f" testId="d203a43c-209c-000e-2feb-4acbd99bbf45" testName="getContentTest" computerName="NEPHI-MAC" duration="00:00:00.0003546" startTime="2012-10-25T13:19:57.7760561-06:00" endTime="2012-10-25T13:19:57.7790563-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a162803-c59a-4542-b4ca-1e1ae9dea47f">
+    </UnitTestResult>
+    <UnitTestResult executionId="8f9419e0-eeff-47d4-bead-32328b37bb07" testId="e8fc7f63-159c-1ee7-11f8-f057d65c0467" testName="SetCellContentsTest" computerName="NEPHI-MAC" duration="00:00:00.0012697" startTime="2012-10-25T13:19:57.7800564-06:00" endTime="2012-10-25T13:19:57.7840566-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8f9419e0-eeff-47d4-bead-32328b37bb07">
+    </UnitTestResult>
+    <UnitTestResult executionId="d6fb7c86-8475-4a14-8d07-85ab0fd72342" testId="f3af96d5-57d1-57f3-1502-692f4999c0f3" testName="getNameTest" computerName="NEPHI-MAC" duration="00:00:00.0003248" startTime="2012-10-25T13:19:57.7840566-06:00" endTime="2012-10-25T13:19:57.7880568-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d6fb7c86-8475-4a14-8d07-85ab0fd72342">
+    </UnitTestResult>
+    <UnitTestResult executionId="1768fe4b-1f21-49db-bb61-907e725645f8" testId="f657aba3-0970-6a5d-dc4d-554c0b1416ea" testName="isValidTest" computerName="NEPHI-MAC" duration="00:00:00.0005008" startTime="2012-10-25T13:19:57.7880568-06:00" endTime="2012-10-25T13:19:57.7920571-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1768fe4b-1f21-49db-bb61-907e725645f8">
+    </UnitTestResult>
+    <UnitTestResult executionId="a3f180e9-7f93-40b4-b4fb-bb26b1292528" testId="f8722107-964b-1c46-139c-39de3602c77d" testName="addDepTest" computerName="NEPHI-MAC" duration="00:00:00.0001051" startTime="2012-10-25T13:19:57.7930571-06:00" endTime="2012-10-25T13:19:57.7960573-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a3f180e9-7f93-40b4-b4fb-bb26b1292528">
+    </UnitTestResult>
+    <UnitTestResult executionId="5b46dafb-0121-4652-9ddb-d0246c94d431" testId="feea2572-422c-4dc6-3dea-cb99c6cd99ec" testName="SaveTest" computerName="NEPHI-MAC" duration="00:00:00.0017616" startTime="2012-10-25T13:19:57.7960573-06:00" endTime="2012-10-25T13:19:57.8010576-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b46dafb-0121-4652-9ddb-d0246c94d431">
+    </UnitTestResult>
+  </Results>
+</TestRun>

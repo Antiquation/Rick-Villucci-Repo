@@ -1,0 +1,6 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\bin\Release\Formula.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\bin\Release\Formula.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\obj\Release\Formula.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\obj\Release\Formula.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\bin\Release\Formula.XML

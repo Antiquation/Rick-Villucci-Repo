@@ -1,0 +1,343 @@
+﻿using SpreadsheetUtilities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Collections;
+
+namespace Unit_Test
+{
+    
+    
+    /// <summary>
+    ///This is a test class for DependencyGraphTest and is intended
+    ///to contain all DependencyGraphTest Unit Tests
+    ///</summary>
+    [TestClass()]
+    public class DependencyGraphTest
+    {
+
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        //public variables
+
+        string child = "A"; // TODO: Initialize to an appropriate value
+        string parent = "B"; // TODO: Initialize to an appropriate value
+        string child2 = "C";
+        string parent2 = "D";
+        DependencyGraph target = new DependencyGraph(); // TODO: Initialize to an appropriate value
+            //listed used to test replace
+        List<string> replace = new List<string>();
+
+        #region Additional test attributes
+        // 
+        //You can use the following additional attributes as you write your tests:
+        //
+        //Use ClassInitialize to run code before running the first test in the class
+        //[ClassInitialize()]
+        //public static void MyClassInitialize(TestContext testContext)
+        //{
+        //}
+        //
+        //Use ClassCleanup to run code after all tests in a class have run
+        //[ClassCleanup()]
+        //public static void MyClassCleanup()
+        //{
+        //}
+        //
+        //Use TestInitialize to run code before running each test
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{
+        //}
+        //
+        //Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //}
+        //
+        #endregion
+
+
+        /// <summary>
+        ///A test for DependencyGraph Constructor
+        ///</summary>
+       // [TestMethod()]
+  //      public void DependencyGraphConstructorTest()
+  //      {
+  //          DependencyGraph target = new DependencyGraph();
+  //         target.AddDependency("test", "test");
+  //          target.AddDependency("test", "isthisworking");
+  //          Console.Write(target.);
+  //          Assert.Inconclusive("TODO: Implement code to verify target");
+  //      }
+
+        /// <summary>
+        ///A test for AddDependency
+        ///</summary>
+        [TestMethod()]
+        public void AddDependencyTest()
+        { 
+           
+           
+            target.AddDependency(child, parent);
+            target.AddDependency(child2, parent);
+            target.AddDependency(child2, parent2);//test duplicate - should not be added
+
+            
+            Assert.IsTrue(target.Size == 3);//total size should equal
+          
+        }
+
+        /// <summary>
+        ///A test for GetDependees
+        ///</summary>
+        [TestMethod()]
+        public void GetDependeesTest()
+        {
+            
+            AddDependencyTest();
+
+            List<string> list = new List<string>(); 
+
+            foreach (string s in target.GetDependees(parent))
+            {
+                
+                
+                list.Add(s);
+                
+
+            }
+            int i = 0;
+            foreach (var element in list)
+            {
+                string temp = element;
+                Assert.IsTrue(element == list[i]);
+                i++;
+            }
+
+           
+            
+        }
+
+        /// <summary>
+        ///A test for GetDependents
+        ///</summary>
+        [TestMethod()]
+        public void GetDependentsTest()
+        {
+            List<string> list = new List<string>();
+
+            target.AddDependency("a2", "a1");
+            target.AddDependency("a3","a1");
+            target.AddDependency("b1","a2");
+            target.AddDependency("b2","a2");
+            foreach (string s in target.GetDependents("b2"))
+            {
+                list.Add(s);
+
+            }
+            
+
+           
+
+
+           // AddDependencyTest();
+
+          //             List<string> list = new List<string>(); 
+
+         //   foreach (string s in target.GetDependents(child))
+          //  {
+                
+                
+           //     list.Add(s);
+                
+
+          //  }
+          //  int i = 0;
+           // foreach (var element in list)
+          //  {
+           //     string temp = element;
+         //       Assert.IsTrue(element == list[i]);
+          //      i++;
+         //   }
+
+           
+            
+        
+        }
+
+        /// <summary>
+        ///A test for HasDependees
+        ///</summary>
+        [TestMethod()]
+        public void HasDependeesTest()
+        {
+            AddDependencyTest();
+
+            //DependencyGraph target = new DependencyGraph(); // TODO: Initialize to an appropriate value
+           // string s = string.Empty; // TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.HasDependees(parent);
+            Assert.AreEqual(expected, actual);
+           // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for HasDependents
+        ///</summary>
+        [TestMethod()]
+        public void HasDependentsTest()
+        {
+            AddDependencyTest();
+
+            //DependencyGraph target = new DependencyGraph(); // TODO: Initialize to an appropriate value
+            // string s = string.Empty; // TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.HasDependents(child);
+            Assert.AreEqual(expected, actual);
+            // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for RemoveDependency
+        ///Removes the dependency and verifies. then replaces the same dependency and rechecks.
+        ///</summary>
+        [TestMethod()]
+        public void RemoveDependencyTest()
+        {
+            AddDependencyTest();
+
+
+           
+                //removes dependency
+            target.RemoveDependency(child, parent);
+
+                //checks for removal
+            Assert.IsTrue(target[child] == 0);
+
+                //Adds the dependency again
+            target.AddDependency(child, parent);
+
+                //confirms the addition
+            Assert.IsTrue(target[child] == 1);
+        }
+
+        /// <summary>
+        ///A test for ReplaceDependees
+        ///</summary>
+        [TestMethod()]
+        public void ReplaceDependeesTest()
+        {
+                //creates the default DG
+            AddDependencyTest();
+
+                //new dependees added to the "replace" list
+            replace.Add(parent);
+            replace.Add(parent2);
+
+           
+             
+            target.ReplaceDependees(parent, dependency());
+            Assert.IsTrue(target.Size == 3);
+
+        }//end ReplaceDependee method
+
+
+
+
+                   
+
+
+        /// <summary>
+        ///A test for ReplaceDependents
+        ///</summary>
+        [TestMethod()]
+        public void ReplaceDependentsTest()
+        {
+            //creates the default DG
+            AddDependencyTest();
+
+            //new dependees added to the "replace" list
+            replace.Add(child);
+            replace.Add(child2);
+
+
+
+            target.ReplaceDependents(child, dependency());
+            Assert.IsTrue(target.Size == 4);
+
+        }
+
+        /// <summary>
+        ///A test for Item
+        ///</summary>
+        [TestMethod()]
+        public void ItemTest()
+        {
+            AddDependencyTest();
+            
+
+           int actual = target[child2];
+          Assert.IsTrue(actual == 2);
+         //   Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Size
+        ///</summary>
+        [TestMethod()]
+        public void SizeTest()
+        {
+            AddDependencyTest();
+
+            int actual;
+            actual = target.Size;
+            Assert.IsTrue(actual > 0 && actual == target.Size);
+        }
+
+
+
+
+     //   ____________________________________________________________________________________
+
+
+        //helper method for the test method
+        public IEnumerable<string> dependency()
+        {
+            //IEnumerable container holding the "replace" list
+            IEnumerable<string> newDependees = replace;
+
+            //sends all the strings in the "replace" list to the method ReplaceDependees 
+            foreach (string send in replace)
+            {
+
+
+                yield return send;
+
+
+            }
+
+        }//end dependency method
+
+    }
+}

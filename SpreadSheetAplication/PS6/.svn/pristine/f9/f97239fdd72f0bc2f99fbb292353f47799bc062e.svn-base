@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using SS;
+
+
+namespace SpreadsheetGUI
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+                //creates a default sheet
+            SS.Spreadsheet sheet = new Spreadsheet(s => true, s => s, "PS6");
+        }
+
+
+            //opening an existing file
+        public Form1(string file)
+        {
+
+            InitializeComponent();
+            SS.Spreadsheet sheet = new Spreadsheet(file, s => true, s => s, "PS6");
+
+        }
+
+
+            //new sheet open
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SheetApplicationContext.getAppContext().RunForm(new Form1());
+        }
+
+
+            //closes the current window
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+            //opens the about this program message box
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Written and developed by Nephi Self 2012");
+        }
+
+            //when file>open is selected uses the opendialog box
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.DefaultExt = ".ss";
+            open.Filter = "Spreadsheet Files (.ss)|*.ss|All Files (*.*|*.*";
+            open.FilterIndex = 1;
+            open.Multiselect = false;
+           DialogResult = open.ShowDialog();
+
+            SheetApplicationContext.getAppContext().RunForm(new Form1(DialogResult.ToString()));
+
+            
+
+        }
+    }
+}

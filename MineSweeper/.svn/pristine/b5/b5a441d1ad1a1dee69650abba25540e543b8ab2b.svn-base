@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<!-- title of the project -->
+		<title>PS1 RickV MineSweeper</title>
+		
+		<!-- css reference -->
+		<link rel="stylesheet" type="text/css" href="ps1style.css"/>
+		
+		<!-- sets up the game board size -->
+		<div id="boardSetup" multi="2"></div>
+	
+		<!-- Javascript Jquery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="miner.js"></script>
+	
+	</head>
+	
+	
+	<body>
+	
+		<!-- wraps the site so that it scales with the size of the page -->
+		<div id="wrapper">
+				
+			<div id="header"> 
+				<h3>Mine Sweeper</h3>
+			 		<br>via Javascript <br> CS4540 - Spring 2014    By: Rick Villucci</div>
+			
+				<!-- trying out generating the table useing Javascript -->
+				<div class="minefield">
+				
+					<a id="flagButton" class="flagDeactive"></a>
+					
+						<!--displays the number of mines to the user once filled-->
+						<h2 id="mineCount"></h2>
+							
+							<!-- the game board is written here -->
+							<div id="mineTable"></div>
+								<br/>
+				
+			
+			<!-- choose the number of mines and place -->
+				<h1 id="instruct">Find the mines and WIN the game</h1>
+				
+				<input id="menu" type="button" value="Back to Menu"/>
+				<!-- goes to the previous game board -->
+				<input id="prevBtn" class="nextLevel" type="button" value="Previous Level"/>
+				
+				<!-- changes the size of the minefield -->
+				<input id="levelBtn" class="nextLevel" type="button" value="Next Level"/>
+				<br/>
+				
+			</div>
+				
+		</div>
+	</body>
+</html>

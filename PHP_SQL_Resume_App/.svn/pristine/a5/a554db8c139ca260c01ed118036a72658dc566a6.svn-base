@@ -1,0 +1,368 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This is the default login page. This page takes the login cridentials and 
+ * matches them with the database. Upon match this page loads all the previous
+ * resume information into the user session for edit and display
+ * 
+ */
+require("Helper/authentication.php");//contains helper methods for security
+require ("Hidden/databasePW.php");
+require("Helper/Server.php");//server info
+require("Objects/User.php");//user class for storing the user data
+require("Objects/Address.php");//allows access to internal obj
+require("Objects/Position.php");//allows access to internal obj
+require("Objects/Job.php");//allows access to internal obj
+require("Objects/Phone.php");//allows access to internal obj
+require("Objects/History.php");//allows access to internal obj
+require("Objects/Resume.php");//allows access to internal obj
+require("Helper/html_Helper.php");//for building the various HTML
+
+
+//Variables used to login with
+
+$userName = "";
+$password = "";
+$isAdmin = false;
+$errClass = "";//this turns the boxes red if they are incorrect
+$poo;
+$salt = makeSalt();
+
+//if the session is set but there is no refering server then
+//kill the session and continue with login
+//else store the referring server and continue with 
+//existing
+if(isset($_SESSION))
+{
+   
+    if(isset($_SERVER['HTTP_REFERER']))
+    {
+        $poo = $_SERVER['HTTP_REFERER'];//sets the page of origin if it exists
+        $_SESSION['POO'] = $poo;
+    }
+    else
+    {
+        //kills the session and all variables
+        session_unset();
+        session_destroy();   
+    }
+    
+}//if session is set
+
+try
+{
+    // Redirect to HTTPS for secure login
+	redirectToHTTPS();
+   
+    $db = connectDB();;//connects to the server
+	
+// ***LOGIN***----------------------------------------------------------------------------    
+            //if submitting for login
+	    if (isset ( $_REQUEST ['Login'] ))
+	    {
+
+		    $userName = $_REQUEST ['name'];
+		    $password = $_REQUEST ['password'];
+		    $q = "SELECT ID, RealName, isAdmin FROM ps5_User WHERE UserName=? AND Password=?" ;
+            
+		    $stmt = $db->prepare ( $q);//prepare the query
+            
+
+            //sanitize
+            $stmt->bindValue(1,$userName);
+           // $stmt->bindValue(2,$password);//Unsecure PW
+            $stmt->bindValue(2,computeHash($password,$salt));//Secure PW
+
+            //if Login was successful
+           if( $stmt->execute())
+           {
+               changeSessionID();//changes the session ID of the user for security 
+               
+               //set the fetch mode to create a USER class with the ID and realName upon fetch
+               $stmt->setFetchMode( PDO::FETCH_CLASS, 'User');
+               
+               $row = $stmt->fetch();//gets the data and loads it into User obj
+            
+              $_SESSION['User_Obj'] = $row;//loads the object into session
+              $userObj =  $_SESSION['User_Obj'];
+              
+             unset( $_SESSION['New_User']);
+           }//end successfull query
+          
+           
+           
+                //if the User was set then Load resumes and 
+                //continue to the resumeArchive page
+		    if ( isset($userObj) && $userObj != false)
+		    {
+                    //finishes loading the items into the User
+			    loadUserDetail( $db, $userObj);
+			
+                if(isset($poo))
+                {
+                    // Redirect to display resume page
+                    header("Location: $poo");
+                }
+                else
+                {
+                    // Redirect to display resume page
+                    header("Location: View/ResumeChoose.php");
+                    
+                }
+                
+			print("<pre>");
+            print_r($_SESSION);
+            print("</pre>");
+
+
+			   exit; // don't do anything else!
+		    }
+		    else 
+		    {
+                $logErr = "Login Failed Try Again";   
+                $errClass ="boxError";
+			
+		    }
+	    }//end if login
+
+   
+
+} //end try
+
+//if there is an exception communicating with the DB
+catch ( PDOException $ex )
+{
+    $logErr = "COMMUNICATION ERROR - Try again later :)";
+	//echo "<p>PDO Exception</p>";
+	//echo "$ex";
+}
+
+//****END LOGIN----------------------------------------------------------------
+
+
+//Populates the existing user values from the Database and loads into the session
+
+function loadUserDetail($db,&$object)
+{
+    $tempID = $object->getID();//pulls the id from the session object
+    
+    //___________________________________________________________________________________
+    //creates All the Jobs the user has entered
+    
+    $stmt = $db->prepare ( "
+SELECT JobNumber, Name, StartMonth, StartYear, EndMonth, EndYear, JobDescription FROM ps5_Job_Description WHERE JobNumber IN (Select JobNumber FROM ps5_Job Where ID='$tempID')");
+    
+    if($stmt->execute())
+    {
+        
+        //set the fetch mode to create a USER class with the ID and realName upon fetch
+        $stmt->setFetchMode( PDO::FETCH_CLASS, 'Job');
+        while($row = $stmt->fetch())
+        {
+            //add jobs to the session
+            $numTemp = $row->JobNumber;
+            $object->jobArray[$numTemp] = $row;
+        }
+        
+    }//end execute
+    unset($stmt);//kills the query statement
+    
+    //___________________________________________________________________________________
+    //creates All the addresses the user has entered
+    
+    $stmt = $db->prepare ( "
+    SELECT Name, Address1, Address2, City, State, AddressNumber FROM ps5_Address_Detail WHERE AddressNumber IN (Select AddressNumber FROM ps5_Address Where ID='$tempID')");
+    
+    if($stmt->execute())
+    {
+        
+        //set the fetch mode to create a USER class with the ID and realName upon fetch
+        $stmt->setFetchMode( PDO::FETCH_CLASS, 'Address');
+        while($row = $stmt->fetch())
+        {
+            //add address to the session
+            
+            $object->addressArray[$row->AddressNumber] = $row;
+        }
+        
+    }//end execute
+    unset($stmt);//kills the query statement
+    
+    
+    
+    //___________________________________________________________________________________
+    //creates All the Phones the user has entered
+    
+    $stmt = $db->prepare ( "SELECT Name, PhoneNumber, Actual FROM ps5_Phone WHERE ID='$tempID'");
+    
+    if($stmt->execute())
+    {
+        
+        //set the fetch mode to create a USER class with the ID and realName upon fetch
+        $stmt->setFetchMode( PDO::FETCH_CLASS, 'Phone');
+        while($row = $stmt->fetch())
+        {
+            //add phone to the session
+            $object->phoneArray[$row->PhoneNumber] = $row;
+        }
+        
+    }//end execute
+    unset($stmt);//kills the query statement
+
+    
+    //___________________________________________________________________________________
+    //creates the Resume
+    //gives me the name of all the resumes the user has
+   
+    $stmt = $db->prepare ( "
+    SELECT Name, ResumeNumber, PhoneNumber, AddressNumber, DateCreated FROM ps5_Resume_Detail WHERE ID='$tempID'" );
+    
+    if($stmt->execute())
+    {
+        //set the fetch mode to create a USER class with the ID and realName upon fetch
+               $stmt->setFetchMode( PDO::FETCH_CLASS, 'Resume');
+               while($row = $stmt->fetch())
+               {
+                   $object->resumeArray[$row->ResumeNumber] = $row;
+                   
+               }
+              
+    }//end execute
+    unset($stmt);//kills the query statement
+    
+    
+    //___________________________________________________________________________________
+    //creates All the Job History the user has into the resume and adds it to the resume
+    /**DEPRICATED
+        //selects only the jobs associated with the resume
+    $stmt = $db->prepare ( "
+   Select ResumeNumber, JobNumber From Job_History_Set Join Job_History_Detailed where ID = '$tempID' ");
+    
+    if($stmt->execute())
+    {
+        
+        //set the fetch mode to
+        $stmt->setFetchMode( PDO::FETCH_ASSOC);
+        while($row = $stmt->fetch())
+        {
+            $resNum = $row[ResumeNumber];
+            $JbNum = $row[JobNumber];
+            
+            $tempResume = $object->get_resume($resNum);//gets resume by number from the session for user
+            $tempJob = $object ->get_job($JbNum);//gets the job by name from the session for user
+            $tempResume->add_job_to_history($JbNum,$tempJob); //adds the jobs to the jobarray in the history of the resume
+         
+        }
+        
+    }//end execute
+    unset($stmt);//kills the query statement
+    */
+    
+    //___________________________________________________________________________________
+    //adds the position to the users resume
+    
+    //selects only the position associated with the resume
+    $stmt = $db->prepare ( "
+   SELECT ResumeNumber, PositionNumber, Name, Description FROM ps5_Position NATURAL JOIN ps5_Position_Detail 
+   WHERE ResumeNumber IN (Select ResumeNumber FROM ps5_Resume_Detail Where ID='$tempID')");
+    
+    if($stmt->execute())
+    {
+        
+        //set the fetch mode to create a USER class with the ID and realName upon fetch
+        $stmt->setFetchMode( PDO::FETCH_CLASS, "Position");
+        while($row = $stmt->fetch())
+        {
+            $resNum = $row->ResumeNumber;
+            
+            $tempResume = $object->get_resume($resNum);//gets resume by number from the session for user
+            $tempResume->add_position($row); //adds the position object to the resume
+            
+        }
+        
+    }//end execute
+    unset($stmt);//kills the query statement
+    
+    
+    //___________________________________________________________________________________
+    //Adds the addresses to the resume as designated
+    
+    foreach($object->resumeArray as $resume)
+    {
+        $addressNum = $resume->AddressNumber;//key for address stored in session object
+        $phoneNum = $resume->PhoneNumber;//key for phone stored in session object
+     $resume->add_address($object->get_address($addressNum));//sets the address to the resume
+     $resume->add_phone($object->get_phone($phoneNum));//sets the phone to the resume
+        
+    }//end for each
+    
+    
+    
+    
+}//end Load User Detail
+
+//***BUILD THE HTML******************
+//________________________________________________________
+
+//ifNewUser
+if(isset($_SESSION['New_User']))
+{
+    $type = $_SESSION['New_User'];
+    $RealName = $_SESSION['User_Obj']->getName();
+}
+else{
+    $type = false;
+}
+
+//for adding the style sheets - this can change based on the path
+$style = "
+        <link rel='stylesheet' type='text/css' href='View/resumeMain.css' />
+        <link rel='stylesheet' type='text/css' href='View/styles.css' />";
+
+//This is the main content for this page which will be added to the resused helper code
+  $additional ="
+  
+      <form method='post'>
+      <div class=error >$logErr</div>
+      </br>
+<table class='Log'>
+  <tr>
+    <td> UserName </td>
+    <td><input class='$errClass' type='text' name='name' required value='$userName'></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input class='$errClass' type='password' required name='password'/></td>
+  </tr>
+</table>
+
+    <p>
+    <input type='submit' name='Login' value='Login'/>
+    </p>
+    <p>
+    <input type='button' id='newUser' value='Create User' onclick=location.href='View/NewUser.php'; />
+    </p>
+    <p>
+    <input type='submit' name='Guest' value='Continue as Guest'/>
+    </p>
+    
+</form>
+
+
+  ";
+
+  
+  //builds the page content
+ $content =  build_html_page_header($additional,$style,"",$type,$RealName,"",false);
+
+//Dispays all html content
+ echo
+ "
+ $content
+ $isSubmission
+ ";
+
+?>

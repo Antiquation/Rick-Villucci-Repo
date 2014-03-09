@@ -1,0 +1,805 @@
+﻿// Skeleton written by Joe Zachary for CS 3500, September 2012
+// Version 1.1.  Clarified the specification of ToString and addeed
+//               Equals, operator==, operator!=, and GetHashCode.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+
+namespace SpreadsheetUtilities
+{
+    /// <summary>
+    /// Represents formulas written in standard infix notation using standard precedence
+    /// rules.  The allowed symbols are non-negative numbers written using floating-point
+    /// syntax, variables that consist of one or more letters followed by one or more 
+    /// digits, parentheses, and the four operator symbols +, -, *, and /.
+    /// </summary>
+    public class Formula
+    {
+            //string version of the formula publicly accessible
+            //Cleaned Parsed & Verified formula 
+        private string fFormated;
+            //variable holds the successfuly parsed string when needed by parseMe()
+        private double Num;
+
+        //***************************************Variables****
+        //the final value to be returned to the user
+        private double result = 0;
+        //a local count value of the while statement for getting the array position
+        private int count = 0;
+        //a local temp value for temparary calculations
+        private double temp = 0;
+        //current value of operator top position
+        private string t;
+        //Number of opening brackets present
+        private int b = 0;
+
+        //load the expression into the array for iteration
+        private string[] substrings;
+
+        // 2 local generic stacks of size "substring length" which hold the values and/or the operators for evaluating the given expression
+         private Stack<Double> Value = new Stack<Double>();
+        private Stack<String> Operator = new Stack<String>();
+        //********************************************
+
+
+        /// <summary>
+        /// CONSTRUCTOR - Creates a Formula from a string that consists of an infix expression written as
+        /// described in the class comment.  If the expression is syntacticaly invalid,
+        /// throws a FormulaFormatException with an explanatory Message.
+        /// </summary>
+        /// <param name="formula">String representation of the formula to be evaluated</param>
+        public Formula(String formula)
+        {
+            
+              
+    //INTRA-CONSTRUCTIVE LOCAL VARIABLES***
+
+                //counts the number of tokens in the string
+            int tokenC = 0;
+
+                //counts the number of opening vs closing perenthesis
+            int openP = 0;
+            int closeP = 0;
+
+                //stores the last token
+            string lastT = null;
+
+                
+            
+    //*************************************
+
+
+                //pass the formula string to the getTokens() method which will parse the string
+                //and IEnumerate the formula one token at a time which we take and
+                //analyse for syntactic correctness.
+            foreach(string token in GetTokens(formula))
+            {
+                
+
+                    //INTRA-ITERATIVE TOKEN COUNTERS************************
+
+                                //if the token is opening perenthesis iterate the 
+                                //counter accordingly
+                            if (token == "(")
+                                openP++;
+
+                                //if the token is closing perenthesis iterate the 
+                                //counter accordingly
+                            if (token == ")")
+                                closeP++;
+
+                                
+
+                        //*************************************
+
+
+
+                    //INTRA-ITERATIVE EXCEPTION CHECKING*******************
+                    
+                                //if this is the first token.........
+                            if (tokenC == 0)
+                            {
+                                    //checks that the first token of the expression is either a number a variable or an opening perenthesis.
+                                if (!((Regex.IsMatch(token, @"^[a-zA-Z]+\d+$")) || (Regex.IsMatch(token, @"^[0-9]*(?:\.[0-9]*)?$")) || (Regex.IsMatch(token, @"^[(]+$"))))
+                                {
+                                    new FormulaFormatException("Formula must begin with either a Variable, Number, or Open Perenthesis");
+                                }
+
+                            }//end if token is first
+
+
+                            if (lastT != null)
+                            {
+                                //if the last token was an "(" 
+                                if (lastT == "(")
+                                {
+                                    //verifies that the current token is of valid type (var, number, "(") else it throws eception
+                                    if ((!(Regex.IsMatch(token, @"^[a-zA-Z]+\d+$")) || (Regex.IsMatch(token, @"^[0-9]*(?:\.[0-9]*)?$")) || (Regex.IsMatch(token, @"^[(]+$"))))
+                                    {
+                                        new FormulaFormatException("The item immediately proceeding the Open Perenthesis must be either a variable, number or an open perenthesis.");
+                                    }
+                                }//end if lastT is "("
+
+
+
+                                //if the last token was a variable, number or a closing perenthesis then....
+                                if (((Regex.IsMatch(lastT, @"^[a-zA-Z]+\d+$")) || (Regex.IsMatch(lastT, @"^[0-9]*(?:\.[0-9]*)?$")) || (Regex.IsMatch(lastT, @"^[)]+$"))))
+                                {
+                                    //if current token is NOT an operator or a closing perenthesis throw exception
+                                    if (!((Regex.IsMatch(token, @"^[\+\-*/(]+$")) || (Regex.IsMatch(token, @"^[)]+$"))))
+                                        new FormulaFormatException("The item immediately folowing a variable, number or closing perenthesis must be a closing perenthesis or an operator.");
+                                }
+
+                            }//if - ensuring that lastT is not null
+
+
+                                //if the number of closing perenthesis is greater than opening throw exception
+                            if (closeP > openP)
+                                new FormulaFormatException("The number of closing perenthesis cannot exceed the number of opening");
+
+
+                        //***********************************************
+                
+
+                    //stores the current token for future analysis
+
+                lastT = token;
+
+                //iterates the token counter
+                tokenC++;
+
+                    
+                    //if the value is parsable as a double load the value into the 
+                    //formula = else it is an operator or variable
+                if (parseMe(token))
+                {
+                    fFormated += Num;
+                }
+                else
+                fFormated += token;
+
+
+            }//end foreach iterator
+
+
+
+                //POST ITERATIVE FORMULA CHECKS***********
+
+
+                                //checks that the number of tokens is at least 1
+                            if (!(tokenC >= 1))//*** PROGRAMING NOTE *** may need to change to tokenC != 2 if fails the must have one token test
+                                new FormulaFormatException("There must be at least one valid token in your expression");
+
+                           // string lT = Char.IsLetter(lastT[0]);
+                                //checks that the last token in the iterator was either a number a variable or a closing perenthesis
+                            if (!((Char.IsLetter(lastT[0])) || (Regex.IsMatch(lastT, @"^[0-9]*(?:\.[0-9]*)?$")) || (Regex.IsMatch(lastT, @"^[)]+$"))))
+                                new FormulaFormatException("Formula must end with either a Variable, Number, or Closing Perenthesis");
+                            
+      
+                                //checks that the number of opening and closing perenthesis are equal
+                            if(openP != closeP)
+                                new FormulaFormatException("The number of closing perenthesis MUST EQUAL the number of opening");
+
+
+                    //***********************************
+
+
+
+                            
+
+        }//End Constructor
+
+
+
+
+
+        /// <summary>
+        /// Evaluates this Formula, using the lookup delegate to determine the values of
+        /// variables.  
+        /// 
+        /// Given a variable symbol as its parameter, lookup returns the
+        /// variable's value (if it has one) or throws an ArgumentException (otherwise).
+        /// 
+        /// If no undefined variables or divisions by zero are encountered when evaluating 
+        /// this Formula, the value is returned.  Otherwise, a FormulaError is returned.  
+        /// The Reason property of the FormulaError should have a meaningful explanation.
+        /// </summary>
+        /// <param name="lookup"> Delegate taking a string and returning a double</param>
+        /// <returns></returns>
+        public object Evaluate(Func<string, double> lookup)
+        {
+
+           
+
+
+            //********************************************CODE****
+                  
+            
+                        //given token Splitter
+                    substrings = Regex.Split(fFormated, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+
+                    //Iterating through The algortithm used to evaluate the tokens in the array
+                    while (count != substrings.Length)
+                    {
+
+                        //*********************NULL (BLANK) TOKEN VALUE PROCESSING
+
+                        //local string containing token at position "count"
+                        string s = substrings[count];
+
+
+
+                        //if the value of the substring at position "count" is empty - "blank" iterate to next 
+                        if (s == "")
+                        {
+                            count++;
+                            try
+                            {
+                                s = substrings[count];
+                            }
+                            catch
+                            {
+                                continue;
+                            }
+                        }
+                        //****end null token processing
+
+
+
+
+
+
+
+
+
+                        //*********************VARIABLE PROCESSING AND PASSING TO INTEGER PROCESSING
+
+                        //check if the tokens first character is alpha - "a-z" Thus a Variable
+                        if (Char.IsLetter(s[0]))
+                        {
+                                isDouble(lookup(s));
+                           
+                        }
+
+
+    //**********************INTEGER DETERMINATION AND PASSING TO SECOND LEVEL INTEGER PROCESSING
+
+                            //else if the token isparsable as a double send the result to isDouble() 
+                            //
+                        if (parseMe(s))
+                            {
+                                isDouble(Num);
+                            }
+
+
+    //**********************ADDITION OR SUBTRACTION DETERMINATION AND PASSING TO SECOND LEVEL PROCESSING
+
+                            //else if the token is "+" or "-"
+                        else if (s == "+" || s == "-")
+                        {
+                            addSubBrack(s);
+                        }
+
+
+    //**********************MULTIPLICATION AND DIVISION SYMBOL PROCESSING
+
+                            //else if the token is "*,/"
+                        else if (s == "*" || s == "/")
+                            Operator.Push(s);
+
+
+    //*********************OPEN BRACKET TOKEN PROCESSING
+
+                            //else if the token is "("
+                        else if (s == "(")
+                            //test to ensure the misplacment of "(" does not occurr
+                            if (Operator.Count != 0)
+                            {
+                                if (Operator.Peek() == "+" || Operator.Peek() == "-" || Operator.Peek() == "*" || Operator.Peek() == "/" || Operator.Peek() == "(")
+                                    Operator.Push(s);
+                                b++;
+                            }
+                            else if (Operator.Count == 0)
+                            {
+                                Operator.Push(s);
+                                b++;
+                            }
+
+                            else
+                                throw new ArithmeticException("Invalid Mathmatic Expression");
+
+    //*********************CLOSED BRACKET TOKEN PROCESSING AND PASSING TO SECOND LEVEL BRACKET PROCESSING
+
+                            //else if the token is ")" also verifies that the number of opening brackets is not less than the number of closing brackets
+                        else if (s == ")" && Operator.Count != 0 && b != 0)
+                        {
+
+
+                            t = Operator.Peek();
+                            while (t != "(")
+                            {
+
+                                addSubBrack(s);
+
+                                if (Operator.Count == 0)
+                                    break;
+                                else
+                                    t = Operator.Peek();
+
+                            }
+                            //Pops the leftover Opening Bracket
+                            if (Operator.Count != 0)
+                            {
+                                Operator.Pop();
+                                b--;
+                            }
+
+
+                        }
+                        //Incorrect Expression Definition
+                        else
+                            throw new ArithmeticException("Incorrect Expression Definition");
+
+                        count++;
+                    }//End While iterator
+
+                    //*********************PROCESSING END OF TOKEN COUNT - ONLY ONE NUMERIC TOKEN PRESENT IN VALUE STACK
+
+                    //if only one token was passed in return the value of that token
+                    if (Value.Count == 1 && Operator.Count == 0)
+                        return result = Value.Pop();
+
+                    else if (Value.Count == 2 && Operator.Count == 1 && Operator.Peek() == "+" || Operator.Peek() == "-")
+                    {
+                        double second = Value.Pop();
+                        double first = Value.Pop();
+
+                        //if peek is "+"
+                        if (Operator.Peek() == "+")
+                            return first + second;
+
+                            //otherwise it is "-"
+                        else
+                            return first - second;
+
+                    }//end else if valid end of tokens
+
+                    else
+                        //there was a error from user - throw exception
+                        throw new ArithmeticException("Incorrect Mathmatic Expression");
+
+
+           
+            
+            
+        }
+
+        /// <summary>
+        /// Enumerates all of the variables that occur in this formula.  No variable
+        /// may appear more than once in the enumeration, even if it appears more than
+        /// once in this Formula.
+        /// </summary>
+        public IEnumerable<String> GetVariables()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Returns a string containing no spaces which, if passed to the Formula
+        /// constructor, will produce a Formula f such that this.Equals(f).
+        /// </summary>
+        public override string ToString()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// If obj is null or obj is not a Formula, returns false.  Otherwise, reports
+        /// whether or not this Formula and obj are equal.
+        /// 
+        /// Two Formulae are considered equal if they consist of the same tokens in the
+        /// same order.  All tokens are compared as strings except for numeric tokens,
+        /// which are compared as doubles.
+        /// 
+        /// Here are some examples.  
+        /// new Formula("x1+y2").Equals(new Formula("x1  +  y2")) is true
+        /// new Formula("x1+y2").Equalas(new Formula("y2+x1")) is false
+        /// new Formula("2.0 + x7").Equals(new Formula("2.000 + x7")) is true
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+                //if the object types are not equal ie not formula
+                //returns false
+            if (this.GetType() != obj.GetType())
+                return false;
+            
+            if (this.GetHashCode() == obj.GetHashCode())
+            {
+                return true;
+            }
+            
+            else  
+            return false;
+        }
+
+        /// <summary>
+        /// Reports whether f1 == f2, using the notion of equality from the Equals method.
+        /// Note that if both f1 and f2 are null, this method should return true.  If one is
+        /// null and one is not, this method should return false.
+        /// </summary>
+        public static bool operator == (Formula f1, Formula f2)
+        {
+            //if (f1 == null && f2 == null)
+           //     return true;
+          //  else if (f1 == null || f2 == null)
+           //     return false;
+
+            if (f1.GetHashCode() == f2.GetHashCode())
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Reports whether f1 != f2, using the notion of equality from the Equals method.
+        /// Note that if both f1 and f2 are null, this method should return false.  If one is
+        /// null and one is not, this method should return true.
+        /// </summary>
+        public static bool operator !=(Formula f1, Formula f2)
+        {
+
+            if (f1.GetHashCode() != f2.GetHashCode())
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Returns a hash code for this Formula.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return fFormated.GetHashCode();
+        }
+
+
+        /// <summary>
+        /// Given a formula, enumerates the tokens that compose it.  Tokens are left paren,
+        /// right paren, one of the four operator symbols, a string consisting of one or more
+        /// letters followed by one or more digits, a double literal, and anything that doesn't
+        /// match one of those patterns.  There are no empty tokens, and no token contains white space.
+        /// </summary>
+        private static IEnumerable<string> GetTokens(String formula)
+        {
+            // Patterns for individual tokens
+            String lpPattern = @"\(";
+            String rpPattern = @"\)";
+            String opPattern = @"[\+\-*/]";
+            String varPattern = @"[a-zA-Z]+\d+";
+            String doublePattern = @"(?: \d+\.\d* | \d*\.\d+ | \d+ ) (?: e[\+-]?\d+)?";
+            String spacePattern = @"\s+";
+
+            // Overall pattern
+            String pattern = String.Format("({0}) | ({1}) | ({2}) | ({3}) | ({4}) | ({5})",
+                                            lpPattern, rpPattern, opPattern, varPattern, doublePattern, spacePattern);
+
+            // Enumerate matching tokens that don't consist solely of white space.
+            foreach (String s in Regex.Split(formula, pattern, RegexOptions.IgnorePatternWhitespace))
+            {
+                if (!Regex.IsMatch(s, @"^\s*$", RegexOptions.Singleline))
+                {
+                    
+                    yield return s;
+                }
+            }
+
+        }//End getTokens
+
+
+           
+
+        //*********************Evaluator private methods
+
+
+
+
+
+        /// <summary>
+        /// Takes the string prepresentation of an integer and converts it to a true integer
+        /// then passes it to the overloaded isInt method
+        /// </summary>
+        /// <param name="i">String representation of an integer</param>
+        private void isDouble(String i)
+        {
+            try
+            {
+                    //if the return value was a parsable double
+                    //send to the isDouble()
+                if (parseMe(i))
+                    isDouble(Num);
+
+            }//end try and convert
+
+            catch
+            {
+                //there was a value other than a number in the string error from user - throw exception
+                throw new ArithmeticException("Invalid Input");
+
+            }
+
+        }//end isDouble string to integer converter method
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Overloaded isInt method takes a true integer token and processes it through the system 
+        /// while checking for multiplication and division. Then pushes the value to the value stack.
+        /// </summary>
+        /// <param name="i">Integer representation of the token</param>
+        private void isDouble(double i)
+        { 
+          
+
+            //if the operator stack is empty and the value of the top of Operator is not "*","/" push the value
+            if (Operator.Count != 0 && Operator.Peek() != "*" && Operator.Peek() != "/")
+            {
+               
+                if (i < 0)
+                    throw new ArithmeticException("Improper Negative Integer Input");
+                else
+                    Value.Push(i);
+            }
+
+            else if (Operator.Count == 0)
+            {
+                if (i < 0)
+                    throw new ArithmeticException("Improper Negative Integer Input");
+                else
+                    Value.Push(i);
+            }
+
+                //else if the top of Operator is * or /
+            else
+            {
+
+                //if the Value stack at this point in empty then there is a problem with the expression - Throw exception
+                if (Value.Count == 0)
+                    throw new ArithmeticException("Invalid Mathmatic Expression");
+
+                //******Temperary local variables for the purpose of evaluating the immediate expression
+
+                //first local Variable
+                double first = Value.Pop();
+
+                //second local variable
+                double second = i;
+
+                //***************************************************
+
+                // if the operator is multiply
+                if (Operator.Peek() == "*")
+                {
+                    //evaluate and push result
+                    Value.Push(first * second);
+                    //pop the operator
+                    Operator.Pop();
+                }//end if multiply
+
+                        //The operator must be Divide
+                else
+                {
+                    //Throw division by zero exception if necessary
+                    if (second == 0)
+                        throw new ArithmeticException("Divide By Zero Not Possible");
+                    else
+                        //evaluate and push result
+                        Value.Push(first / second);
+                    //pop the operator
+                    Operator.Pop();
+                }//end else Divide statement
+
+            }//end else Multiply or Divide
+
+
+
+        }//end isDouble overloaded method for taking Int's
+
+
+
+        /// <summary>
+        /// Evaluated the immediate expression when a closing bracket has been detected... This pops the value
+        /// stack twice instead of once.
+        /// </summary>
+        private void bracketMulDiv(string a)
+        {
+            //******Temperary local variables for the purpose of evaluating the immediate expression
+
+            //second local Variable
+            double second = Value.Pop();
+
+            //first local variable
+            double first = Value.Pop();
+
+            //***************************************************
+
+            // if the operator is multiply
+            if (Operator.Peek() == "*")
+            {
+                //evaluate and push result
+                Value.Push(first * second);
+                Operator.Pop();
+
+
+            }//end if multiply
+
+                    //The operator must be Divide
+            else
+            {
+                //Throw division by zero exception if necessary
+                if (second == 0)
+                    throw new ArithmeticException("Divide By Zero Not Possible");
+                else
+                    //evaluate and push result
+                    Value.Push(first / second);
+                Operator.Pop();
+
+            }//end else Divide statement
+
+            if (a == "+" || a == "-")
+                Operator.Push(a);
+
+
+        }//end bracket Second Level Multiply Divide
+
+
+
+
+        //**************************************SECOND LEVEL ADDITION SUBTRACTION + SECOND LEVLE BRACKET PROCESSING
+
+        /// <summary>
+        /// Takes the addition or subtraction or bracket token checks the top of the Operator stack for "+,-"
+        /// if present pops the operator and two values from the given stacks - evaluates and pushes the 
+        /// reusult to the value stack. Then pushes "a" (the operator passes in) to the operator stack if it is a "+,-".
+        /// else f it is a closing bracket ")" then also pops the "(" and then continues
+        /// evaluating 
+        /// </summary>
+        /// <param name="a">add, subtract, or Closing Bracket operator in the form of a string</param>
+        private void addSubBrack(string a)
+        {
+            //local variables for processing the immediate expression
+            double first = 0;
+            double second = 0;
+
+
+
+            //if top of stack contains "+,-" or is empty
+            if (Operator.Count == 0 || Operator.Peek() == "+" || Operator.Peek() == "-")
+            {
+                //if the Value stack has less than two integers in it push the operator
+                if (Value.Count < 2)
+                    Operator.Push(a);//pushes the "+,-" if there's not 2 in the value stack
+
+
+
+                    //evaluate the immediate expression
+                else
+                {
+                    second = Value.Pop();
+                    first = Value.Pop();
+
+                    //if peek is "+"
+                    if (Operator.Peek() == "+")
+                        Value.Push(first + second);
+
+                        //otherwise it is "-"
+                    else
+                        Value.Push(first - second);
+
+
+
+                    //Pop the Operator used in expression evaluation
+                    Operator.Pop();
+                    //load next operator into variable t for analysis
+                    if (Operator.Count != 0)
+                        t = Operator.Peek();
+
+                    //if not processing a closing bracket
+                    if (a != ")")
+                    {
+                        Operator.Push(a);//pushes the "+,-"
+
+
+
+                    }
+
+                }//end else evaluate immediate expression
+
+
+            }//end if top of stack contains "+,-"
+
+
+                //Evaluation of immediate expression has been skipped because not "+,-" was present on top of
+            //operator stack "*,/" was. Pass operation to multiply divide method
+            else if ((Operator.Peek() == "*" || Operator.Peek() == "/") && Value.Count >= 2)
+
+                //pass control to the multi divide method
+                bracketMulDiv(a);
+
+                //if the Operator stack has an opening bracket
+            else if (Operator.Peek() == "(")
+                Operator.Push(a);
+
+            else
+                //throw exception
+                throw new ArithmeticException("Incorrect Mathmatic Expression");
+
+        }//end addSub second level processing method
+
+
+
+        //****************************END OF TOKEN PROCESSING EVALUATE METHOD
+
+        /// <summary>
+        /// Takes a string representation of a number and returns true or false if it was successfull
+        /// Then if successful loads the value into the Num variable for access by the preogram
+        /// </summary>
+        /// <param name="s">String representation of a potential</param>
+        /// <returns>True or False</returns>
+        public bool parseMe(string s)
+        {
+            return Double.TryParse(s, out Num);
+        }
+
+
+    }//End Formula class
+
+
+
+
+
+
+    /// <summary>
+    /// Used to report syntactic errors in the argument to the Formula constructor.
+    /// </summary>
+    public class FormulaFormatException : Exception
+    {
+        /// <summary>
+        /// Constructs a FormulaFormatException containing the explanatory message.
+        /// </summary>
+        public FormulaFormatException(String message)
+            : base(message)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Used as a possible return value of the Formula.Evaluate method.
+    /// </summary>
+    public struct FormulaError
+    {
+        /// <summary>
+        /// Constructs a FormulaError containing the explanatory reason.
+        /// </summary>
+        /// <param name="reason"></param>
+        public FormulaError(String reason)
+            : this()
+        {
+            Reason = reason;
+        }
+
+        /// <summary>
+        ///  The reason why this FormulaError was created.
+        /// </summary>
+        public string Reason { get; private set; }
+    }
+}
+

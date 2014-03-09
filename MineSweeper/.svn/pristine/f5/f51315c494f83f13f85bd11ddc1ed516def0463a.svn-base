@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<!-- title of the project -->
+		<title>PS1 RickV MineSweeper</title>
+		
+		<!-- css reference -->
+		<link rel="stylesheet" type="text/css" href="ps1style.css"/>
+		
+
+	
+	</head>
+	
+	
+	<body>
+	
+		<!-- wraps the site so that it scales with the size of the page -->
+		<div id="wrapperIndex">
+				
+			<div id="header"> 
+				<h3>Mine Sweeper</h3>
+			 		<br>via Javascript <br> CS4540 - Spring 2014    By: Rick Villucci</div>
+			 		
+			 		<br/>
+			
+				
+						<h1 id="instruct">Start the Game</h1>
+			
+				<!-- goes to the first game board -->
+				
+				
+				<input id="startBtn" type="button" value="Start Game" onclick="location.href='MineSweeper.html';"/>
+				
+				<br/>
+				
+			</div>
+			
+	</body>
+</html>

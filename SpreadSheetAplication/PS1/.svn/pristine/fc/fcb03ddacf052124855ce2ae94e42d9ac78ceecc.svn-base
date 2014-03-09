@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0b6eae84-9751-4ab7-9476-6e9ef6d28e61" name="Nephi@NEPHI-MAC 2012-09-04 00:11:56" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="78b3d583-442a-40c4-9e5d-079f8e6756c7">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Nephi_NEPHI-MAC 2012-09-04 00_11_56">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\bin\Release\FormulaEvaluator.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-04T00:11:56.7653094-06:00" queuing="2012-09-04T00:11:56.7703097-06:00" start="2012-09-04T00:11:56.7743099-06:00" finish="2012-09-04T00:11:56.9423195-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="EvaluateTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps1\testproject1\bin\release\testproject1.dll" id="4ea8ac45-8bff-6c50-1092-e51735692acd">
+      <Execution id="0ea78c3e-7b03-4f21-affb-0c429cb9c2c7" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS1/TestProject1/bin/Release/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.EvaluatorTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EvaluateTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4ea8ac45-8bff-6c50-1092-e51735692acd" executionId="0ea78c3e-7b03-4f21-affb-0c429cb9c2c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0ea78c3e-7b03-4f21-affb-0c429cb9c2c7" testId="4ea8ac45-8bff-6c50-1092-e51735692acd" testName="EvaluateTest" computerName="NEPHI-MAC" duration="00:00:00.0136928" startTime="2012-09-04T00:11:56.7753099-06:00" endTime="2012-09-04T00:11:56.9253185-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ea78c3e-7b03-4f21-affb-0c429cb9c2c7">
+    </UnitTestResult>
+  </Results>
+</TestRun>

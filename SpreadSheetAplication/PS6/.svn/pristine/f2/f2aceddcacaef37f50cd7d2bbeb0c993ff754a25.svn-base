@@ -1,0 +1,422 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using SS;
+using System.Text.RegularExpressions;
+
+
+namespace SpreadsheetGUI
+{
+    public partial class Form1 : Form
+    {
+        //Local Variables
+            
+            //spreadsheet
+        private SS.Spreadsheet sheet;
+
+            //list of alpha characters
+        private ArrayList alpha = new ArrayList(){"A","B","C","D","E","F","G","H","I","J","K","L","M"
+            ,"N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+
+         //current cell name
+        string CurrentCellName;
+        string lastCell;
+        int lastCol;
+        int lastRow;
+        
+        
+
+            /// <summary>
+            /// Default constructor for creating an empty spreadsheet
+            /// </summary>
+        public Form1()
+        {
+            InitializeComponent();
+
+                //creates a default sheet
+            sheet = new Spreadsheet(s => Regex.IsMatch(s, @"^[a-zA-Z]{1}[0-9]{1,2}$"), s => s, "PS6");
+
+            
+            spreadsheetPanel1.SelectionChanged += displaySelection;
+            spreadsheetPanel1.SetSelection(2, 3);
+        }
+
+
+            /// <summary>
+            /// Constructor used by the openDialog to load and display 
+            /// the file in the spreadsheet
+            /// </summary>
+            /// <param name="file">string representation of the file</param>
+        public Form1(string file)
+        {
+
+            InitializeComponent();
+
+            sheet = new Spreadsheet(file, s => Regex.IsMatch(s, @"^[a-zA-Z]{1}[0-9]{1,2}$"), s => s, "PS6");
+
+                //Fill the spreadsheet
+            fillSheet(spreadsheetPanel1);
+
+            //register for listening
+            spreadsheetPanel1.SelectionChanged += displaySelection;
+            spreadsheetPanel1.SetSelection(2, 3);
+        }
+
+
+            /// <summary>
+            /// Updates the form eachtime a cell is selected
+            /// </summary>
+            /// <param name="ss"></param>
+        private void displaySelection(SpreadsheetPanel ss)
+        {
+            int row, col;
+            String value;
+
+            cellContent.BackColor = System.Drawing.Color.White;
+            cellName.BackColor = System.Drawing.Color.Khaki;
+
+            ss.GetSelection(out col, out row);
+            ss.GetValue(col, row, out value);
+               
+                //the active cell name
+            CurrentCellName = alpha[col].ToString() + (row+=1);
+
+                //sets the "cellname" text box = to the active cell name + value
+            cellName.Text = CurrentCellName +  "=" + sheet.GetCellValue(CurrentCellName);
+            
+
+                //fills the selected cell with the current content of that cell
+            //if the cell contains a formula put an = sign in front of it
+            if (sheet.GetCellContents(CurrentCellName) is SpreadsheetUtilities.Formula)
+            {
+                cellContent.Text = "= " + sheet.GetCellContents(CurrentCellName).ToString();
+            }
+            else
+            {       //sets the editable field to the content of the cell
+                cellContent.Text = sheet.GetCellContents(CurrentCellName).ToString();
+                cellContent.SelectAll();
+                    
+                if(lastCell != null)
+                spreadsheetPanel1.SetValue(lastCol, (lastRow-1), sheet.GetCellValue(lastCell).ToString());
+            }
+
+            lastCell = CurrentCellName;
+            lastCol = col;
+            lastRow = row;
+
+        }
+
+
+       
+        
+
+
+        /// <summary>
+        /// if the spreadsheet is active set the text box active and take the value to be added
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cellContent_TextChanged(object sender, EventArgs e)
+        {
+            //local variables
+                        int row, col;
+
+                        spreadsheetPanel1.GetSelection(out col, out row);
+
+
+
+                            //sets the new value of the cell
+                        spreadsheetPanel1.SetValue(col, row, cellContent.Text);
+
+            
+        }//end cell content changed
+
+
+      
+        /// <summary>
+        /// if the return key is pressed calculate the cell and its
+        /// dependents and then set the values to such
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cellContent_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+                //if the return key is pressed
+            if (e.KeyCode == Keys.Return)
+            {
+                //supresses the annoying beep
+                e.SuppressKeyPress = true;
+
+                int row, col;
+               
+
+                spreadsheetPanel1.GetSelection(out col, out row);
+
+                //try to load the cell content into the cell
+                try
+                {
+
+                    //gets all the cells that were affected by the change and sets their new value
+                    foreach (string S in sheet.SetContentsOfCell(CurrentCellName, cellContent.Text))
+                    {
+                        //takes the alpha character and assigns it to it's 
+                        //given column
+                        col = alpha.IndexOf(split(S).ElementAt(0));
+
+                        //Converts the string representation of the row into an INT
+                        row = Int16.Parse(split(S).ElementAt(1)) - 1;
+
+                        //gets the cell value from the sheet and loads it to the GUI position
+                        spreadsheetPanel1.SetValue(col, row, sheet.GetCellValue(S).ToString());
+
+                    }
+                        //changes the color of the box to show successful inclusion
+                    cellContent.BackColor = System.Drawing.Color.LawnGreen;
+                    
+
+                        //sets the "cellname" text box = to the active cell name + value
+                    if (sheet.GetCellValue(CurrentCellName) is SpreadsheetUtilities.FormulaError)
+                    {
+                        cellName.BackColor = System.Drawing.Color.Tomato;
+                        cellName.Text = CurrentCellName + "=" + sheet.GetCellValue(CurrentCellName);
+                    }
+                    else
+                    {
+                        cellName.BackColor = System.Drawing.Color.LawnGreen;
+                    }
+
+                }
+
+                //catch the error
+                catch (Exception E)
+                {
+                    cellName.Text = "Cell entered is out of bounds";
+                    cellContent.BackColor = System.Drawing.Color.PaleVioletRed;
+                    cellName.BackColor = System.Drawing.Color.Tomato;
+                    Invalidate();
+                    
+                }
+            }//end if key pressed is return
+
+                //if the escape key is pressed then the cell returns to original value
+            if (e.KeyCode == Keys.Escape)
+            {
+                    //supresses the annoying beep
+                e.SuppressKeyPress = true;
+
+                int row, col;
+                String temp;
+
+                spreadsheetPanel1.GetSelection(out col, out row);
+
+                //gets the cell value from the sheet and loads it to the GUI position
+                spreadsheetPanel1.SetValue(col, row, sheet.GetCellValue(CurrentCellName).ToString());
+                spreadsheetPanel1.GetValue(col, row, out temp);
+                cellContent.Text = temp;
+            }
+
+
+        }//end special key handler
+
+
+
+        
+        
+        /// <summary>
+        /// Buids the menu bar and sets it up to take events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SheetApplicationContext.getAppContext().RunForm(new Form1());
+        }
+
+
+            /// <summary>
+            /// Closes the current window
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+
+            /// <summary>
+            /// Shows the current info about this program
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Written and developed by Nephi Self 2012 \n Version PS6");
+        }
+
+
+
+            /// <summary>
+            /// when file>open is selected uses the opendialog box
+            /// to alow the user to load the file of choice
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.DefaultExt = ".ss";
+            open.Filter = "Spreadsheet Files (.ss)|*.ss|All Files (*.*|*.*";
+            open.FilterIndex = 1;
+            open.Multiselect = false;
+                //takes the results of the selection and loads it into DialogResult
+            DialogResult = open.ShowDialog();
+
+                //if the cancel button ws pressed ignore
+            if (DialogResult == DialogResult.OK)
+            {
+                //string temp = open.SafeFileName;
+               
+                //   temp =  temp.Remove(temp.Length - 2, 2);
+                //   temp += "xml";
+                
+                //creates a new thread window and constructs the contents using the contents of the file
+                SheetApplicationContext.getAppContext().RunForm(new Form1(open.SafeFileName));
+            }
+            
+
+        }//end open menu item
+
+            /// <summary>
+            /// Takes the current contents of the sheet and saves them to file
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.DefaultExt = ".ss";
+            save.Title = "Save The Spreadsheet";
+            save.Filter = "Spreadsheet Files (.ss)|*.ss|All Files (*.*|*.*";
+            save.RestoreDirectory = true;
+
+            if(save.ShowDialog() == DialogResult.OK)
+            {
+                sheet.Save(save.FileName);
+
+            }
+            
+
+            
+        }//end save as profile
+
+
+
+
+
+
+
+        //*************************** Helper Methods **************************************
+
+            /// <summary>
+            /// Takes the data from the file and fills the sheet
+            /// </summary>
+            /// <param name="ss"></param>
+            /// <returns></returns>
+        public bool fillSheet(SpreadsheetPanel ss)
+        {
+            
+           
+            
+                                //(Formula)Convert.ChangeType(current.getContent(), typeof(Formula));
+            //local variables
+            int row, col;
+            
+                //gets all the cells that are filled for loading into the system
+            foreach (string s in sheet.GetNamesOfAllNonemptyCells())
+            {       
+                    //takes the alpha character and assigns it to it's 
+                    //given column
+                col = alpha.IndexOf(split(s).ElementAt(0));
+
+                    //Converts the string representation of the row into an INT
+                row = (Int16.Parse(split(s).ElementAt(1))-1);
+
+                    //gets the cell value from the sheet and loads it to the GUI position
+                ss.SetValue(col, row, sheet.GetCellValue(s).ToString());
+                
+            }
+            return true;
+        }
+
+            /// <summary>
+            /// takes the name of the cell and spits it into 
+            /// the col and row values for application into the spread sheet
+            /// </summary>
+            /// <param name="s">String - the name of the cell</param>
+            /// <returns></returns>
+        private IEnumerable<string> split(string s)
+        {
+
+
+
+            // Patterns for individual tokens
+
+            String colPattern = @"[a-zA-Z]+";
+            String rowPattern = @"[1-99]+";
+            String spacePattern = @"\s+";
+
+            // Overall pattern
+            String pattern = String.Format("({0}) | ({1}) | ({2})",
+                                            colPattern, rowPattern, spacePattern);
+
+            // Enumerate the row and column items that don't consist solely of white space.
+            foreach (String S in Regex.Split(s, pattern, RegexOptions.IgnorePatternWhitespace))
+            {
+                if (!Regex.IsMatch(S, @"^\s*$", RegexOptions.Singleline))
+                {
+
+
+                    yield return S;
+                }
+            }
+
+        }
+
+
+
+      
+        
+
+      
+
+       
+
+       
+
+       
+
+       
+
+        
+
+       
+
+       
+
+        //End split
+
+    
+
+    }//end form 1 class
+}//end namespace

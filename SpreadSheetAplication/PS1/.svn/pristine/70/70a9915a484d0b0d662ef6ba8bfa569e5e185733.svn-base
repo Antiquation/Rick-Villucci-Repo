@@ -1,0 +1,387 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+
+namespace FormulaEvaluator
+{
+    /// <summary>
+    /// Contains an evaluate method which takes an expression and a delegate for loocking up 
+    /// variables and returns the value of the expression
+    /// </summary>
+    public static class Evaluator
+    {
+        //the final value to be returned to the user
+           private static int result = 0;
+                //a local count value of the while statement for getting the array position
+           private static int count = 0;
+                //a local temp value for temparary calculations
+           private static int temp = 0;
+            
+   
+                //load the expression into the array for iteration
+           private static  string[] substrings;
+
+                // 2 local generic stacks of size "substring length" which hold the values and/or the operators for evaluating the given expression
+           private static Stack<Int32> Value = new Stack<Int32>(substrings.Length);
+           private static Stack<String> Operator = new Stack<String>(substrings.Length);
+
+
+             //delegate method
+        public delegate int Lookup(String v);
+        
+
+
+        /// <summary>
+        /// Takes the expression and evaluates using Infix Expression
+        /// </summary>
+        /// <param name="exp">The mathmatic expression</param>
+        /// <param name="variableEvaluator">The Delegate method used to evaluate a variable</param>
+        /// <returns>Returns the result of the given expression</returns>
+        public static int Evaluate(String exp, Lookup variableEvaluator)
+        {
+                    //given token Splitter
+                substrings = Regex.Split(exp, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+
+                    //Iterating through The algortithm used to evaluate the tokens in the array
+            while (count != substrings.Length)
+            {
+
+//*********************NULL (BLANK) TOKEN VALUE PROCESSING
+
+                //if the value of the substring at position "count" is empty - "blank" iterate to next 
+                if (substrings[count] == null)
+                    count++;
+        //****end null token processing
+
+
+
+
+
+
+                        //local string containing token at position "count"
+                    string s = substrings[count];
+
+               
+//*********************VARIABLE PROCESSING AND PASSING TO INTEGER PROCESSING
+
+                        //check if the tokens first character is alpha - "a-z" Thus a Variable
+                    if (Char.IsLetter(s[0]))
+                    {
+                        try
+                        {
+                            isInt(variableEvaluator(s));
+                        }
+
+                        catch
+                        {
+                            throw new ArithmeticException();
+                        }
+                       
+                           
+                        
+                    }
+
+
+//**********************INTEGER DETERMINATION AND PASSING TO SECOND LEVEL INTEGER PROCESSING
+
+                        //else if the token is a string representation of a number
+                    else if (Char.IsNumber(s[0]))
+                    {
+                        isInt(s);
+                    }
+
+
+//**********************ADDITION OR SUBTRACTION DETERMINATION AND PASSING TO SECOND LEVEL PROCESSING
+
+                        //else if the token is "+" or "-"
+                    else if (s == "+" || s == "-")
+                    {
+                        addSubBrack(s);
+                    }
+
+
+//**********************MULTIPLICATION AND DIVISION SYMBOL PROCESSING
+
+                        //else if the token is "*,/"
+                    else if (s == "*" || s == "/")
+                        Operator.Push(s);
+
+
+//*********************OPEN BRACKET TOKEN PROCESSING
+
+                        //else if the token is "("
+                    else if (s == "(")
+                        Operator.Push(s);
+
+//*********************CLOSED BRACKET TOKEN PROCESSING AND PASSING TO SECOND LEVEL BRACKET PROCESSING
+
+                        //else if the token is ")"
+                    else if (s == ")")
+                        addSubBrack(s);
+                    
+            }//End While iterator
+
+//*********************PROCESSING END OF TOKEN COUNT - ONLY ONE NUMERIC TOKEN PRESENT IN VALUE STACK
+
+                //if only one token was passed in return the value of that token
+            if (Value.Count == 1)
+                return result = Value.Pop();
+
+            else if (Value.Count == 2 && Operator.Count == 1)
+            {
+               int second = Value.Pop();
+               int first = Value.Pop();
+
+                //if peek is "+"
+                if (Operator.Peek() == "+")
+                    return first + second;
+
+                    //otherwise it is "-"
+                else
+                    return first - second;
+
+            }//end else if valid end of tokens
+
+            else
+                //there was a error from user - throw exception
+                throw new ArithmeticException();
+
+            
+        }//end Evaluate Method
+
+
+
+
+
+
+
+//SECOND LEVEL PROCESSING
+        //********************************************************************************************
+        //********************************************************************************************
+        //********************************************************************************************
+
+
+
+
+
+//*******************************SECOND LEVEL INTEGER PROCESSING + MULTIPLY AND DIVISION
+
+            /// <summary>
+            /// Takes the string prepresentation of an integer and converts it to a true integer
+            /// then passes it to the overloaded isInt method
+            /// </summary>
+            /// <param name="i">String representation of an integer</param>
+        private static void isInt(String i)
+        {
+                try
+                {
+                    isInt(temp = Convert.ToInt32(substrings[count]));
+                  
+                }//end try and convert
+
+                catch
+                {
+                        //there was a value other than a number in the string error from user - throw exception
+                    throw new ArithmeticException();
+                    
+                }
+
+        }//end isInt string to integer converter method
+
+
+
+
+
+
+
+
+            /// <summary>
+            /// Overloaded isInt method takes a true integer token and processes it through the system 
+            /// while checking for multiplication and division. Then pushes the value to the value stack.
+            /// </summary>
+            /// <param name="i">Integer representation of the token</param>
+        private static void isInt(int i)
+        {
+                //if the operator stack is empty and the value of the top of Operator is not "*","/" push the value
+            if (Operator.Count == 0 || Operator.Peek() != "*" || Operator.Peek() != "/")
+            {
+                Value.Push(temp);
+            }
+
+                //else if the top of Operator is * or /
+            else
+            {
+
+                    //if the Value stack at this point in empty then there is a problem with the expression - Throw exception
+                if (Value.Count == 0)
+                    throw new ArithmeticException();
+
+                //******Temperary local variables for the purpose of evaluating the immediate expression
+
+                //first local Variable
+                int first = Value.Pop();
+
+                //second local variable
+                int second = i;
+
+                //***************************************************
+
+                // if the operator is multiply
+                if (Operator.Peek() == "*")
+                {
+                    //evaluate and push result
+                    Value.Push(first * second);
+                    Operator.Pop();
+                }//end if multiply
+
+                        //The operator must be Divide
+                else
+                {
+                    //Throw division by zero exception if necessary
+                    if (second == 0)
+                        throw new ArithmeticException();
+                    else
+                        //evaluate and push result
+                        Value.Push(first / second);
+                    Operator.Pop();
+                }//end else Divide statement
+
+            }//end else Multiply or Divide
+
+
+        }//end isInt overloaded method for taking Int's
+
+
+
+        /// <summary>
+        /// Evaluated the immediate expression when a closing bracket has been detected... This pops the value
+        /// stack twice instead of once.
+        /// </summary>
+        private static void bracketMulDiv()
+        {
+              //******Temperary local variables for the purpose of evaluating the immediate expression
+
+                //second local Variable
+                int second = Value.Pop();
+
+                //first local variable
+                int first = Value.Pop();
+
+                //***************************************************
+
+                // if the operator is multiply
+                if (Operator.Peek() == "*")
+                {
+                    //evaluate and push result
+                    Value.Push(first * second);
+                    Operator.Pop();
+                }//end if multiply
+
+                        //The operator must be Divide
+                else
+                {
+                    //Throw division by zero exception if necessary
+                    if (second == 0)
+                        throw new ArithmeticException();
+                    else
+                        //evaluate and push result
+                        Value.Push(first / second);
+                    Operator.Pop();
+                }//end else Divide statement
+
+           
+
+
+        }//end bracket Second Level Multiply Divide
+
+
+
+
+//**************************************SECOND LEVEL ADDITION SUBTRACTION + SECOND LEVLE BRACKET PROCESSING
+
+        /// <summary>
+        /// Takes the addition or subtraction or bracket token checks the top of the Operator stack for "+,-"
+        /// if present pops the operator and two values from the given stacks - evaluates and pushes the 
+        /// reusult to the value stack. Then pushes "a" (the operator passes in) to the operator stack if it is a "+,-".
+        /// else f it is a closing bracket ")" then also pops the "(" and then continues
+        /// evaluating 
+        /// </summary>
+        /// <param name="a">add, subtract, or Closing Bracket operator in the form of a string</param>
+        private static void addSubBrack(string a)
+        {
+                //local variables for processing the immediate expression
+            int first = 0;
+            int second = 0;
+
+                //if top of stack contains "+,-"
+            if (Operator.Peek() == "+" || Operator.Peek() == "-")
+            {
+                //if the Value stack has less than two integers in it push the operator
+                if (Value.Count < 2)
+                    Operator.Push(a);//pushes the "+,-" if there's not 2 in the value stack
+
+
+
+                    //evaluate the immediate expression
+                else
+                {
+                    second = Value.Pop();
+                    first = Value.Pop();
+
+                    //if peek is "+"
+                    if (Operator.Peek() == "+")
+                        Value.Push(first + second);
+
+                        //otherwise it is "-"
+                    else
+                        Value.Push(first - second);
+
+                   
+                    
+                        //Pop the Operator used in expression evaluation
+                    Operator.Pop();
+
+                        //if not processing a closing bracket
+                    if (a != ")")
+                        Operator.Push(a);//pushes the "+,-"
+                    
+                        //if processing a closing bracket
+                    else 
+                            //the token is a closing bracket 
+                        Operator.Pop();//pops the "("
+ 
+                }//end else evaluate immediate expression
+
+                   
+            }//end if top of stack contains "+,-"
+            
+
+                //Evaluation of immediate expression has been skipped because not "+,-" was present on top of
+                //operator stack "*,/" was. Pass operation to multiply divide method
+            else if( Operator.Peek() == "*" || Operator.Peek() == "/" && Value.Count >=2)
+                   
+                        //pass control to the multi divide method
+                    bracketMulDiv();
+
+            else
+                    //throw exception
+                throw new ArithmeticException();
+
+        }//end addSub second level processing method
+
+
+
+//****************************END OF TOKEN PROCESSING
+
+
+
+
+
+
+
+    }//end Evaluator class
+
+}//end namespace

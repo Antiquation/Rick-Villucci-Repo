@@ -1,0 +1,153 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This page is the processor for the ajax via the admin page
+ * 
+ */
+require ("../Hidden/databasePW.php");
+require("../Helper/Server.php");//server info
+require("../Objects/User.php");//user class for storing the user data
+require_once("../Helper/html_Helper.php");//for building the various HTML
+header('Content-Type: application/json');
+
+
+
+
+//check if the name is being updated
+if(strlen($_REQUEST["nameEdit"]) >0)
+{
+    $newName = $_REQUEST["nameEdit"];
+}
+else
+{
+    $newName = false;
+}
+
+//are we deleting the user
+if(isset($_REQUEST["delete"]))
+{
+    $deleteUser = true;
+}
+else
+{
+    
+     $deleteUser = false;
+}
+
+$userRole = $_REQUEST ['admin'];
+$UsersID = $_REQUEST["ID"];
+$results = "";
+$tag = "";
+try
+{
+  
+    
+    //returns the results of the query in json format
+    //tag = result message I want displayed
+    //role = the new users role
+    //name = the users real name
+    //delete = the user is to be deleted
+    
+    //if deleting then delete
+    if($deleteUser)
+    {
+        $db = connectDB();//connects to the server
+        $q = "DELETE FROM `ps5_User` WHERE `ID`=?";
+        
+         $stmt = $db->prepare ( $q);//prepare the query
+            
+
+            //sanitize
+            $stmt->bindValue(1,$UsersID);
+            $stmt->execute();
+        
+            $tag  ="User Deleted Successfully";
+            unset($stmt);
+           // $data_table[]=array("tag" => $tag, "delete" => $deleteUser);
+            $results = json_encode(array("tag" => $tag, "delete" => $deleteUser));
+    }
+    //not deleting the user just updating
+    else
+    {   //are we updating the name??
+        if($newName != false)
+        {
+            $db = connectDB();//connects to the server
+            
+
+            $q = "UPDATE `ps5_User` SET `RealName`=?,`isAdmin`=? WHERE `ID`=?";
+            
+            $stmt = $db->prepare ( $q);//prepare the query
+            
+
+            //sanitize
+            $stmt->bindValue(1,$newName);
+            $stmt->bindValue(2,$userRole);
+            $stmt->bindValue(3,$UsersID);
+            $stmt->execute();
+            
+            if($userRole == 1)
+            {
+                $userRole = "true";
+            }
+            else
+            {
+                $userRole = "false";
+            }
+           
+            
+            $tag  ="User Updated Successfully";
+            unset($stmt);
+            
+            $results = json_encode(array("tag" => $tag, "role" => $userRole, "name" => $newName));
+        }
+        //if not then just the role...
+        else
+        {
+            $db = connectDB();//connects to the server
+            $q = "UPDATE `ps5_User` SET `isAdmin`=? WHERE `ID`=?";
+            
+            $stmt = $db->prepare ( $q);//prepare the query
+
+            //sanitize
+            $stmt->bindValue(1,$userRole);
+            $stmt->bindValue(2,$UsersID);
+            
+            if($stmt->execute())
+            {
+               
+                $tag  ="User Role Updated Successfully";
+                unset($stmt);
+                
+                if($userRole == 1)
+                {
+                    $userRole = "true";
+                }
+                else
+                {
+                    $userRole = "false";
+                }
+                
+                
+                $results = json_encode(array("tag" => $tag, "role" => $userRole));
+            }
+        }
+        
+    }
+    
+       
+    
+}
+catch (PDOException $ex)
+{
+    echo "<p>PDO Exception</p>";
+	echo "$ex";
+}
+
+
+//return data to ajax
+echo $results;
+
+?>

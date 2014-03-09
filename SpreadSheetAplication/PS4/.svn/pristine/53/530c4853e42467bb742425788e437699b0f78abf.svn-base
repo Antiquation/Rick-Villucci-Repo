@@ -1,0 +1,167 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SS
+{
+    class Cell
+    {
+
+
+            //private variables
+            
+
+            //the name of the cell as assigned by the system
+        private string name;
+
+            //the contents of the cell as assigned by the system
+        private object content;
+
+            //the value of the cell as calculated by the system
+        private object value;
+
+         
+
+            
+
+           
+
+
+            /// <summary>
+            /// Overloaded Cell constructor taking the name and the desired content for storage.
+            /// </summary>
+            /// <param name="c">The contents of the Cell String, Double, or Formula object</param>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(object c, string n )
+        {
+            //Add contents of the cell to be associated with each cell
+
+                //the name of the cell
+            name = n;
+
+                //contains the contents of the cell 
+                //This will be either a Formula object, a boolean or a string
+                //it is initialized as an empty string
+            content = c;
+
+               
+
+        }//end overloaded constructor with content assignment
+
+
+
+            /// <summary>
+            /// Default constructor for constructing an "empty" cell
+            /// with contents equaling "". It takes a single argumnent consisting of just the name of the cell
+            /// </summary>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(string n)
+        {
+                //the name of the cell
+            name = n;
+                
+                //the default value of a cell
+            content = "";
+        }//end default constructor
+
+
+
+
+            /// <summary>
+            /// The method by which the system can change the content of the cell
+            /// 
+            /// </summary>
+            /// <param name="c">The new contents of the cell ie: string, double, or Formula Object</param>
+        public void setCont(object c)
+        {
+                //changes the content to c
+            content = c;
+
+               
+
+        }
+
+
+
+
+        /// <summary>
+        /// Gives the system the ability to set the vlaue of the cell
+        /// then once the value has been updated the recalc flag is changed back to false.
+        /// </summary>
+        /// <param name="v">The value of the cell ie: String or Double</param>
+        public void setValue(string v)
+        {
+                //if the string represents a double
+                //parse and then load to the value
+            if (parseMe(v))
+            {
+                value = parseMe(v);
+                   
+               
+            }
+                //else it is a string... load to the value
+            else
+            {
+                value = v;
+
+               
+            }
+
+        }//end setValue
+
+
+        /// <summary>
+        /// returns the value of the cell
+        /// </summary>
+        /// <returns>Value of cell - string or double</returns>
+        public object getValue()
+        {
+            return value;
+        }
+
+
+        /// <summary>
+        /// returns the name of the cell
+        /// </summary>
+        /// <returns>string</returns>
+        public string getName()
+        {
+            return name;
+        }
+
+
+        /// <summary>
+        /// returns the contents of the cell
+        /// IF RETURN VALUE IS "" CELL IS EMPTY
+        /// </summary>
+        /// <returns>content of cell - double, string, or formula object. NOT VALUE of the cell</returns>
+        public object getContent()
+        {
+            return content;
+        }
+
+       
+
+
+
+        //****************Helper method********************
+
+            /// <summary>
+            /// PRivate local Helper method for checking and parsing the string representation of
+            /// the cell value into double
+            /// </summary>
+            /// <param name="s">string</param>
+            /// <returns>Boolean</returns>
+        private bool parseMe(string s)
+        {
+                //helper variable for the parse me method
+            double Num;
+
+            return Double.TryParse(s, out Num);
+        }
+
+
+
+    }
+}

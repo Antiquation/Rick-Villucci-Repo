@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="9e7974f0-4d42-4655-b29c-64e06aa18668" name="Nephi@NEPHI-MAC 2012-09-18 22:26:17" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="f836b581-634d-4351-99a7-cc715aefb73d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Nephi_NEPHI-MAC 2012-09-18 22_26_17">
+      <DeploymentItem filename="c:\users\nephi\documents\visual studio 2010\Projects\PS3\Formula\bin\Debug\Formula.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\bin\Debug\Formula.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\Formula\bin\Debug\Formula.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-18T22:26:17.0939266-06:00" queuing="2012-09-18T22:26:17.3369405-06:00" start="2012-09-18T22:26:17.3809430-06:00" finish="2012-09-18T22:26:19.7730798-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="12" executed="12" passed="11" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FormulaFormatExceptionConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="a3e71010-81f8-d049-825b-aa7ab800d01f">
+      <Execution id="554b8911-f47c-4615-a1e3-f559b04da054" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaFormatExceptionTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FormulaFormatExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="op_EqualityTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="0e2036ac-2419-3ad9-9c9b-bbb00a01b2cd">
+      <Execution id="e49920d2-3424-43b2-9671-66a8724ee534" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_EqualityTest" />
+    </UnitTest>
+    <UnitTest name="EqualsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="d50e3a49-6853-27a7-e3b7-31571947e675">
+      <Execution id="7278d108-7f96-4c5b-a11f-f6d5bfd9aa7f" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EqualsTest" />
+    </UnitTest>
+    <UnitTest name="ToStringTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="a1409fb0-b5da-f141-d419-d019fbe1c494">
+      <Execution id="a1a97e7c-0035-4f2e-9deb-ad5fbb7a1758" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToStringTest" />
+    </UnitTest>
+    <UnitTest name="op_InequalityTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="132723d6-2cf9-063a-df36-639f87f0c7ba">
+      <Execution id="20a49720-9b33-4a50-9a71-85624db1011f" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_InequalityTest" />
+    </UnitTest>
+    <UnitTest name="GetVariablesTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="d64d7406-0915-f5f5-4e05-b28f3ce470c6">
+      <Execution id="52c630e3-0ddc-4888-ab32-9c2467aae2b4" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetVariablesTest" />
+    </UnitTest>
+    <UnitTest name="ReasonTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="7ec0a714-2e57-2610-b1cc-647b733b86ad">
+      <DeploymentItems>
+        <DeploymentItem filename="Formula.dll" />
+      </DeploymentItems>
+      <Execution id="a0e50224-112c-4133-81e8-7a292afa3e13" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaErrorTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReasonTest" />
+    </UnitTest>
+    <UnitTest name="GetHashCodeTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="83390128-7c07-1abf-c971-b2f04d553dda">
+      <Execution id="ea952191-3252-4a4e-afb7-dd26b4765b24" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetHashCodeTest" />
+    </UnitTest>
+    <UnitTest name="FormulaConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="82173530-fb5d-e5e8-dac4-a291cbe2d36b">
+      <Execution id="4c1fbd63-6284-4120-bccc-6986a5888d47" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FormulaConstructorTest" />
+    </UnitTest>
+    <UnitTest name="EvaluateTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="6e55faec-0af2-05ad-ba24-50efb221a290">
+      <Execution id="c919c993-0886-4c0c-95f6-c67f509228df" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EvaluateTest" />
+    </UnitTest>
+    <UnitTest name="GetTokensTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="a6da22d1-c6d2-8baa-8052-41c808e81cd0">
+      <DeploymentItems>
+        <DeploymentItem filename="Formula.dll" />
+      </DeploymentItems>
+      <Execution id="75962069-1fe0-49a2-935c-53b65119727e" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetTokensTest" />
+    </UnitTest>
+    <UnitTest name="FormulaErrorConstructorTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps3\ps3_tester\bin\debug\ps3_tester.dll" id="14742b08-135f-85da-e445-0cccdd36088d">
+      <Execution id="2d36d549-9027-4796-9d24-dc04bdc4c796" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS3/PS3_Tester/bin/Debug/PS3_Tester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PS3_Tester.FormulaErrorTest, PS3_Tester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FormulaErrorConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0e2036ac-2419-3ad9-9c9b-bbb00a01b2cd" executionId="e49920d2-3424-43b2-9671-66a8724ee534" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="132723d6-2cf9-063a-df36-639f87f0c7ba" executionId="20a49720-9b33-4a50-9a71-85624db1011f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14742b08-135f-85da-e445-0cccdd36088d" executionId="2d36d549-9027-4796-9d24-dc04bdc4c796" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6e55faec-0af2-05ad-ba24-50efb221a290" executionId="c919c993-0886-4c0c-95f6-c67f509228df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ec0a714-2e57-2610-b1cc-647b733b86ad" executionId="a0e50224-112c-4133-81e8-7a292afa3e13" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="82173530-fb5d-e5e8-dac4-a291cbe2d36b" executionId="4c1fbd63-6284-4120-bccc-6986a5888d47" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83390128-7c07-1abf-c971-b2f04d553dda" executionId="ea952191-3252-4a4e-afb7-dd26b4765b24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1409fb0-b5da-f141-d419-d019fbe1c494" executionId="a1a97e7c-0035-4f2e-9deb-ad5fbb7a1758" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3e71010-81f8-d049-825b-aa7ab800d01f" executionId="554b8911-f47c-4615-a1e3-f559b04da054" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a6da22d1-c6d2-8baa-8052-41c808e81cd0" executionId="75962069-1fe0-49a2-935c-53b65119727e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d50e3a49-6853-27a7-e3b7-31571947e675" executionId="7278d108-7f96-4c5b-a11f-f6d5bfd9aa7f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d64d7406-0915-f5f5-4e05-b28f3ce470c6" executionId="52c630e3-0ddc-4888-ab32-9c2467aae2b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e49920d2-3424-43b2-9671-66a8724ee534" testId="0e2036ac-2419-3ad9-9c9b-bbb00a01b2cd" testName="op_EqualityTest" computerName="NEPHI-MAC" duration="00:00:00.0229534" startTime="2012-09-18T22:26:17.8969725-06:00" endTime="2012-09-18T22:26:18.0869834-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e49920d2-3424-43b2-9671-66a8724ee534">
+    </UnitTestResult>
+    <UnitTestResult executionId="20a49720-9b33-4a50-9a71-85624db1011f" testId="132723d6-2cf9-063a-df36-639f87f0c7ba" testName="op_InequalityTest" computerName="NEPHI-MAC" duration="00:00:00.0003067" startTime="2012-09-18T22:26:18.0879834-06:00" endTime="2012-09-18T22:26:18.0919837-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="20a49720-9b33-4a50-9a71-85624db1011f">
+    </UnitTestResult>
+    <UnitTestResult executionId="2d36d549-9027-4796-9d24-dc04bdc4c796" testId="14742b08-135f-85da-e445-0cccdd36088d" testName="FormulaErrorConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0005808" startTime="2012-09-18T22:26:18.0919837-06:00" endTime="2012-09-18T22:26:18.0959839-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d36d549-9027-4796-9d24-dc04bdc4c796">
+    </UnitTestResult>
+    <UnitTestResult executionId="c919c993-0886-4c0c-95f6-c67f509228df" testId="6e55faec-0af2-05ad-ba24-50efb221a290" testName="EvaluateTest" computerName="NEPHI-MAC" duration="00:00:00.0117280" startTime="2012-09-18T22:26:18.0969840-06:00" endTime="2012-09-18T22:26:18.1119848-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c919c993-0886-4c0c-95f6-c67f509228df">
+    </UnitTestResult>
+    <UnitTestResult executionId="a0e50224-112c-4133-81e8-7a292afa3e13" testId="7ec0a714-2e57-2610-b1cc-647b733b86ad" testName="ReasonTest" computerName="NEPHI-MAC" duration="00:00:00.0032529" startTime="2012-09-18T22:26:18.1129849-06:00" endTime="2012-09-18T22:26:18.1189852-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0e50224-112c-4133-81e8-7a292afa3e13">
+    </UnitTestResult>
+    <UnitTestResult executionId="4c1fbd63-6284-4120-bccc-6986a5888d47" testId="82173530-fb5d-e5e8-dac4-a291cbe2d36b" testName="FormulaConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0017765" startTime="2012-09-18T22:26:18.1199853-06:00" endTime="2012-09-18T22:26:18.1249856-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c1fbd63-6284-4120-bccc-6986a5888d47">
+    </UnitTestResult>
+    <UnitTestResult executionId="ea952191-3252-4a4e-afb7-dd26b4765b24" testId="83390128-7c07-1abf-c971-b2f04d553dda" testName="GetHashCodeTest" computerName="NEPHI-MAC" duration="00:00:00.0016159" startTime="2012-09-18T22:26:18.1249856-06:00" endTime="2012-09-18T22:26:18.1309859-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea952191-3252-4a4e-afb7-dd26b4765b24">
+    </UnitTestResult>
+    <UnitTestResult executionId="a1a97e7c-0035-4f2e-9deb-ad5fbb7a1758" testId="a1409fb0-b5da-f141-d419-d019fbe1c494" testName="ToStringTest" computerName="NEPHI-MAC" duration="00:00:00.0014637" startTime="2012-09-18T22:26:18.1309859-06:00" endTime="2012-09-18T22:26:18.1359862-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1a97e7c-0035-4f2e-9deb-ad5fbb7a1758">
+    </UnitTestResult>
+    <UnitTestResult executionId="554b8911-f47c-4615-a1e3-f559b04da054" testId="a3e71010-81f8-d049-825b-aa7ab800d01f" testName="FormulaFormatExceptionConstructorTest" computerName="NEPHI-MAC" duration="00:00:00.0003993" startTime="2012-09-18T22:26:18.1359862-06:00" endTime="2012-09-18T22:26:18.1399864-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="554b8911-f47c-4615-a1e3-f559b04da054">
+    </UnitTestResult>
+    <UnitTestResult executionId="75962069-1fe0-49a2-935c-53b65119727e" testId="a6da22d1-c6d2-8baa-8052-41c808e81cd0" testName="GetTokensTest" computerName="NEPHI-MAC" duration="00:00:00.0026511" startTime="2012-09-18T22:26:18.1409865-06:00" endTime="2012-09-18T22:26:18.1469868-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="75962069-1fe0-49a2-935c-53b65119727e">
+    </UnitTestResult>
+    <UnitTestResult executionId="7278d108-7f96-4c5b-a11f-f6d5bfd9aa7f" testId="d50e3a49-6853-27a7-e3b7-31571947e675" testName="EqualsTest" computerName="NEPHI-MAC" duration="00:00:00.0007204" startTime="2012-09-18T22:26:18.1479869-06:00" endTime="2012-09-18T22:26:18.1519871-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7278d108-7f96-4c5b-a11f-f6d5bfd9aa7f">
+    </UnitTestResult>
+    <UnitTestResult executionId="52c630e3-0ddc-4888-ab32-9c2467aae2b4" testId="d64d7406-0915-f5f5-4e05-b28f3ce470c6" testName="GetVariablesTest" computerName="NEPHI-MAC" duration="00:00:00.0146742" startTime="2012-09-18T22:26:18.1519871-06:00" endTime="2012-09-18T22:26:18.1709882-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52c630e3-0ddc-4888-ab32-9c2467aae2b4">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;13&gt;. Actual:&lt;11&gt;. </Message>
+          <StackTrace>   at PS3_Tester.FormulaTest.GetVariablesTest() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS3\PS3_Tester\FormulaTest.cs:line 303
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

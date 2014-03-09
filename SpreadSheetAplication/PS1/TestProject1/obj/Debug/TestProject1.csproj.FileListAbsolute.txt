@@ -1,0 +1,9 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\FormulaEvaluator.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\FormulaEvaluator.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\FormulaEvaluator_Accessor.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\bin\Debug\FormulaEvaluator_Accessor.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\TestProject1\obj\Debug\TestProject1.pdb

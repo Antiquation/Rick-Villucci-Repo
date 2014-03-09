@@ -1,0 +1,659 @@
+<?php
+/**
+ *
+ * Author: Rick Villucci
+ * Date: Spring 2014
+ * 
+ * This page is where the user will go to add multiple addresses they can use on the resume
+ * ***THIS PAGE DETECTS IF NEW USER AND WILL CHANGE TO DIRECT THEM THROUGH INITIAL SETUP OF THEIR ACCOUNT
+ * 
+ */
+require_once("../Objects/User.php");//user class for storing the user data
+require("../Helper/address_helper.php");//contains all the states
+require("../Objects/Address.php");//allows access to internal address object creation
+require ("../Hidden/databasePW.php");
+require("../Helper/Server.php");//server info
+require_once("../Helper/html_Helper.php");//for building the various HTML
+
+
+//SessionHandler
+$userObj = $_SESSION['User_Obj'];
+
+//This changes the boxes color upon error
+//and is also used to stop logic if error exists
+$inputClass = "";//This changes to warn the user that they will be overWriting an existing address
+
+$AddressArray =& $userObj->addressArray;//loads the sessions addresses for display / edit
+$ID =  $userObj->getID();
+//server for communicating with the DB
+
+$status = false;//this sets the entire system up for editing
+$hiding = true;//controls form view
+
+//this is the object which will be used for the duration of address edit / addition within this page
+$TempAddress = new Address();
+
+//error variable declaration
+$addErr = "";
+$nameErr = ""; 
+$addres1Err = "";
+$addres2Err = "";
+$cityErr = "";
+$stateErr = "";
+
+    
+//***DISPLAY PREVIOUS ADDRESS LOGIC***
+//________________________________________________________________________________
+if (isset ( $_REQUEST ['View_Edit'] )) 
+{
+    $temp = $_REQUEST ['Select_Address'];//gets the number of the item to be edited
+    
+    $TempAddress =  $AddressArray[$temp];//loads that item into the temp address
+ $status = true;
+ $hiding = false;//controls form view
+   
+}
+
+
+
+//if the cancel editing button is pressed - resets everything
+if (isset ( $_REQUEST ['Cancel_Edit'] ))
+{
+    unset($TempAddress);
+    $TempAddress = new Address();
+    //sets edit status to false
+ $status = false;
+
+   
+}//end cancel edit logic
+
+
+
+    $Name =& $TempAddress->Name;
+    $selectedAddress = $Name;
+    $Address1 =& $TempAddress->Address1;
+    $Address2 =& $TempAddress->Address2;
+    $City =& $TempAddress->City;
+    $State =& $TempAddress->State;
+    $AddressNumber =&$TempAddress->AddressNumber;
+/**
+ * TODO Load address objects into a table with buttons for edit / delete---------------------------------------------------
+ * 1.when load check if the form is blank and warn that data will be lost
+ * 2.load local variables with session 
+ * 3.If deleting warn the data will be lost
+ * 4.upon delete remove from session and DB
+ * 5.upon edit update session and database
+**/
+
+//________________________________________________________________________________
+//***END DISPLAY PREVIOUS ADDRESS LOGIC***
+
+
+//***SAVE FORM LOGIC***
+//________________________________________________________________________________
+
+   
+    
+	//Validate Logic
+            //if submitting for Address Save or overwrite
+    if (isset ( $_REQUEST ['Submit_Address'] ) || isset ( $_REQUEST ['Over_Write'] ))
+    {   
+        //Removes any DB error logic
+        $logErr = "";
+        
+         //validates the name field
+        checkNameValue($Name,$nameErr,$errClass);
+
+        //validate the address1 field
+        checkAddress1Value($Address1,$addres1Err,$errClass);
+
+        //validate the address2 field
+        checkAddress2Value($Address2,$addres2Err,$errClass);
+
+        //validate the city field
+        checkCityValue($City,$cityErr,$errClass);
+        
+        //validate the state drop down
+        checkStateValue($State,$stateErr,$errClass);
+    
+        $AddressNumber = $_REQUEST ['Select_Address'];//sets the address number from the submit
+    //****DATABASE COMMUNICATION AND VALIDATION
+    try
+    {
+        //if there is an error reload without query DB
+        if($errClass =="")
+        {
+            if (isset ( $_REQUEST ['Submit_Address'] ))
+            {  
+                //if not a guest
+                if(!$isGuest)
+                {
+                    $db = connectDB();//creates DB Connection
+                    
+                    
+                    
+                    //create database entry & get address Number from detail
+                    //Update address in database with address number and user ID 
+                    //and update session
+                    $create = "INSERT INTO `ps5_Address_Detail` (`Name`, `Address1`, `Address2`, `City`, `State`) VALUES (?, ?, ?, ?, ?)";
+                    
+                    $stmt = $db->prepare ( $create);//prepare the query
+                    
+                    $stmt->bindValue(1,$Name);
+                    $stmt->bindValue(2,$Address1);
+                    $stmt->bindValue(3,$Address2);
+                    $stmt->bindValue(4,$City);
+                    $stmt->bindValue(5,$State);
+                    $stmt->execute();
+                    
+                    unset($stmt); 
+                    
+                    $Num;//the new number for the new address
+                    getAddressNumber($Name,$Address1,$db,$Num);
+                    
+                    //insert into Address
+                    $create = "INSERT INTO ps5_Address ( `ID`,`AddressNumber`) VALUES (?,?)";
+                    $stmt = $db->prepare ( $create);//prepare the query
+                    //do insert  
+                    $stmt->bindValue(1,$ID);
+                    $stmt->bindValue(2,$Num);
+                    $stmt->execute();
+                    unset($stmt); 
+                    
+                    //THEN SAVE to THE SEESSION
+                    $userObj->addressArray[$Num] = $TempAddress; //replaces the item at that location in the session with the new item
+                    $message ="New Address: $Name Saved";//message to the user
+                }
+                else
+                {
+                   //if user is guest just save to session
+                    //THEN SAVE to THE SEESSION
+                    $userObj->addressArray[] = $TempAddress; //replaces the item at that location in the session with the new item
+                    $message ="New Address: $Name Saved";//message to the user
+                    
+                }
+            }
+            //This is used to write to the database only when updating or over writing an 
+            //already existing file
+            elseif(isset ( $_REQUEST ['Over_Write'] ))
+            {   //if the user is not a guest
+                if(!$isGuest)
+                {
+                    unset($stmt); //Kill the query and start the injection
+                    
+                    $db = connectDB();//creates DB Connection
+                    //OverWrite Database entry
+                    $over = "UPDATE ps5_Address_Detail SET Name=?, Address1=?, Address2=?, City=?, State=? WHERE AddressNumber=?";
+                    
+                    $stmt = $db->prepare ( $over);//prepare the query
+
+                    $stmt->bindValue(1,$Name);
+                    $stmt->bindValue(2,$Address1);
+                    $stmt->bindValue(3,$Address2);
+                    $stmt->bindValue(4,$City);
+                    $stmt->bindValue(5,$State);
+                    $stmt->bindValue(6,$AddressNumber);
+                    $stmt->execute();
+                    unset($stmt); 
+                    
+                    //THEN SAVE to THE SEESSION
+                    $userObj->addressArray[$AddressNumber] = $TempAddress; //replaces the item at that location in the session with the new item
+                    $message ="Address: $Name Updated";//message to the user
+                }
+                else
+                {
+                    //THEN SAVE to THE SEESSION
+                    $userObj->addressArray[$AddressNumber] = $TempAddress; //replaces the item at that location in the session with the new item
+                    $message ="Address: $Name Updated";//message to the user
+                    
+                }
+            }
+    
+        }//if no error
+        elseif(isset ( $_REQUEST ['Over_Write']))
+        {
+         $status = true;//keeps the form unhidden
+         $hiding = false;//controls form view
+        }
+        elseif(isset ( $_REQUEST ['Submit_Address'] ))
+        {
+         $hiding = false;//controls form view   
+        }
+    
+    }//end try to save
+
+    //if there is an exception communicating with the DB
+    catch ( PDOException $ex )
+    {
+        //$logErr = "COMMUNICATION ERROR - Try again later :)";
+	    echo "<p>PDO Exception</p>";
+	    echo "$ex";
+    }
+
+
+ }//end if set
+    
+    //if editing a resume
+    if ( isset($_REQUEST ['Delete_Address']))
+    {
+        $TBDeleted = $_REQUEST ['Select_Address'];
+        
+        //****DATABASE COMMUNICATION
+        try
+        {   //if not a guest
+            if(!$isGuest)
+            {
+                $db = connectDB();//creates DB Connection
+                
+                //deleted the resume from the database
+                $deleteMe = "DELETE FROM ps5_Address_Detail WHERE AddressNumber = ?";
+                
+                $stmt = $db->prepare ( $deleteMe);//prepare the query
+                
+                $stmt->bindValue(1,$TBDeleted);
+                $stmt->execute();
+                
+                unset($stmt); 
+                
+                unset($AddressArray[$TBDeleted]);//delete the resume from the session
+            }
+            else
+            {   //just push to the session
+                unset($AddressArray[$TBDeleted]);//delete the resume from the session
+            }
+            
+        }//end try
+        //if there is an exception communicating with the DB
+        catch ( PDOException $ex )
+        {
+            $logErr = "COMMUNICATION ERROR - Try again later :)";
+            //echo "<p>PDO Exception</p>";
+           // echo "$ex";
+        }
+        
+    }//end isset resume delete
+    
+    
+    
+    //gets the number of the address
+    function getAddressNumber($Name,$Address,$db,&$Num)
+    {
+        $q = "SELECT AddressNumber FROM ps5_Address_Detail WHERE Name=? and Address1=?";
+        
+        
+        $stmt = $db->prepare ( $q);//prepare the query
+
+        $stmt->bindValue(1,$Name);
+        $stmt->bindValue(2,$Address);
+        $stmt->execute();
+        $stmt->setFetchMode( PDO::FETCH_ASSOC);
+        $result =($stmt->fetch());
+        
+        $Num = $result['AddressNumber'];
+        
+          
+        
+    }
+//________________________________________________________________________________
+//***END SAVE FORM LOGIC***
+
+
+//***MISC FORM LOGIC***
+//________________________________________________________________________________
+
+//checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$isSubmission tells the function to go ahead and run validation
+//all of these variables are references of the original calling variables so no return is needed
+    function checkNameValue(&$shown, &$error,&$errClass)
+{
+   
+
+    $shown = '';
+    $error = '';
+
+    
+    
+       
+    //if check name was selected
+        if(isset($_REQUEST['addressName']))
+        {
+
+            //check if the name contains special characters
+            if (!preg_match('/[a-zA-Z]/i', $_REQUEST['addressName'])  && strlen($_REQUEST['addressName']) > 0)
+            {
+                
+                $error = "Address Name Cannot Include Special Characters or Numbers";
+                $errClass ="boxError"; 
+            }
+               elseif(!strlen($_REQUEST['addressName']) > 0)
+            {
+                $error = "Address Name Cannot Be Blank";
+               $errClass ="boxError";  
+            }
+            else
+            {   //sanitize and feed back up the pipe to display in the form and save on the server
+                $shown = filter_var(trim($_REQUEST['addressName']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+            }
+
+            
+        }
+    
+}//end function
+
+
+
+//checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$isSubmission tells the function to go ahead and run validation
+//all of these variables are references of the original calling variables so no return is needed
+    function checkAddress1Value(&$shown, &$error,&$errClass)
+{
+    
+    $shown = '';
+    $error = '';
+
+  
+            //if check address was selected
+        if(isset($_REQUEST['address1']))
+        {
+            //check if the name contains special characters
+            if (preg_match('/[\'^£$%&*()}{@~?><>,|=_+¬-]/', $_REQUEST['address1'])  && strlen($_REQUEST['address1']) > 0)
+            {
+                $error = "Address Cannot Include Special Characters";
+                $errClass ="boxError"; 
+            }
+              elseif(!strlen($_REQUEST['address1']) > 0)
+            {
+                $error = "Address Cannot Be Blank";
+               $errClass ="boxError";  
+            }
+            else
+            {   //sanitize and feed back up the pipe to display in the form and save on the server
+                $shown = filter_var(trim($_REQUEST['address1']), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_HIGH);    
+            } 
+
+            
+        }
+    
+}//end function
+
+
+
+
+//checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$isSubmission tells the function to go ahead and run validation
+//all of these variables are references of the original calling variables so no return is needed
+    function checkAddress2Value(&$shown, &$error,&$errClass)
+{
+      
+    $shown = '';
+    $error = '';
+
+ 
+            //if check address 2 was selected
+        if(isset($_REQUEST['address2']))
+        {
+               //check if the name contains special characters
+            if (preg_match('/[\'^£$%&*()}{@~?><>,|=_+¬-]/', $_REQUEST['address2']))
+            {
+                $error = "Address2 Cannot Include Special Characters";
+                $errClass ="boxError"; 
+            }
+            else
+            {   //sanitize and feed back up the pipe to display in the form and save on the server
+                $shown = filter_var(trim($_REQUEST['address2']), FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_HIGH);    
+            } 
+
+            
+        }
+    
+}
+
+
+
+        //checks the values of the submitted objects
+//$shown is the value entered into the text box
+//$error is the return error that will be displayed if needed
+//$isSubmission tells the function to go ahead and run validation
+//all of these variables are references of the original calling variables so no return is needed
+    function checkCityValue(&$shown, &$error,&$errClass)
+{ 
+
+    $shown = '';
+    $error = '';
+
+    
+    
+    //if check city was selected
+    if(isset($_REQUEST['city']))
+    {
+        //check if the name contains special characters
+        if (!preg_match('/[a-zA-Z]/i', $_REQUEST['city'])  && strlen($_REQUEST['city']) > 0)
+        {
+            
+            $error = "City Cannot Include Special Characters or Numbers";
+            $errClass ="boxError"; 
+        }
+        elseif(!strlen($_REQUEST['city']) > 0)
+        {
+            $error = "City Cannot Be Blank";
+            $errClass ="boxError"; 
+        }
+        else
+        {   //sanitize and feed back up the pipe to display in the form and save on the server
+            $shown = filter_var(trim($_REQUEST['city']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);    
+        }
+
+        
+    }
+}
+        
+        
+    //this is set by a drop down menu but just incase of tampering I will check for 
+    //special characters and blank variables
+    function checkStateValue(&$shown,&$error,&$errClass)
+    {
+
+          //if check city was selected
+        if(isset($_REQUEST['selectState']))
+        {
+            
+            if (strlen($_REQUEST['selectState']) > 0 && $_REQUEST['selectState'] != "default")
+		    {
+                    //varifies no insertion is being done
+                if (!preg_match('/[a-zA-Z]/i', $_REQUEST['selectState']))
+                    {
+                        //throws error
+                        $error = "Select a State";
+                        $errClass ="boxError"; 
+                    }
+                    else
+                    {
+                      //sanitize and store
+                       $shown = filter_var(trim($_REQUEST['selectState']), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+                       
+                    }
+            }
+            else
+            {
+                //throws error if default or blank entry detected
+                
+                $error = "Select a State";
+                $errClass ="boxError";
+            }
+        
+        }//end if isset
+        
+    }//end function set state
+   
+//________________________________________________________________________________
+//***MISC FORM LOGIC END***
+
+
+
+//**STATE DROPDOWN SELECTOR LOGIC**
+//________________________________________________________________________________
+//set the local state variable to a reference of the session variable
+
+//$selectedState =& $_SESSION['state'];
+
+
+
+//creates the options for the dropdown menu and then sets it equal to the state selected
+$stateOptions = createStateOptions($states,$State);
+//creates the options for the dropdown menu and then sets it equal to the state selected
+$addressOptions = createAddressOptions($AddressArray,$selectedAddress);
+
+
+// Returns a sequence of OPTION tags that are used to display
+// the state choices in a pulldown menu. $states is an array
+// of key/value pairs; $selected is the key of the state that should
+// be the selected option.
+function createStateOptions ($states, $selected) {
+	$result = '';
+	foreach ($states as $key => $name) {
+		$selection = ($selected == $key) ? "selected='selected'" : "";
+		$result = $result . "<option value='$key' $selection>$name</option>\n";
+	}
+	return $result;
+}//end of createStateOptions
+
+
+
+//returns all the addresses in drop down format
+function createAddressOptions ($array, $selected) 
+{
+    $result = '';
+    
+    //puts the default value in the drop down
+    $name = "Select and Edit";
+    $result = $result . "<option value='default'>$name:</option>\n";
+    
+    //iterates through the array and adds additional items
+    foreach ($array as $key => $value) 
+    {      
+        $name = $value->Name;
+        $id = $value->Address1;
+        $selection = ($selected == $name) ? "selected='selected'" : "";
+        $result = $result . "<option value='$key' $selection>$name:&nbsp;$id</option>\n";
+    }
+    return $result;
+}//end of createAddressOptions
+
+
+
+//***BUILD THE HTML******************
+//________________________________________________________
+
+//changes the value of the new button if in editing
+if($status)
+{
+    //sets the value of the new/cancel button
+    $newCancelValue = "Cancel Edit";
+    $newCancelID = "cancelBtn";
+    
+    
+    $disableTF = ""; //disables delete button 
+}
+else{
+    
+    //sets the value of the new/cancel button
+    $newCancelValue = "New Address";
+    $newCancelID = "newBtn";
+    
+    
+    $disableTF = "disabled='true'"; //disables delete button 
+}
+
+//for adding the style sheets - this can change based on the path
+$style = "
+        <link rel='stylesheet' type='text/css' href='resumeMain.css' />
+        <link rel='stylesheet' type='text/css' href='styles.css' />";
+
+//This is the main content for this page which will be added to the resused helper code
+$additional ="
+    
+<div id='editing' style='display: none;' value='$status'></div>
+<div id='hiding' style='display: none;' value='$hiding'></div>
+      <form method='post' id='edit'>
+      <h2 id='confirmed'>$message $logErr</h2>
+      </br>
+<table class='Resumes'>
+ <tr>
+    <td> Select an address to edit: </td>
+    <td><select id='addressChooser' name='Select_Address' > $addressOptions </select>$addErr</td>
+    <td><input type='submit' id ='editBtn' disabled  name='View_Edit' value='View/Edit'/></td>
+    <td><input type='button' id='$newCancelID'  name='New_Cancel' value='$newCancelValue'/></td>
+  </tr>
+   <tr></tr>
+  <tr></tr>
+<tr>
+    <td class ='hide'> Address Name </td>
+    <td><input type='text' class ='hide'  class='$errClass' id='addressName' name='addressName'  value='$Name'/>$nameErr</td>
+  </tr>
+ <tr>
+    <td class ='hide'> Address </td>
+    <td><input type='text' class ='hide'  class='$errClass' id='address1' name='address1'  value='$Address1'/>$addres1Err</td>
+  </tr>
+  <tr>
+    <td class ='hide'> Address1 (optional) </td>
+    <td><input type='text' class ='hide'  class='$errClass' id='address2' name='address2' value='$Address2'/>$addres2Err</td>
+  </tr>
+  <tr>
+    <td class ='hide'> City </td>
+    <td><input type='text' class ='hide'  class='$errClass' id='city' name='city'  value='$City'/>$cityErr</td>
+  </tr>
+  <tr>
+    <td class ='hide'> State </td>
+    <td><select class ='hide' class='$errClass' name='selectState' > $stateOptions </select>$stateErr </td>
+  </tr>
+  <tr>
+    <td>
+    <p>
+    <input type='button' class ='hide' id='addressSubmit' value='Submit Address'/>
+    </p>
+</td>
+    <td><p>
+    <input type='button' class ='hide' $disableTF id='delete' value='Delete Address'/>
+    </p></td>
+  </tr>
+</table>
+
+
+    <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='editButton' hidden  name='Over_Write' value='Over_Write'/>
+     
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='submitButton' hidden  name='Submit_Address' value='Submit_Address'/>
+     
+     <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='deleteButton' hidden name='Delete_Address' value='Delete_Address'/>
+     
+      <!--Hidden button for submit from jquery--!>
+     <input type='submit' id='cancelButton' hidden  name='Cancel_Edit' value='Cancel_Edit'/>
+    
+     
+    
+</form>
+  ";
+
+
+//makes the nav
+$menu = makeNav(basename($_SERVER['PHP_SELF']),false,$userObj);
+
+
+//builds the page content
+$content =  build_html_page_header($additional,$style,"","",$menu,true);
+
+//Dispays all html content
+echo
+"
+ $content
+ ";
+
+?>

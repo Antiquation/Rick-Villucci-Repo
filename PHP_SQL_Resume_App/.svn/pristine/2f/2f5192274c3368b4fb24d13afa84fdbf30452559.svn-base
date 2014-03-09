@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<configuration>
+  <connectionStrings>
+    <add connectionString="server=atr.eng.utah.edu;uid=cs4540_nephis;database=cs4540_nephis;pwd=004717423" name="cs4540_nephis" providerName="MySql.Data.MySqlClient"/>
+  </connectionStrings>
+  <system.web>
+    <compilation debug="true"/>
+  </system.web>
+</configuration>

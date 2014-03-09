@@ -1,0 +1,165 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+
+namespace FormulaEvaluator
+{
+    /// <summary>
+    /// Contains an evaluate method which takes an expression and a delegate for loocking up 
+    /// variables and returns the value of the expression
+    /// </summary>
+    public static class Evaluator
+    {
+        //the final value to be returned to the user
+           private static int result = 0;
+                //a local count value of the while statement for getting the array position
+           private static int count = 0;
+                //a local temp value for temparary calculations
+           private static int temp = 0;
+            
+   
+                //load the expression into the array for iteration
+           private static  string[] substrings;
+
+                // 2 local generic stacks of size "substring length" which hold the values and/or the operators for evaluating the given expression
+           private static Stack<Int32> Value = new Stack<Int32>(substrings.Length);
+           private static Stack Operator = new Stack(substrings.Length);
+
+             //delegate method
+        public delegate int Lookup(String v);
+        
+
+
+        /// <summary>
+        /// Takes the expression and evaluates using Infix Expression
+        /// </summary>
+        /// <param name="exp">The mathmatic expression</param>
+        /// <param name="variableEvaluator">The Delegate method used to evaluate a variable</param>
+        /// <returns>Returns the result of the given expression</returns>
+        public static int Evaluate(String exp, Lookup variableEvaluator)
+        {
+        
+                substrings = Regex.Split(exp, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+                    //Iterating through The algortithm used to evaluate the tokens in the array
+            while (count != substrings.Length)
+            {
+                //if the value of the substring at position "count" is empty - "blank" iterate to next 
+                if (substrings[count] == null)
+                    count++;
+
+                        //local string for checking first position for letter or number
+                    string s = substrings[count];
+
+               
+//*********************VARIABLE PROCESSING AND PASSING TO INTEGER PROCESSING
+
+                        //check if the first character is alpha - "a-z"
+                    if (Char.IsLetter(s[0]))
+                    {
+                            //if the variable has no value throw exception
+                        if (variableEvaluator(s) == null)
+                        {
+                            throw new ArithmeticException();
+                        }
+                            else
+                            {
+                                isInt(variableEvaluator(s));
+                            }
+                    }
+
+//**********************INTEGER DETERMINATION AND PASSING TO SECOND LEVEL INTEGER PROCESSING
+
+                        //else if it is a number
+                    else if (Char.IsNumber(s[0]))
+                    {
+                        isInt(s);
+                    }
+
+                return result;
+            }//End While iterator
+
+            return 0;
+        }//end Evaluate
+
+
+
+//*******************************SECOND LEVEL INTEGER PROCESSING
+
+            //Method for handling the value if it is an int
+        private static void isInt(String i)
+        {
+                try
+                {
+                    isInt(temp = Convert.ToInt32(substrings[count]));
+                  
+                }//end try and convert
+
+                catch
+                {
+                        //there was a value other than a number in the string error from user - throw exception
+                    throw new ArithmeticException();
+                    
+                }
+
+        }//end isInt string method converter
+
+
+//******pass in integers
+
+
+
+        //overloaded method "isInt" for taking integer inputs
+        private static void isInt(int i)
+        {
+            //if the operator stack is empty and the value of the top of Operator is not "*","/" push the value
+            if (Operator.Count == 0 || Operator.Peek() != "*" || Operator.Peek() != "/")
+            {
+                Value.Push(temp);
+            }
+            //if the top of Operator is * or /
+            else
+            {
+                //if the Value stack at this point in empty then there is a problem with the expression - Throw exception
+                if (Value.Count == 0)
+                    throw new ArithmeticException();
+
+                //******Temperary local variables for the purpose of evaluating the immediate expression
+
+                //first local Variable
+                int first = Value.Pop();
+
+                //second local variable
+                int second = temp;
+
+                //***************************************************
+
+                // if the operator is multiply
+                if (Operator.Peek() == "*")
+                {
+                    //evaluate and push result
+                    Value.Push(first * second);
+                    Operator.Pop();
+                }//end if multiply
+
+                        //The operator must be Divide
+                else
+                {
+                    //Throw division by zero exception if necessary
+                    if (second == 0)
+                        throw new ArithmeticException();
+                    else
+                        //evaluate and push result
+                        Value.Push(first / second);
+                    Operator.Pop();
+                }//end else Divide statement
+
+            }//end else Multiply or Divide
+
+        }//end isInt overloaded method for taking Int's
+
+    }//end Evaluator class
+
+}//end namespace

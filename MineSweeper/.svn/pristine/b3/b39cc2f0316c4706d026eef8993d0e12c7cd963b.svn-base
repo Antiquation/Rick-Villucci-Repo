@@ -1,0 +1,222 @@
+@CHARSET "ISO-8859-1";
+
+
+/*special thanks for the blinkie code to MR:Waleed Khan 
+url:http://stackoverflow.com/questions/12115247/how-do-you-make-an-image-blink*/
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.blink
+ {
+    -webkit-animation: blink 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: blink 1s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation: blink 1s;
+    -o-animation-iteration-count: infinite;
+}
+
+body
+{
+	margin: 50px;
+	padding: 20px;
+	text-align: center;
+	background: #2A2E55;
+	
+}
+
+h3
+{
+	margin: 0;
+	
+}
+
+#wrapper
+{
+	
+	border-radius:10px;
+	box-shadow: 0px 0px 25px #528880;
+	margin: 0 auto;
+	background-color: #789568;
+	
+	
+}
+
+#wrapperIndex
+{
+	
+	border-radius:10px;
+	box-shadow: 0px 0px 25px #528880;
+	margin: 0 auto;
+	background-color: #789568;
+	width: 500px;
+	height: 250px;
+	
+}
+
+.flagCursor
+{
+	cursor: url("/images/flag_Btn.gif") 12.5 20, auto;
+}
+
+
+#header
+{
+	
+	margin: 0 auto;
+	padding: 15px;
+	height: 80px;
+	
+}
+
+.minefield
+{
+	position:relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 0 auto;
+	border-radius:10px;
+	
+	/*background-color: #7E958B;*/
+	background: -webkit-linear-gradient(#789568, #183B36); /* For Safari */
+	background: -o-linear-gradient(#789568, #183B36); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#789568, #183B36); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#789568, #183B36); /* Standard syntax */
+	
+	/*border: 1px solid red; --for testing*/
+	
+}
+
+table
+{
+	margin-left: auto;
+  	margin-right: auto;
+  	cellpadding: 0;
+  	cellspacing: 0;
+  	padding: 5px;
+  	background: #886152;
+  	border: 2px solid black;
+  	
+}
+
+.tableCell
+{
+	
+	padding: 0;
+	border: 1px solid black;
+	height: 25px;
+	width: 25px;
+}
+
+.cellUp
+{
+	
+	z-index: 0;
+	
+}
+
+.placeFlag
+{
+	
+	
+}
+
+tr
+{
+	padding: 0;
+	
+}
+
+img
+{
+		width: 25px;
+		height: 25px;
+		vertical-align: top;
+			
+}
+
+#flagButton
+{
+	position: absolute;
+	top: 10px;
+	left: 430px;
+	width: 100px;
+	height: 33px;
+	
+}
+
+.flagDeactive
+{
+	background: url("/images/Flag_Button_up_r.gif");
+	
+}
+
+.flagActive
+{
+	background: url("/images/Flag_Button_down_r.gif");
+	
+	
+	
+}
+
+#mineCount
+{
+	position: absolute;
+	top: 0px;
+	left: 180px;
+	color: #EE9F30;
+	text-shadow: .5px .5px black;
+	
+}
+
+#instruct
+{
+	color: #528880;
+	text-shadow: .5px .5px black;
+	
+}
+
+.nextLevel
+{
+	visibility:hidden
+	
+}
+
+.gameOver
+{
+	color: red;
+	text-shadow: 1px 1px black;
+}

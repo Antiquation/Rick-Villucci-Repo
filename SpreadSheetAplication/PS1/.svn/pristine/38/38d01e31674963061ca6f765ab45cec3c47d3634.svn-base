@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections;
+
+namespace FormulaEvaluator
+{
+    public static class Evaluator
+    {
+
+        public delegate int Lookup(String v);
+        
+
+
+        /// <summary>
+        /// Takes the expression and evaluates using Infix Expression
+        /// </summary>
+        /// <param name="exp">The mathmatic expression</param>
+        /// <param name="variableEvaluator">The Delegate method used to evaluate a variable</param>
+        /// <returns>Returns the result of the given expression</returns>
+ 
+        public static int Evaluate(String exp, Lookup variableEvaluator)
+        {
+                //the final value to be returned to the user
+            int result = 0;
+            int count = 0;
+            int temp = 0;
+   
+                //load the expression into the array for iteration
+            string[] substrings = Regex.Split(exp, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+
+                // 2 generic stacks of size "substring length which hold the values and/or the operators for evaluating the given expression
+            Stack Value = new Stack(substrings.Length);
+            Stack Operator = new Stack(substrings.Length);
+
+             
+
+                    //The algortithm used to evaluate the tokens in the array
+                while(count != substrings.Length)
+                {
+                       //if the value of the substring at position "count" is empty - "blank" iterate to next position
+                       //in the array and continue
+                    if(substrings[count] == null)
+                           count++;
+                        
+                    
+                            //if count is a integer push to Value stack
+                        try
+                            {
+                                temp = Convert.ToInt32(substrings[count]);
+                                Value.Push(temp);
+                            }
+                        catch
+                            {
+                                continue;
+                            }
+
+                            //
+                        
+
+
+            return result;
+
+        }//end Evaluate
+
+    }//end Class1
+
+}//end namespace

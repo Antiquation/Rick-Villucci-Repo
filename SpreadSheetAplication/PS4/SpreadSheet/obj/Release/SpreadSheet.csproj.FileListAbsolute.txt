@@ -1,0 +1,9 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\SpreadSheet.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\SpreadSheet.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\Formula.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\SpreadsheetUtilities.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\Formula.xml
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\bin\Release\SpreadsheetUtilities.xml
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\obj\Release\SpreadSheet.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS4\SpreadSheet\obj\Release\SpreadSheet.pdb

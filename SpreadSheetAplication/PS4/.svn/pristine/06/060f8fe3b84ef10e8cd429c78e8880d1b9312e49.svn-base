@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SpreadsheetUtilities;
+
+
+namespace SS
+{
+    class Spreadsheet : AbstractSpreadsheet
+    {
+
+        //the collection of non duplicate cells located in the sheet
+        Dictionary<string, Cell> sheet;
+
+            //represents all the cells that need to be recalculated
+        List<Cell> recalc;
+
+            //the Dependency graph for the spreadSheet
+        DependencyGraph DG;
+
+            //represents the current cell being manipulated
+        Cell current;
+
+
+        
+
+
+
+            /// <summary>
+            /// Zero argument constructor which allows the creation of 
+            /// an AbstractSpreadsheet object. When a cell is visited it is instantiated with either
+            /// a default (name + empty content) or if content is specified (name + valid content)
+            /// it is then added to the Hashset.
+            /// </summary>
+        public Spreadsheet()
+        {
+                //the collection of non duplicate cells located in the sheet
+            sheet = new Dictionary<string, Cell>();
+
+                //creates the dependency graph associaed with the SpreadSheet
+            DG = new DependencyGraph();
+           
+
+        }
+
+
+
+
+
+        public override IEnumerable<string> GetNamesOfAllNonemptyCells()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+        public override object GetCellContents(string name)
+        {
+           
+            //check the validity of the name
+            if (name != null && isValid(name))
+            {
+
+            }
+
+            //if the name is valid check that it exists
+
+           
+        }
+
+        public override ISet<string> SetCellContents(string name, double number)
+        {
+            //NEED TO IMPLIMENT THE ERROR
+            //throw new NotImplementedException();
+
+            sheet.Add(name, new Cell(name, number));
+
+        }
+
+        public override ISet<string> SetCellContents(string name, string text)
+        {
+            //throw new NotImplementedException();
+
+            sheet.Add(name, new Cell(name, text));
+        }
+
+
+      
+        public override ISet<string> SetCellContents(string name, Formula formula)
+        {
+
+
+            
+
+
+            //throw new NotImplementedException();
+                //if the formula is null throw exception
+            if (formula == null)
+                throw new ArgumentException("The formula is nn existent");
+
+                //if the name is null throw exception
+            if (name == null)
+                throw new InvalidNameException();
+
+                //if the the name and the formula exist and the implimentation of the 
+                //formula would cause circular dependency throw exception
+                //else replace the content with the new formula and
+                //regenerate the dependency graph
+            if (getCell(name))
+            {
+
+                //if the formula presented is not the same as the current formula
+                //and the presented formula would cause a circular exception
+                //throw exception.
+                if (!current.Equals(formula) && circular(name, formula))
+                {
+                    throw new CircularException();
+                }
+
+                else
+                {
+                    //replaces the cell content with the new formula
+                    current.setCont(formula);
+
+                }
+
+
+            }//end if formula exists and is not circular
+
+                //the cell is non existent in the sheet and must be instantiated
+            else
+            {
+                    //if the formula would cause circular dependency
+                    //throw exception
+                if (circular(name, formula))
+                    throw new CircularException();
+
+                    //if not circular add to the sheet and 
+                    //build the dependency graph for that name.
+                else
+                {
+                        //adds the name and the new cell object containing the cell contents and its name to the sheet
+                    sheet.Add(name, new Cell(name, formula));
+
+                        //builds the dependency graph
+                    addDep(name, formula);
+
+                        //adds the name of the cell to the set which
+                        //will be returned with the method
+                    current.depSet.Add(name);
+                }
+            }//end else the cell is not instantiated
+
+
+
+                //adds all the dependent cells to the 
+                //set which will be returned from this method
+            foreach(string s in  DG.GetDependents(name))
+            {
+                depSet.Add(s);
+            }
+
+                //retuns the set containing the name of this cell and all its dependencies
+            return depSet;
+        }
+
+        protected override IEnumerable<string> GetDirectDependents(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+        /// <summary>
+        /// Helper Method...
+        /// Given a cells name - this method will determine if it had an illegal
+        /// circular dependency and returns true if circular and false if not.
+        /// </summary>
+        /// <param name="cellName">String</param>
+        /// <param name="formula">Formula</param>
+        /// <returns>boolean</returns>
+        private bool circular(string cellName, Formula formula )
+        {
+                //gets all the cells dependents and if 
+                //the cell name appears in that iteration 
+                //then the cell had circular dependency - return true
+            foreach (string s in formula.GetVariables())
+            {
+                if (s == cellName)
+                {
+                    return true;
+                }
+
+            }
+                //Cell is legal - return false
+            return false;
+        }//end circular method
+
+
+
+
+
+        /// <summary>
+        /// Helper Method...
+        /// Gets the Cell curently under observation - if it exists - and stores it localy for analasys.
+        /// returns true if the cell name contains content else returns false
+        /// </summary>
+        /// <param name="s">string - Name of cell</param>
+        /// <returns>bool</returns>
+        private bool getCell(string s)
+        {
+            return sheet.TryGetValue(s, out current);
+        }
+
+
+
+
+        /// <summary>
+        /// Takes the name of the cell and the 
+        /// fomula contained therein - gets all variables and
+        /// then builds the dependency graph for that name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="F"></param>
+        private void addDep(string name, Formula F)
+        {
+                //iterates through the formula and builds the 
+                //dependency graph
+            foreach (string s in F.GetVariables())
+            {
+                //creates all the dependents for the Cell "name" passed in 
+                DG.AddDependency(name, s);
+            }
+
+        }//end addDep method
+
+
+
+        private bool isValid(string s)
+        {
+            //*****************impliment
+            return true;
+
+        }
+       
+
+
+
+    }//end Spreadsheed class
+
+
+
+
+}

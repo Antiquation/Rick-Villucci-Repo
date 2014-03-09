@@ -1,0 +1,230 @@
+﻿namespace SpreadsheetGUI
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.spreadsheetPanel1 = new SS.SpreadsheetPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.howToUseThisProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formula_Icon = new System.Windows.Forms.Label();
+            this.cellContent = new System.Windows.Forms.TextBox();
+            this.cellName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // spreadsheetPanel1
+            // 
+            this.spreadsheetPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.spreadsheetPanel1.CausesValidation = false;
+            this.spreadsheetPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spreadsheetPanel1.Location = new System.Drawing.Point(0, 60);
+            this.spreadsheetPanel1.Name = "spreadsheetPanel1";
+            this.spreadsheetPanel1.Size = new System.Drawing.Size(1008, 670);
+            this.spreadsheetPanel1.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.MinimumSize = new System.Drawing.Size(0, 60);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 60);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.openToolStripMenuItem1,
+            this.closeToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 56);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenuItem.Text = "Save";
+            // 
+            // openToolStripMenuItem1
+            // 
+            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem1.Text = "Save as";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.howToUseThisProgramToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 56);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // howToUseThisProgramToolStripMenuItem
+            // 
+            this.howToUseThisProgramToolStripMenuItem.Name = "howToUseThisProgramToolStripMenuItem";
+            this.howToUseThisProgramToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.howToUseThisProgramToolStripMenuItem.Text = "How to use this program";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // formula_Icon
+            // 
+            this.formula_Icon.AutoSize = true;
+            this.formula_Icon.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.formula_Icon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formula_Icon.Location = new System.Drawing.Point(585, 9);
+            this.formula_Icon.Name = "formula_Icon";
+            this.formula_Icon.Size = new System.Drawing.Size(26, 17);
+            this.formula_Icon.TabIndex = 2;
+            this.formula_Icon.Text = "Fx:";
+            // 
+            // cellContent
+            // 
+            this.cellContent.BackColor = System.Drawing.Color.DarkOrange;
+            this.cellContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cellContent.CausesValidation = false;
+            this.cellContent.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cellContent.Location = new System.Drawing.Point(617, 16);
+            this.cellContent.Name = "cellContent";
+            this.cellContent.Size = new System.Drawing.Size(294, 20);
+            this.cellContent.TabIndex = 3;
+            this.cellContent.Text = "SELECT CELL - THEN CLICK HERE TO ENTER VALUE";
+            this.cellContent.TextChanged += new System.EventHandler(this.cellContent_TextChanged);
+            this.cellContent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cellContent_KeyDown);
+          
+            this.cellContent.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cellContent_KeyDown);
+            // 
+            // cellName
+            // 
+            this.cellName.BackColor = System.Drawing.Color.Khaki;
+            this.cellName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cellName.Location = new System.Drawing.Point(290, 16);
+            this.cellName.Name = "cellName";
+            this.cellName.ReadOnly = true;
+            this.cellName.Size = new System.Drawing.Size(252, 20);
+            this.cellName.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Cell Name and Value";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cellName);
+            this.Controls.Add(this.cellContent);
+            this.Controls.Add(this.formula_Icon);
+            this.Controls.Add(this.spreadsheetPanel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Form1";
+            this.Text = "Spreadsheet";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private SS.SpreadsheetPanel spreadsheetPanel1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem howToUseThisProgramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label formula_Icon;
+        private System.Windows.Forms.TextBox cellContent;
+        private System.Windows.Forms.TextBox cellName;
+        private System.Windows.Forms.Label label1;
+    }
+}
+

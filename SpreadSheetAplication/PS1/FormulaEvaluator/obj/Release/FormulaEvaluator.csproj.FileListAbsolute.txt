@@ -1,0 +1,5 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\bin\Release\FormulaEvaluator.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\bin\Release\FormulaEvaluator.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\obj\Release\FormulaEvaluator.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\FormulaEvaluator\obj\Release\FormulaEvaluator.pdb

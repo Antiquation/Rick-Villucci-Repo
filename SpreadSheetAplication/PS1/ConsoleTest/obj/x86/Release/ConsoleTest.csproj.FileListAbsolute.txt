@@ -1,0 +1,7 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\bin\Release\ConsoleTest.exe
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\bin\Release\ConsoleTest.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\bin\Release\FormulaEvaluator.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\bin\Release\FormulaEvaluator.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\obj\x86\Release\ConsoleTest.exe
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS1\ConsoleTest\obj\x86\Release\ConsoleTest.pdb

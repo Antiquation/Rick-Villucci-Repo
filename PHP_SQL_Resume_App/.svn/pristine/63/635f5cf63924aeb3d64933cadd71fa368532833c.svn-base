@@ -1,0 +1,170 @@
+
+
+#wrapperIndex
+{
+	position: relative;
+    padding-bottom: 15px;
+	border-radius:10px;
+	box-shadow: 0px 0px 100px #BF1D1D;
+	margin: 0 auto;
+	background-color: #0971B2;
+	width: 1024px;
+	
+	
+	
+}
+#header
+{
+	
+	margin: 0 auto;
+	padding: 15px;
+	height: 80px;
+	text-align: center;
+	
+	
+	
+	
+}
+body
+{
+	margin: 50px;
+	padding: 20px;
+	background: #222222;
+	color: white;
+	text-shadow: 1px 1px 3px #BF1D1D;
+	
+	
+}
+.error
+{
+	color: #BF1D1D;
+	font-weight:bold;
+	text-shadow: 0px 0px 1px white;
+}
+.boxError
+{
+    background-color: #BF1D1D;
+    color: white;
+}
+.hide
+{
+    display: none;
+}
+
+.jobContainer
+{
+    position: relative;
+}
+
+Form
+{
+    padding: 50px;
+}
+
+input:disabled
+{
+background:#eee;
+}
+
+#help
+{
+    padding: 50px;
+}
+#instruct
+{
+    text-align: center;
+        
+}
+.resume
+{
+   margin: 25px;
+   padding: 10px;
+   height: 1325px;
+    background: #eee;
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.15), /* The top layer shadow */
+        0 10px 0 -5px #eee, /* The second layer */
+        0 10px 1px -4px rgba(0,0,0,0.15), /* The second layer shadow */
+        0 20px 0 -10px #eee, /* The third layer */
+        0 20px 1px -9px rgba(0,0,0,0.15); /* The third layer shadow */
+}
+.resume #name, #address, #city_state, #phone
+{
+    text-align: center;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+.PositionDes
+{
+    padding: 10px;
+}
+.PositionDes #PD
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#logout
+{
+     position: absolute;
+    left: 85%;
+  
+}
+#logoutForm
+{
+    padding: 10px;
+}
+#title
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+.PositionDes #PDS 
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#disc
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+.employment
+{
+   position: relative;
+   top: 50px;
+   left: 0px auto;
+   
+        
+}
+#employ
+{
+     position: relative;
+     margin-bottom: 25px;
+    left: 75px;
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#jbH
+{
+    padding-left: 60px;
+     text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#start,#end,#did,#jobD
+{
+    padding-left: 150px;
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}

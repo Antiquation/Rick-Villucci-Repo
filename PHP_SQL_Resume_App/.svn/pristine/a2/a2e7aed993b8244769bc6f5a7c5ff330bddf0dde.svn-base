@@ -1,0 +1,234 @@
+
+
+#wrapperIndex
+{
+	position: relative;
+    padding-bottom: 15px;
+	border-radius:10px;
+	box-shadow: 0px 0px 100px #BF1D1D;
+	margin: 0 auto;
+	background-color: #0971B2;
+	width: 1024px;
+	
+	
+	
+}
+#header
+{
+	
+	margin: 0 auto;
+	padding: 15px;
+	height: 80px;
+	text-align: center;
+	
+	
+	
+	
+}
+body
+{
+	margin: 50px;
+	padding: 20px;
+	background: #222222;
+	color: white;
+	text-shadow: 1px 1px 3px #BF1D1D;
+	
+	
+}
+.error
+{
+	color: #BF1D1D;
+	font-weight:bold;
+	text-shadow: 0px 0px 1px white;
+}
+.boxError
+{
+    background-color: #BF1D1D;
+    color: white;
+}
+.hide
+{
+    display: none;
+}
+
+.jobContainer
+{
+    position: relative;
+}
+
+Form
+{
+    padding: 50px;
+}
+
+#AdminPage td, #AdminPage th{
+    color:#eee;
+    text-shadow: 1px 1px 1px #BF1D1D;
+    font-size:14px;   
+    background: #646363;
+    padding:5px 7px 3px 7px;
+    border: 1px solid black;
+    border-collapse:collapse;
+   
+    
+}
+#AdminPage th{
+    
+     color:#0971B2;
+     text-shadow: 1px 1px 1px #BF1D1D;
+     background: #222222;
+    font-size:16px;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+
+}
+#useredit{
+    
+     text-shadow: 1px 1px 1px #222222;
+     background:#BF1D1D;
+    font-size:14px;
+    text-align:center;
+
+}
+#AdminPage tr.alt td {
+    color:#000000;
+    background-color:#EAF2D3;
+}
+#AdminPage form {
+    padding:0px;
+}
+
+input:disabled
+{
+background:#eee;
+}
+
+#help
+{
+    padding: 50px;
+}
+#instruct
+{
+    text-align: center;
+        
+}
+.resume
+{
+   margin: 25px;
+   padding: 10px;
+   height: 1325px;
+    background: #eee;
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.15), /* The top layer shadow */
+        0 10px 0 -5px #eee, /* The second layer */
+        0 10px 1px -4px rgba(0,0,0,0.15), /* The second layer shadow */
+        0 20px 0 -10px #eee, /* The third layer */
+        0 20px 1px -9px rgba(0,0,0,0.15); /* The third layer shadow */
+}
+.resume #name, #address, #city_state, #phone
+{
+    text-align: center;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+
+#confirmed {
+
+    margin: 0 auto;
+    text-align: center;
+}
+   
+
+.PositionDes
+{
+    padding: 10px;
+}
+.PositionDes #PD
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#logout,#logmein
+{
+     position: absolute;
+    left: 80%;
+    top:15px;
+  
+}
+#Logout, #LogMeIn
+{
+    padding: 0px;
+}
+#GuestForm
+{
+    padding-left: 80%;
+    padding-top: 0px;
+
+}
+#Login
+{
+    padding-left:50px;
+    padding-bottom:0px;
+
+}
+.Welcome {
+    text-align: center;
+}
+
+#title
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+.PositionDes #PDS 
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#disc
+{
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+.employment
+{
+   position: relative;
+   top: 50px;
+   left: 0px auto;
+   
+        
+}
+#employ
+{
+     position: relative;
+     margin-bottom: 25px;
+    left: 75px;
+   
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#jbH
+{
+    padding-left: 60px;
+     text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+#start,#end,#did,#jobD
+{
+    padding-left: 150px;
+    text-align: left;
+    color: #222222;
+    text-shadow: .1px .1px 1px black;
+}
+

@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0bbf4b43-4267-41ec-9a03-ae538a2e42b4" name="Nephi@NEPHI-MAC 2012-10-18 21:47:26" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9d939d0e-582a-4bf7-8497-1b23f07d4666">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Nephi_NEPHI-MAC 2012-10-18 21_47_26">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadsheetUtilities.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Formula.dll" />
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-18T21:47:26.1519077-06:00" queuing="2012-10-18T21:47:26.4099224-06:00" start="2012-10-18T21:47:26.4429243-06:00" finish="2012-10-18T21:48:06.4072102-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:47:26.4069223-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' directly or indirectly referenced by C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\bin\Release\SpreadSheetTest.dll cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\Spreadsheet\bin\Release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+      <RunInfo computerName="NEPHI-MAC" outcome="Warning" timestamp="2012-10-18T21:47:26.4079223-06:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' directly or indirectly referenced by the test container 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll' cannot be deployed to 'SpreadSheet.dll' because otherwise the file 'c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\SpreadSheet.dll' would overwrite code coverage item 'C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheet\bin\Debug\SpreadSheet.dll'.</Text>
+      </RunInfo>
+    </RunInfos>
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CodedUITestMethod1" storage="c:\users\nephi\documents\visual studio 2010\projects\ps6\spreadsheettest\bin\release\spreadsheettest.dll" id="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01">
+      <Execution id="01e16332-3967-4643-add0-cd8ba8eb9c27" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS6/SpreadSheetTest/bin/Release/SpreadSheetTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SpreadSheetTest.CodedUITest1, SpreadSheetTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CodedUITestMethod1" />
+      <Extension>Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute, Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Extension>
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" executionId="01e16332-3967-4643-add0-cd8ba8eb9c27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="01e16332-3967-4643-add0-cd8ba8eb9c27" testId="a22e3fa2-03e7-1a56-c7c9-a275a1e37b01" testName="CodedUITestMethod1" computerName="NEPHI-MAC" duration="00:00:37.7842537" startTime="2012-10-18T21:47:26.9839553-06:00" endTime="2012-10-18T21:48:04.9751283-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01e16332-3967-4643-add0-cd8ba8eb9c27">
+      <Output>
+        <DebugTrace>W, 7416, 15, 2012/10/18, 21:47:28.362, 612904383925, QTAgent32.exe, &lt;a class=success&gt;Playback - {1} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:28.764, 612905247056, QTAgent32.exe, &lt;a class=success&gt;Playback - {2} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:28.868, 612905470568, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:28.995, 612905744483, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:28.996, 612905745480, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "How to use this program" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:28.996, 612905745646, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:28.996, 612905746434, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:29.087, 612905940277, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:29.301, 612906401648, QTAgent32.exe, &lt;a class=success&gt;Playback - {3} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (85, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:29.463, 612906749051, QTAgent32.exe, &lt;a class=success&gt;Playback - {4} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (152, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:29.769, 612907406335, QTAgent32.exe, &lt;a class=success&gt;Playback - {5} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='How to use this program'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:30.164, 612908256132, QTAgent32.exe, &lt;a class=success&gt;Playback - {6} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:30.537, 612909056926, QTAgent32.exe, &lt;a class=success&gt;Playback - {7} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:47:30.833, 612909693386, QTAgent32.exe, LoadLibrary() : Unable to find the resource 37382 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7416, 15, 2012/10/18, 21:47:30.834, 612909694056, QTAgent32.exe, LoadLibrary() : Unable to find the resource 41728 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7416, 15, 2012/10/18, 21:47:30.834, 612909694302, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7416, 15, 2012/10/18, 21:47:30.834, 612909694541, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7416, 15, 2012/10/18, 21:47:30.834, 612909694936, QTAgent32.exe, LoadLibrary() : Unable to find the resource 8131 from assembly C:\Windows\system32\en-US\ieframe.dll.mui: Error1814
+E, 7416, 15, 2012/10/18, 21:47:30.834, 612909695446, QTAgent32.exe, LoadLibrary() : Unable to find the resource 803 from assembly C:\Windows\system32\en-US\user32.dll.mui: Error1814
+W, 7416, 15, 2012/10/18, 21:47:31.231, 612910546997, QTAgent32.exe, &lt;a class=success&gt;Playback - {8} [SUCCESS] SetValueAsEditBox "1" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:31.531, 612911192939, QTAgent32.exe, &lt;a class=success&gt;Playback - {9} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:31.816, 612911805244, QTAgent32.exe, &lt;a class=success&gt;Playback - {10} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:32.349, 612912949067, QTAgent32.exe, &lt;a class=success&gt;Playback - {11} [SUCCESS] SetValueAsEditBox "=A1" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:32.649, 612913593789, QTAgent32.exe, &lt;a class=success&gt;Playback - {12} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:32.964, 612914271289, QTAgent32.exe, &lt;a class=success&gt;Playback - {13} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:33.480, 612915379086, QTAgent32.exe, &lt;a class=success&gt;Playback - {14} [SUCCESS] SetValueAsEditBox "=A1" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:33.786, 612916038013, QTAgent32.exe, &lt;a class=success&gt;Playback - {15} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:34.067, 612916641270, QTAgent32.exe, &lt;a class=success&gt;Playback - {16} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:34.730, 612918065577, QTAgent32.exe, &lt;a class=success&gt;Playback - {17} [SUCCESS] SetValueAsEditBox "=A1+B3+C13" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:35.044, 612918741203, QTAgent32.exe, &lt;a class=success&gt;Playback - {18} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:35.359, 612919417716, QTAgent32.exe, &lt;a class=success&gt;Playback - {19} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:35.638, 612920017600, QTAgent32.exe, &lt;a class=success&gt;Playback - {20} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:35.740, 612920235126, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:35.996, 612920786526, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:35.997, 612920787877, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "About" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:35.997, 612920788031, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:35.997, 612920788433, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:36.101, 612921012034, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:36.317, 612921475960, QTAgent32.exe, &lt;a class=success&gt;Playback - {21} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (85, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:36.498, 612921865152, QTAgent32.exe, &lt;a class=success&gt;Playback - {22} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Help'"  &lt; Mouse cursor location (152, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:36.826, 612922568867, QTAgent32.exe, &lt;a class=success&gt;Playback - {23} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='About'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:37.241, 612923461064, QTAgent32.exe, &lt;a class=success&gt;Playback - {24} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:37.592, 612924215372, QTAgent32.exe, &lt;a class=success&gt;Playback - {25} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='OK'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:37.881, 612924836867, QTAgent32.exe, &lt;a class=success&gt;Playback - {26} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:37.983, 612925054351, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:38.192, 612925503587, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:38.192, 612925504595, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "New" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:38.192, 612925504707, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:38.192, 612925505080, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:38.284, 612925701631, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:38.487, 612926138410, QTAgent32.exe, &lt;a class=success&gt;Playback - {27} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (85, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:38.627, 612926438667, QTAgent32.exe, &lt;a class=success&gt;Playback - {28} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (111, 135) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:39.070, 612927390043, QTAgent32.exe, &lt;a class=success&gt;Playback - {29} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='New'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:39.366, 612928025488, QTAgent32.exe, &lt;a class=success&gt;Playback - {30} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:39.821, 612929004754, QTAgent32.exe, &lt;a class=success&gt;Playback - {31} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Button' &amp;&amp; Name='Close'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:39.935, 612929247941, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:40.063, 612929524571, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:40.065, 612929527701, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Open" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:40.065, 612929527854, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:40.065, 612929528244, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:40.167, 612929748031, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:40.361, 612930164884, QTAgent32.exe, &lt;a class=success&gt;Playback - {32} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (110, 160) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:40.567, 612930607120, QTAgent32.exe, &lt;a class=success&gt;Playback - {33} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (136, 160) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:40.892, 612931304661, QTAgent32.exe, &lt;a class=success&gt;Playback - {34} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Open'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:41.596, 612932818379, QTAgent32.exe, &lt;a class=success&gt;Playback - {35} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Name'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:42.726, 612935245213, QTAgent32.exe, Playback - [WARNING] Internal warning: Incorrect flag set for InvokeProgrammaticAction\0
+W, 7416, 15, 2012/10/18, 21:47:42.848, 612935507171, QTAgent32.exe, &lt;a class=success&gt;Playback - {36} [SUCCESS] SetValueAsComboBox "Spreadsheet Files (.ss)" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='Files of type:'"  &lt; SetValueAsComboBox, set by clicking on the item in the list box &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:43.101, 612936050748, QTAgent32.exe, &lt;a class=success&gt;Playback - {37} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='SplitButton' &amp;&amp; Name='Open'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:43.511, 612936932630, QTAgent32.exe, &lt;a class=success&gt;Playback - {38} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:43.981, 612937942232, QTAgent32.exe, &lt;a class=success&gt;Playback - {39} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:44.081, 612938157025, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:44.206, 612938424849, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:44.206, 612938425813, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:44.206, 612938425941, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:44.206, 612938426310, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:44.296, 612938619849, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:44.501, 612939059330, QTAgent32.exe, &lt;a class=success&gt;Playback - {40} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (135, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:44.638, 612939354603, QTAgent32.exe, &lt;a class=success&gt;Playback - {41} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (161, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:45.016, 612940165570, QTAgent32.exe, &lt;a class=success&gt;Playback - {42} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:45.331, 612940841111, QTAgent32.exe, &lt;a class=success&gt;Playback - {43} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:46.037, 612942357560, QTAgent32.exe, &lt;a class=success&gt;Playback - {44} [SUCCESS] SendKeys "25" - "[MSAA, VisibleOnly]ControlType='Client'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:46.646, 612943665773, QTAgent32.exe, &lt;a class=success&gt;Playback - {45} [SUCCESS] SendKeys "^{HOME}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:47:46.648, 612943669703, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 7416, 15, 2012/10/18, 21:47:46.737, 612943861866, QTAgent32.exe, &lt;a class=success&gt;Playback - {46} [SUCCESS] SendKeys "^+{END}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:47:46.738, 612943862787, QTAgent32.exe, Msaa.GetFocusedElement: could not find accessible object of foreground window
+W, 7416, 15, 2012/10/18, 21:47:46.817, 612944033799, QTAgent32.exe, &lt;a class=success&gt;Playback - {47} [SUCCESS] SendKeys "{DELETE}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:47.233, 612944926493, QTAgent32.exe, &lt;a class=success&gt;Playback - {48} [SUCCESS] SetValueAsEditBox "25" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"  &lt; Set via SendKeys &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:47.696, 612945922494, QTAgent32.exe, &lt;a class=success&gt;Playback - {49} [SUCCESS] SendKeys "{Enter}" - "[MSAA, VisibleOnly]ControlType='Edit' &amp;&amp; Name='Fx:'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:47.796, 612946136948, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:47.941, 612946448503, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:47.942, 612946449863, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:47.942, 612946450015, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:47.942, 612946450412, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:48.046, 612946673044, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:48.252, 612947117186, QTAgent32.exe, &lt;a class=success&gt;Playback - {50} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (135, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:48.451, 612947544293, QTAgent32.exe, &lt;a class=success&gt;Playback - {51} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (161, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:48.811, 612948317364, QTAgent32.exe, &lt;a class=success&gt;Playback - {52} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:49.099, 612948937445, QTAgent32.exe, &lt;a class=success&gt;Playback - {53} [SUCCESS] MouseButtonClick - "[MSAA, VisibleOnly]ControlType='TitleBar'"
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:49.200, 612949153905, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:49.479, 612949753299, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle top location (0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:49.480, 612949755726, QTAgent32.exe, Playback - [WARNING] Internal failure: Invalid bounding rectangle size (width = 0, height = 0) for Name = "Save as" ," ControlType = "MenuItem"
+\0
+W, 7416, 15, 2012/10/18, 21:47:49.480, 612949755963, QTAgent32.exe, Playback - [WARNING] Internal failure: Couldn't get clickable point for ScreenUIElement - GetClickablePoint failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:49.481, 612949756525, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:49.647, 612950113169, QTAgent32.exe, FindScreenElementInSinglePass : Attempting to find control in one pass of search. Failures can occur.
+W, 7416, 15, 2012/10/18, 21:47:49.867, 612950586483, QTAgent32.exe, &lt;a class=success&gt;Playback - {54} [SUCCESS] LeftButtonClick - "[MSAA, VisibleOnly]ControlType='MenuBar' &amp;&amp; Name='menuStrip1'"  &lt; Mouse cursor location (135, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:50.015, 612950903853, QTAgent32.exe, &lt;a class=success&gt;Playback - {55} [SUCCESS] LeftButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='File'"  &lt; Mouse cursor location (161, 185) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:50.347, 612951617397, QTAgent32.exe, &lt;a class=success&gt;Playback - {56} [SUCCESS] MouseButtonClick - "[MSAA]ControlType='MenuItem' &amp;&amp; Name='Save as'"
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:47:50.682, 612952337969, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+E, 7416, 15, 2012/10/18, 21:47:50.714, 612952405821, QTAgent32.exe, Exception: System.ArgumentException
+	Message: Value does not fall within the expected range.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Value does not fall within the expected range.
+
+W, 7416, 15, 2012/10/18, 21:47:52.372, 612955969457, QTAgent32.exe, Playback - [WARNING] Internal warning: SetFocus failed since the focus is set to a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:52.508, 612956260741, QTAgent32.exe, &lt;a class=success&gt;Playback - {57} [SUCCESS] LeftButtonClick  &lt; Mouse cursor location (174, 473) &gt;
+\0&lt;/a&gt;
+W, 7416, 15, 2012/10/18, 21:47:53.347, 612958062977, QTAgent32.exe, Playback - [WARNING] Internal warning: SetFocus failed since the focus is set to a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:53.354, 612958077734, QTAgent32.exe, Playback - [WARNING] Internal warning: Cannot type since the focus is captured by a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:53.358, 612958086280, QTAgent32.exe, Playback - [WARNING] Internal warning: Cannot type since the focus is captured by a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:53.362, 612958094968, QTAgent32.exe, Playback - [WARNING] Internal warning: Cannot type since the focus is captured by a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:53.367, 612958106010, QTAgent32.exe, Playback - [WARNING] Internal warning: Cannot type since the focus is captured by a modal dialog owned by the same process.
+\0
+E, 7416, 15, 2012/10/18, 21:47:54.265, 612960035701, QTAgent32.exe, &lt;a class=failure&gt;Playback - {59} [FAILED] SetValueAsComboBox "34" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='File name:'"  &lt; Primitive "SetValueAsComboBox" did not set the value correctly &gt; (, See related internal warnings/failures for more information)
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:47:54.420, 612960369803, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF615A.png
+\0
+W, 7416, 15, 2012/10/18, 21:47:54.422, 612960372457, QTAgent32.exe, Retrying SetValueAsComboBox with CF_USE_SELECT System.Runtime.InteropServices.COMException (0xF004F006): Exception from HRESULT: 0xF004F006
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IScreenElement.SetValueAsComboBox(String bstrNewValue, Int32 nSetValueAsComboBoxFlag)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBoxInternal(String value, SetValueAsComboBoxType setValueAsComboBoxType)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBox(String value, Boolean useEdit)
+W, 7416, 15, 2012/10/18, 21:47:54.834, 612961259200, QTAgent32.exe, Playback - [WARNING] Internal warning: SetFocus failed since the focus is set to a modal dialog owned by the same process.
+\0
+W, 7416, 15, 2012/10/18, 21:47:57.928, 612967906169, QTAgent32.exe, Playback - [WARNING] Internal warning: Can't find anchor child after updating the collection
+\0
+W, 7416, 15, 2012/10/18, 21:47:58.285, 612968672438, QTAgent32.exe, Playback - [WARNING] Internal warning: Can't find anchor child after updating the collection
+\0
+W, 7416, 15, 2012/10/18, 21:47:58.635, 612969425305, QTAgent32.exe, Playback - [WARNING] Internal failure: EnsureVisible via Setting Focus, Scrolling failed
+\0
+W, 7416, 15, 2012/10/18, 21:47:58.976, 612970158145, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't get clickable point for ScreenUIElement since it was obscured by another UI element. See comparison tracing below
+\0
+W, 7416, 15, 2012/10/18, 21:47:59.144, 612970518112, QTAgent32.exe, Playback - [WARNING] Internal warning: requested point is out of the screen.  Screen coordinates (0, 0, 1680, 1050).  Point coordintates (512412272, 10000)
+\0
+W, 7416, 15, 2012/10/18, 21:48:00.110, 612972595198, QTAgent32.exe, Playback -    &lt; [WARNING] Internal failure: Failed to make the requested point to expand the combobox visible  &gt;
+\0
+W, 7416, 15, 2012/10/18, 21:48:02.211, 612977108131, QTAgent32.exe, Playback - [WARNING] Internal failure: Target element doesn't match actual element. Target: Title = "Confirm Save As", Class = "#32770", HWND = 11296. Actual: Title = "&amp;No", Class = "Button", HWND = 112B8\0
+W, 7416, 15, 2012/10/18, 21:48:02.211, 612977108979, QTAgent32.exe, Playback - [WARNING] Internal warning: UISynchronization failed for SimpleClick.
+\0
+W, 7416, 15, 2012/10/18, 21:48:03.208, 612979249478, QTAgent32.exe, Playback - [WARNING] Internal warning: Target element "[MSAA] Name = '34' &amp;&amp; ControlType = 'ListItem'" was not found, so all intermediate elements were ignored. An incorrect element that matches target element Id can be found as the result.  Verify that all intermediate elements in QueryId have valid and unique Ids
+\0
+W, 7416, 15, 2012/10/18, 21:48:03.772, 612980460059, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:03.772, 612980460268, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.273, 612981536368, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.273, 612981536605, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.273, 612981536726, QTAgent32.exe, Playback - [WARNING] Internal warning:Search failure: [MSAA] Name = '34' &amp;&amp; ControlType = 'ListItem' | Performed (1) search retries, UI element not found
+\0
+E, 7416, 15, 2012/10/18, 21:48:04.273, 612981536939, QTAgent32.exe, &lt;a class=failure&gt;Playback - {60} [FAILED] Function ElementFetcher::FindScreenElement failed to locate UI element (Searching: ;[MSAA] Name = '34' &amp;&amp; ControlType = 'ListItem') (The object specified was not found.)
+\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:48:04.378, 612981762980, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF887A.png
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.378, 612981763246, QTAgent32.exe, Playback - [WARNING] Internal warning: Couldn't find combo box item that match QueryId
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.379, 612981763358, QTAgent32.exe, Playback - [WARNING] Internal warning: Element with name "34" is not a descendant of the combo box.  Call SetLoggingFlag with FL_DUMP_DESCENDANTS_WHEN_NOT_FOUND to gather more information
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.381, 612981768429, QTAgent32.exe, Playback - [WARNING] Internal failure: Window handle for this UI element is invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.381, 612981768714, QTAgent32.exe, Playback - [WARNING] Internal warning: The window that the search started from became invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.381, 612981769759, QTAgent32.exe, Playback - [WARNING] Internal failure: Method GetBoundingRectangle failed (HRESULT = 0x80004005, "Unspecified error") for Name = "" ," ControlType = ""
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.386, 612981780468, QTAgent32.exe, Playback - [WARNING] Internal failure: Window handle for this UI element is invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.387, 612981780637, QTAgent32.exe, Playback - [WARNING] Internal warning: RPF could not verify if the target element is off screen or not because window handle is invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.387, 612981781140, QTAgent32.exe, Playback - [WARNING] Internal warning: Scrolling failed using all requested scrolling flags, so MakeVisible is called with EVF_BY_SETTING_FOCUS. If this closes the container call EnsureVisible explicitly with flags other than default or write a customized scroller.
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.392, 612981791813, QTAgent32.exe, Playback - [WARNING] Internal failure: Window handle for this UI element is invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.392, 612981791968, QTAgent32.exe, Playback - [WARNING] Internal warning: RPF could not verify if the target element is off screen or not because window handle is invalid
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.392, 612981792836, QTAgent32.exe, Playback - [WARNING] Internal warning: Thread state based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.392, 612981792983, QTAgent32.exe, Playback - [WARNING] Internal warning: process performance counters based WFR - Requested element has invalid HWND
+\0
+W, 7416, 15, 2012/10/18, 21:48:04.393, 612981793839, QTAgent32.exe, Playback - [WARNING] Internal failure: EnsureVisible via Scrolling failed
+\0
+E, 7416, 15, 2012/10/18, 21:48:04.493, 612982008744, QTAgent32.exe, &lt;a class=failure&gt;Playback - {61} [FAILED] SetValueAsComboBox "34" - "[MSAA, VisibleOnly]ControlType='ComboBox' &amp;&amp; Name='File name:'"  &lt; Primitive "SetValueAsComboBox" did not set the value correctly &gt;\0&lt;/a&gt;
+E, 7416, 15, 2012/10/18, 21:48:04.613, 612982266220, QTAgent32.exe, Playback - [IMAGE] C:\Users\Nephi\AppData\Local\Temp\UITestLogs\LastRun\RPF8956.png
+\0
+E, 7416, 15, 2012/10/18, 21:48:04.733, 612982524367, QTAgent32.exe, Window 135696 not responding. Last Win32 error 0
+E, 7416, 15, 2012/10/18, 21:48:04.736, 612982531874, QTAgent32.exe, GetClassName for handle 135730 failed
+E, 7416, 15, 2012/10/18, 21:48:04.736, 612982532286, QTAgent32.exe, Window 135730 not responding. Last Win32 error 1400
+W, 7416, 15, 2012/10/18, 21:48:04.745, 612982550736, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [135696]
+E, 7416, 15, 2012/10/18, 21:48:04.746, 612982552205, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Accessibility.IAccessible.accLocation(Int32&amp; pxLeft, Int32&amp; pyTop, Int32&amp; pcxWidth, Int32&amp; pcyHeight, Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.GetBoundingRectangle()
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+E, 7416, 15, 2012/10/18, 21:48:04.746, 612982552388, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+E, 7416, 15, 2012/10/18, 21:48:04.746, 612982553128, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+W, 7416, 15, 2012/10/18, 21:48:04.746, 612982553266, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+W, 7416, 15, 2012/10/18, 21:48:04.761, 612982585494, QTAgent32.exe, Msaa:WindowHandleGetter: Using WindowFromPoint since WindowFromAccessibleObject returned invalid handle [135696]
+E, 7416, 15, 2012/10/18, 21:48:04.761, 612982586246, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Accessibility.IAccessible.accLocation(Int32&amp; pxLeft, Int32&amp; pyTop, Int32&amp; pcxWidth, Int32&amp; pcyHeight, Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.GetBoundingRectangle()
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+E, 7416, 15, 2012/10/18, 21:48:04.762, 612982586427, QTAgent32.exe, Msaa:WindowHandleGetter: Got invalid window handle [0] even after using WindowFromPoint
+E, 7416, 15, 2012/10/18, 21:48:04.762, 612982587134, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Accessibility.IAccessible.get_accRole(Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.get_RoleInt()
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+W, 7416, 15, 2012/10/18, 21:48:04.762, 612982587263, QTAgent32.exe, Msaa.GetProcessID: Window handle is IntPtr.Zero. Process ID will be 0
+E, 7416, 15, 2012/10/18, 21:48:04.862, 612982802371, QTAgent32.exe, Exception: System.Runtime.InteropServices.COMException
+	Message: Error HRESULT E_FAIL has been returned from a call to a COM component.
+	Stack Trace:    at Accessibility.IAccessible.accLocation(Int32&amp; pxLeft, Int32&amp; pyTop, Int32&amp; pcxWidth, Int32&amp; pcyHeight, Object varChild)
+   at Microsoft.VisualStudio.TestTools.UITest.Extension.Msaa.AccWrapper.GetBoundingRectangle()
+	BaseExceptionMessage: Error HRESULT E_FAIL has been returned from a call to a COM component.
+
+E, 7416, 15, 2012/10/18, 21:48:04.864, 612982805765, QTAgent32.exe, Window 135696 not responding. Last Win32 error 0
+E, 7416, 15, 2012/10/18, 21:48:04.864, 612982805901, QTAgent32.exe, GetClassName for handle 135696 failed
+E, 7416, 15, 2012/10/18, 21:48:04.868, 612982815654, QTAgent32.exe, AL: Playback Error: Microsoft.VisualStudio.TestTools.UITest.Extension.PlaybackFailureException: Cannot perform 'SetProperty of EditableItem with value "34"' on the control. Additional Details: 
+TechnologyName:  'MSAA'
+Name:  'File name:'
+ControlType:  'ComboBox'
+ ---&gt; System.Runtime.InteropServices.COMException: Exception from HRESULT: 0xF004F008
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IScreenElement.SetValueAsComboBox(String bstrNewValue, Int32 nSetValueAsComboBoxFlag)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBoxInternal(String value, SetValueAsComboBoxType setValueAsComboBoxType)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBox(String value, Boolean useEdit)
+   at Microsoft.VisualStudio.TestTools.UITesting.WinPropertyProvider.SetComboBoxProperty(String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.WinPropertyProvider.SetPropertyValue(UITestControl uiControl, String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.SetPropertyValueWrapper(UITestControl uiControl, String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetPropertyValue(String propertyName, Object propertyValue)
+   --- End of inner exception stack trace ---
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, UITestControl uiControl)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, Object parameterValue, UITestControl uiControl)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetPropertyValue(String propertyName, Object propertyValue)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetProperty(String propertyName, Object value)
+W, 7416, 15, 2012/10/18, 21:48:04.960, 612983013506, QTAgent32.exe, IEDOM : StopSession of the plugin called before StartSession
+W, 7416, 15, 2012/10/18, 21:48:04.960, 612983013708, QTAgent32.exe, UIA : StopSession of the plugin called before StartSession
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Test method SpreadSheetTest.CodedUITest1.CodedUITestMethod1 threw exception: 
+Microsoft.VisualStudio.TestTools.UITest.Extension.PlaybackFailureException: Cannot perform 'SetProperty of EditableItem with value "34"' on the control. Additional Details: 
+TechnologyName:  'MSAA'
+Name:  'File name:'
+ControlType:  'ComboBox'
+ ---&gt; System.Runtime.InteropServices.COMException: Exception from HRESULT: 0xF004F008</Message>
+          <StackTrace>    at Microsoft.VisualStudio.TestTools.UITest.Playback.Engine.IScreenElement.SetValueAsComboBox(String bstrNewValue, Int32 nSetValueAsComboBoxFlag)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBoxInternal(String value, SetValueAsComboBoxType setValueAsComboBoxType)
+   at Microsoft.VisualStudio.TestTools.UITest.Playback.ScreenElement.SetValueAsComboBox(String value, Boolean useEdit)
+   at Microsoft.VisualStudio.TestTools.UITesting.WinPropertyProvider.SetComboBoxProperty(String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.WinPropertyProvider.SetPropertyValue(UITestControl uiControl, String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.SetPropertyValueWrapper(UITestControl uiControl, String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetPropertyValue(String propertyName, Object propertyValue)
+ --- End of inner exception stack trace ---
+    at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowComException(COMException innerException, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, IPlaybackContext context)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, UITestControl uiControl)
+   at Microsoft.VisualStudio.TestTools.UITesting.Playback.MapAndThrowException(SystemException exception, String actionName, Object parameterValue, UITestControl uiControl)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetPropertyValue(String propertyName, Object propertyValue)
+   at Microsoft.VisualStudio.TestTools.UITesting.UITestControl.SetProperty(String propertyName, Object value)
+   at Microsoft.VisualStudio.TestTools.UITesting.WinControls.WinComboBox.set_EditableItem(String value)
+   at SpreadSheetTest.UIMap.RecordedMethod9() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\UIMap.Designer.cs:line 380
+   at SpreadSheetTest.CodedUITest1.CodedUITestMethod1() in C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS6\SpreadSheetTest\CodedUITest1.cs:line 47
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+      <ResultFiles>
+        <ResultFile path="NEPHI-MAC\CodedUITestMethod1.png" />
+      </ResultFiles>
+      <ExtensionResult>Exception has been thrown by the target of an invocation.</ExtensionResult>
+    </UnitTestResult>
+  </Results>
+</TestRun>

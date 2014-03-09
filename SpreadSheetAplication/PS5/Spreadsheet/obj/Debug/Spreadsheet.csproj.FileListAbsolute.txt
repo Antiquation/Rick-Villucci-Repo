@@ -1,0 +1,10 @@
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadSheet.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadSheet.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\Formula.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\Formula.xml
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\obj\Debug\SpreadSheet.dll
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\obj\Debug\SpreadSheet.pdb
+C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS5\Spreadsheet\bin\Debug\SpreadSheet.XML

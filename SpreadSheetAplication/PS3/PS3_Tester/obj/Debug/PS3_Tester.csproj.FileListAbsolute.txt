@@ -1,0 +1,9 @@
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\PS3_Tester.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\PS3_Tester.pdb
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\Formula.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\Formula.pdb
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\Formula_Accessor.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\bin\Debug\Formula_Accessor.pdb
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\obj\Debug\ResolveAssemblyReference.cache
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\obj\Debug\PS3_Tester.dll
+c:\users\nephi\documents\visual studio 2010\Projects\PS3\PS3_Tester\obj\Debug\PS3_Tester.pdb

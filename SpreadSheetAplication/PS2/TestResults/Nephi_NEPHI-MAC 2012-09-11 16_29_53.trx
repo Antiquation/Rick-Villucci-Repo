@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="25bfdb5f-4dcf-47fa-8290-8742fb5e36fa" name="Nephi@NEPHI-MAC 2012-09-11 16:29:53" runUser="Nephi-Mac\Nephi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="8e933a5d-1f03-40c5-9bdf-7c9afec4cbe1">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Nephi_NEPHI-MAC 2012-09-11 16_29_53">
+      <DeploymentItem filename="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\SpreadsheetUtilities\bin\Debug\SpreadsheetUtilities.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\SpreadsheetUtilities\bin\Debug\SpreadsheetUtilities.dll" pdbFile="C:\Users\Nephi\Documents\Visual Studio 2010\Projects\PS2\SpreadsheetUtilities\bin\Debug\SpreadsheetUtilities.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-11T16:29:53.5368309-06:00" queuing="2012-09-11T16:29:53.8708500-06:00" start="2012-09-11T16:29:53.9048520-06:00" finish="2012-09-11T16:29:55.8629640-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="10" executed="10" passed="10" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="NEPHI-MAC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetDependentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="ed80282d-eec6-8916-8cb2-1ab4aed238f1">
+      <Execution id="0d3555ec-cfac-4da6-9ee2-437873add819" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDependentsTest" />
+    </UnitTest>
+    <UnitTest name="HasDependeesTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="f750f4e7-ebc3-6161-1f08-7addd77fdbf4">
+      <Execution id="699669c5-3ff4-4114-878f-0e6de3844bbd" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="HasDependeesTest" />
+    </UnitTest>
+    <UnitTest name="ReplaceDependentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="826d96c6-f97d-fe56-dc65-d3e208324121">
+      <Execution id="c154dd63-e176-4cec-85d1-5cb7212e3975" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReplaceDependentsTest" />
+    </UnitTest>
+    <UnitTest name="GetDependeesTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="380cb805-15b4-f4e6-43ab-074b9c2e4994">
+      <Execution id="78f81ff9-f57d-4b21-ae22-2225edbaeb2e" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDependeesTest" />
+    </UnitTest>
+    <UnitTest name="RemoveDependencyTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="56df1b94-8ea3-1479-20d7-d185dbb5c89b">
+      <Execution id="fa4e693c-6120-4786-832b-299e20fc660f" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RemoveDependencyTest" />
+    </UnitTest>
+    <UnitTest name="AddDependencyTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="ee564405-1160-77fd-be5c-6bda5e9eb88d">
+      <Execution id="17dcabc0-9237-41b1-b6c4-5d63256ec010" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddDependencyTest" />
+    </UnitTest>
+    <UnitTest name="HasDependentsTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="37d64b4a-4c5d-e9b0-1eec-6b37aefb0699">
+      <Execution id="cc918d31-c2e4-4f40-b86e-618073a54181" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="HasDependentsTest" />
+    </UnitTest>
+    <UnitTest name="ReplaceDependeesTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="e8572460-c3a5-546f-4563-b7c77eec029a">
+      <Execution id="529647a3-0844-4af3-b0da-2fdc04845172" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReplaceDependeesTest" />
+    </UnitTest>
+    <UnitTest name="ItemTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="924c7ccb-a8ab-f072-e695-64c69e8ba7e8">
+      <Execution id="01e00c71-97e2-4d8f-8810-cce3811425f3" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ItemTest" />
+    </UnitTest>
+    <UnitTest name="SizeTest" storage="c:\users\nephi\documents\visual studio 2010\projects\ps2\unit_test\bin\debug\unit_test.dll" id="15baffc4-67e6-7158-553d-50d25e461eb2">
+      <Execution id="c5a1fb62-a9b9-4dde-815b-5521778dd103" />
+      <TestMethod codeBase="C:/Users/Nephi/Documents/Visual Studio 2010/Projects/PS2/Unit_Test/bin/Debug/Unit_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Unit_Test.DependencyGraphTest, Unit_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SizeTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="15baffc4-67e6-7158-553d-50d25e461eb2" executionId="c5a1fb62-a9b9-4dde-815b-5521778dd103" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="37d64b4a-4c5d-e9b0-1eec-6b37aefb0699" executionId="cc918d31-c2e4-4f40-b86e-618073a54181" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="380cb805-15b4-f4e6-43ab-074b9c2e4994" executionId="78f81ff9-f57d-4b21-ae22-2225edbaeb2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="56df1b94-8ea3-1479-20d7-d185dbb5c89b" executionId="fa4e693c-6120-4786-832b-299e20fc660f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="826d96c6-f97d-fe56-dc65-d3e208324121" executionId="c154dd63-e176-4cec-85d1-5cb7212e3975" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="924c7ccb-a8ab-f072-e695-64c69e8ba7e8" executionId="01e00c71-97e2-4d8f-8810-cce3811425f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8572460-c3a5-546f-4563-b7c77eec029a" executionId="529647a3-0844-4af3-b0da-2fdc04845172" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed80282d-eec6-8916-8cb2-1ab4aed238f1" executionId="0d3555ec-cfac-4da6-9ee2-437873add819" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee564405-1160-77fd-be5c-6bda5e9eb88d" executionId="17dcabc0-9237-41b1-b6c4-5d63256ec010" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f750f4e7-ebc3-6161-1f08-7addd77fdbf4" executionId="699669c5-3ff4-4114-878f-0e6de3844bbd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="c5a1fb62-a9b9-4dde-815b-5521778dd103" testId="15baffc4-67e6-7158-553d-50d25e461eb2" testName="SizeTest" computerName="NEPHI-MAC" duration="00:00:00.0209134" startTime="2012-09-11T16:29:54.4458829-06:00" endTime="2012-09-11T16:29:54.6268933-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c5a1fb62-a9b9-4dde-815b-5521778dd103">
+    </UnitTestResult>
+    <UnitTestResult executionId="cc918d31-c2e4-4f40-b86e-618073a54181" testId="37d64b4a-4c5d-e9b0-1eec-6b37aefb0699" testName="HasDependentsTest" computerName="NEPHI-MAC" duration="00:00:00.0023318" startTime="2012-09-11T16:29:54.6268933-06:00" endTime="2012-09-11T16:29:54.6328936-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc918d31-c2e4-4f40-b86e-618073a54181">
+    </UnitTestResult>
+    <UnitTestResult executionId="78f81ff9-f57d-4b21-ae22-2225edbaeb2e" testId="380cb805-15b4-f4e6-43ab-074b9c2e4994" testName="GetDependeesTest" computerName="NEPHI-MAC" duration="00:00:00.0018217" startTime="2012-09-11T16:29:54.6338937-06:00" endTime="2012-09-11T16:29:54.6378939-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78f81ff9-f57d-4b21-ae22-2225edbaeb2e">
+    </UnitTestResult>
+    <UnitTestResult executionId="fa4e693c-6120-4786-832b-299e20fc660f" testId="56df1b94-8ea3-1479-20d7-d185dbb5c89b" testName="RemoveDependencyTest" computerName="NEPHI-MAC" duration="00:00:00.0018957" startTime="2012-09-11T16:29:54.6388940-06:00" endTime="2012-09-11T16:29:54.6438943-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa4e693c-6120-4786-832b-299e20fc660f">
+    </UnitTestResult>
+    <UnitTestResult executionId="c154dd63-e176-4cec-85d1-5cb7212e3975" testId="826d96c6-f97d-fe56-dc65-d3e208324121" testName="ReplaceDependentsTest" computerName="NEPHI-MAC" duration="00:00:00.0023993" startTime="2012-09-11T16:29:54.6448943-06:00" endTime="2012-09-11T16:29:54.6498946-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c154dd63-e176-4cec-85d1-5cb7212e3975">
+    </UnitTestResult>
+    <UnitTestResult executionId="01e00c71-97e2-4d8f-8810-cce3811425f3" testId="924c7ccb-a8ab-f072-e695-64c69e8ba7e8" testName="ItemTest" computerName="NEPHI-MAC" duration="00:00:00.0001526" startTime="2012-09-11T16:29:54.6508947-06:00" endTime="2012-09-11T16:29:54.6538948-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01e00c71-97e2-4d8f-8810-cce3811425f3">
+    </UnitTestResult>
+    <UnitTestResult executionId="529647a3-0844-4af3-b0da-2fdc04845172" testId="e8572460-c3a5-546f-4563-b7c77eec029a" testName="ReplaceDependeesTest" computerName="NEPHI-MAC" duration="00:00:00.0010560" startTime="2012-09-11T16:29:54.6548949-06:00" endTime="2012-09-11T16:29:54.6588951-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="529647a3-0844-4af3-b0da-2fdc04845172">
+    </UnitTestResult>
+    <UnitTestResult executionId="0d3555ec-cfac-4da6-9ee2-437873add819" testId="ed80282d-eec6-8916-8cb2-1ab4aed238f1" testName="GetDependentsTest" computerName="NEPHI-MAC" duration="00:00:00.0016509" startTime="2012-09-11T16:29:54.6598952-06:00" endTime="2012-09-11T16:29:54.6638954-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d3555ec-cfac-4da6-9ee2-437873add819">
+    </UnitTestResult>
+    <UnitTestResult executionId="17dcabc0-9237-41b1-b6c4-5d63256ec010" testId="ee564405-1160-77fd-be5c-6bda5e9eb88d" testName="AddDependencyTest" computerName="NEPHI-MAC" duration="00:00:00.0000330" startTime="2012-09-11T16:29:54.6648955-06:00" endTime="2012-09-11T16:29:54.6678956-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="17dcabc0-9237-41b1-b6c4-5d63256ec010">
+    </UnitTestResult>
+    <UnitTestResult executionId="699669c5-3ff4-4114-878f-0e6de3844bbd" testId="f750f4e7-ebc3-6161-1f08-7addd77fdbf4" testName="HasDependeesTest" computerName="NEPHI-MAC" duration="00:00:00.0005845" startTime="2012-09-11T16:29:54.6678956-06:00" endTime="2012-09-11T16:29:54.6718959-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="699669c5-3ff4-4114-878f-0e6de3844bbd">
+    </UnitTestResult>
+  </Results>
+</TestRun>

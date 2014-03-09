@@ -1,0 +1,124 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SS
+{
+    class Cell
+    {
+
+
+            //public variables
+            
+
+            //the name of the cell as assigned by the system
+        private string name;
+
+            //the contents of the cell as assigned by the system
+        private object content;
+
+            //the value of the cell as calculated by the system
+        private object value;
+
+            //tells the system whether the cell needs recalulating or not
+        private bool recalc;
+
+        private double Num;
+
+
+            /// <summary>
+            /// Overloaded Cell constructor taking the name and the desired content for storage.
+            /// </summary>
+            /// <param name="c">The contents of the Cell String, Double, or Formula object</param>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(string n, object c)
+        {
+            //Add contents of the cell to be associated with each cell
+
+                //the name of the cell
+            name = n;
+
+                //contains the contents of the cell 
+                //This will be either a Formula object, a boolean or a string
+                //it is initialized as an empty string
+            content = c;
+
+                //sets the recalculation need to true so the system will recalculate the value
+            recalc = true;
+
+        }//end overloaded constructor with content assignment
+
+
+
+            /// <summary>
+            /// Default constructor for constructing an "empty" cell
+            /// with contents equaling "". It takes a single argumnent consisting of just the name of the cell
+            /// </summary>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(string n)
+        {
+                //the name of the cell
+            name = n;
+                
+                //the default value of a cell
+            content = "";
+        }//end default constructor
+
+
+
+
+            /// <summary>
+            /// The method by which the system can change the content of the cell
+            /// 
+            /// </summary>
+            /// <param name="c">The new contents of the cell ie: string, double, or Formula Object</param>
+        public void setCont(object c)
+        {
+                //changes the content to c
+            content = c;
+
+                //sets the recalc variable for queing in the recalculate queue
+            recalc = true;
+
+        }
+
+
+        /// <summary>
+        /// Gives the system the ability to set the vlaue of the cell
+        /// </summary>
+        /// <param name="v">The value of the cell ie: String or Double</param>
+        public void setValue(string v)
+        {
+                //if the string represents a double
+                //parse and then load to the value
+            if (parseMe(v))
+            {
+                value = parseMe(v);
+            }
+                //else it is a string... load to the value
+            else
+            {
+                value = v;
+            }
+
+        }//end setValue
+
+
+       
+
+
+            /// <summary>
+            /// The private method for checking and parsing the string representation of
+            /// the cell value
+            /// </summary>
+            /// <param name="s">string</param>
+            /// <returns></returns>
+        private bool parseMe(string s)
+        {
+            return Double.TryParse(s, out Num);
+        }
+
+
+    }
+}

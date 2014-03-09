@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SS
+{
+    class Cell
+    {
+            /// <summary>
+            /// This is the helper Cell class which will contain all the information relative to each cell
+            /// in the spreadsheet.
+            /// </summary>
+            /// <param name="c">The contents of the Cell String, Double, or Formula object</param>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(string n, object c)
+        {
+            //Add contents of the cell to be associated with each cell
+
+                //the name of the cell
+            string name = n;
+
+                //contains the contents of the cell 
+                //This will be either a Formula object, a boolean or a string
+                //it is initialized as an empty string
+            object content = c;
+
+        }
+
+
+
+            /// <summary>
+            /// This is a default constructor for constructing an "empty" cell
+            /// with contents equaling "". It takes a single argumnent consisting of just the name of the cell
+            /// </summary>
+            /// <param name="n">The name of the cell ie A1 or BE23 etc...</param>
+        public Cell(string n)
+        {
+                //the name of the cell
+            string name = n;
+                
+                //the default value of a cell
+            object content = "";
+        }
+    }
+}

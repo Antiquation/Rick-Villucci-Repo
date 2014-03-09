@@ -1,0 +1,201 @@
+﻿using SpreadsheetUtilities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+
+namespace PS3_Tester
+{
+    
+    
+    /// <summary>
+    ///This is a test class for FormulaTest and is intended
+    ///to contain all FormulaTest Unit Tests
+    ///</summary>
+    [TestClass()]
+    public class FormulaTest
+    {
+
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        // 
+        //You can use the following additional attributes as you write your tests:
+        //
+        //Use ClassInitialize to run code before running the first test in the class
+        //[ClassInitialize()]
+        //public static void MyClassInitialize(TestContext testContext)
+        //{
+        //}
+        //
+        //Use ClassCleanup to run code after all tests in a class have run
+        //[ClassCleanup()]
+        //public static void MyClassCleanup()
+        //{
+        //}
+        //
+        //Use TestInitialize to run code before running each test
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{
+        //}
+        //
+        //Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //}
+        //
+        #endregion
+
+
+        /// <summary>
+        ///A test for Formula Constructor
+        ///</summary>
+        [TestMethod()]
+        public void FormulaConstructorTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula);
+            Assert.Inconclusive("TODO: Implement code to verify target");
+        }
+
+        /// <summary>
+        ///A test for Equals
+        ///</summary>
+        [TestMethod()]
+        public void EqualsTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula); // TODO: Initialize to an appropriate value
+            object obj = null; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.Equals(obj);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Evaluate
+        ///</summary>
+        [TestMethod()]
+        public void EvaluateTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula); // TODO: Initialize to an appropriate value
+            Func<string, double> lookup = null; // TODO: Initialize to an appropriate value
+            object expected = null; // TODO: Initialize to an appropriate value
+            object actual;
+            actual = target.Evaluate(lookup);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for GetHashCode
+        ///</summary>
+        [TestMethod()]
+        public void GetHashCodeTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula); // TODO: Initialize to an appropriate value
+            int expected = 0; // TODO: Initialize to an appropriate value
+            int actual;
+            actual = target.GetHashCode();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for GetTokens
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("Formula.dll")]
+        public void GetTokensTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            IEnumerable<string> expected = null; // TODO: Initialize to an appropriate value
+            IEnumerable<string> actual;
+            actual = Formula_Accessor.GetTokens(formula);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for GetVariables
+        ///</summary>
+        [TestMethod()]
+        public void GetVariablesTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula); // TODO: Initialize to an appropriate value
+            IEnumerable<string> expected = null; // TODO: Initialize to an appropriate value
+            IEnumerable<string> actual;
+            actual = target.GetVariables();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for ToString
+        ///</summary>
+        [TestMethod()]
+        public void ToStringTest()
+        {
+            string formula = string.Empty; // TODO: Initialize to an appropriate value
+            Formula target = new Formula(formula); // TODO: Initialize to an appropriate value
+            string expected = string.Empty; // TODO: Initialize to an appropriate value
+            string actual;
+            actual = target.ToString();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for op_Equality
+        ///</summary>
+        [TestMethod()]
+        public void op_EqualityTest()
+        {
+            Formula f1 = null; // TODO: Initialize to an appropriate value
+            Formula f2 = null; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = (f1 == f2);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for op_Inequality
+        ///</summary>
+        [TestMethod()]
+        public void op_InequalityTest()
+        {
+            Formula f1 = null; // TODO: Initialize to an appropriate value
+            Formula f2 = null; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = (f1 != f2);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+    }
+}
